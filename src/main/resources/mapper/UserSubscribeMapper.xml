@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.c1801.spring.dzy.mapper.UserSubscribeMapper">
+    <update id="updateUserSubscribe">
+        UPDATE users_subscribe_tb
+        <set>
+            <if test="invitation != null">
+                invitation=#{invitation},
+            </if>
+            <if test="agree != null">
+                agree=#{agree},
+            </if>
+            <if test="orderStatus != null">
+                order_status=#{orderStatus},
+            </if>
+        </set>
+        WHERE user_id = #{userId}
+    </update>
+
+    <select id="getUserSubscribe" resultType="UserSubscribe">
+        SELECT user_id, invitation, agree, order_status, create_time, update_time
+	    FROM users_subscribe_tb where user_id = #{userId}
+    </select>
+
+    <insert id="addUserSubscribe">
+        INSERT INTO users_subscribe_tb
+        (user_id)
+        VALUES (#{userId})
+    </insert>
+</mapper>

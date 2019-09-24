@@ -1,0 +1,133 @@
+package com.c1801.spring.dzy.controller.user;
+
+import com.alibaba.fastjson.JSON;
+import com.c1801.spring.dzy.common.RandomIdCreate;
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.config.UserValids;
+import com.c1801.spring.dzy.mapper.UserMapper;
+import com.c1801.spring.dzy.model.Account;
+import com.c1801.spring.dzy.model.User;
+import com.c1801.spring.dzy.model.ValidCode;
+import com.c1801.spring.dzy.service.UserService;
+import com.c1801.spring.dzy.service.WXUserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
+
+import javax.servlet.http.HttpSession;
+import java.io.UnsupportedEncodingException;
+import java.util.LinkedHashMap;
+
+@RestController
+@Transactional
+@RequestMapping("/dzy/wx")
+public class UserWXLoginController {
+
+    RestTemplate restTemplate = new RestTemplate();
+
+    /**
+     * 随机生成用户id
+     */
+    @Autowired
+    RandomIdCreate randomIdCreate;
+
+    /**
+     * 微信用户service
+     */
+    @Autowired
+    WXUserService wxUserService;
+
+    /**
+     * 已发短信的用户手机短信集合
+     */
+    @Autowired
+    private UserValids userValid;
+
+    /**
+     * 验证码有效时长
+     */
+    private Long validTime = 180000L;
+
+    /**
+     *
+     */
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+
+
+    //根据用户code返回用户信息
+    @GetMapping("/login")
+    public ResData getCode(@RequestParam("code") String code, HttpSession session) throws UnsupportedEncodingException {
+        if (code == null) return ResData.ofSuccess(20012, "用户取消了授权");
+        //查询用户是否已登录
+        if (session.getAttribute("user") != null){
+            return ResData.of(0, "用户已登录", session.getAttribute("user"));
+        }
+        //获取微信授权的用户信息
+        String tokenUrl = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxe3e07d4b4cfae325&secret=4c5c4b297f6ecbda72ece68c121e88d4&code=" + code + "&grant_type=authorization_code";
+        ResponseEntity<String> tokenlist = restTemplate.getForEntity(tokenUrl, String.class);
+        LinkedHashMap hashMap = JSON.parseObject(tokenlist.getBody(), LinkedHashMap.class);
+        String access_token = (String) hashMap.get("access_token");
+        String openId = (String) hashMap.get("openid");
+        String userUrl = "https://api.weixin.qq.com/sns/userinfo?access_token=" + access_token + "&openid=" + openId + "&lang=zh_CN";
+        ResponseEntity<String> user = restTemplate.getForEntity(userUrl, String.class);
+        LinkedHashMap userInfoMap = JSON.parseObject(user.getBody(), LinkedHashMap.class);
+        //查询登录的用户是新用户还是老用户
+        String openid = (String) userInfoMap.get("openid");
+        User queryUser = wxUserService.queryUserByOpenId(openid);
+        if (queryUser != null)  {
+            session.setAttribute("user",queryUser);
+            return ResData.of(0,"老用户",queryUser);
+        }
+        return ResData.of(1, "新用户未登录", userInfoMap);
+    }
+
+    //新增用户
+    @PostMapping
+    public ResData addUser(@RequestBody LinkedHashMap userInfoMap, HttpSession session) throws UnsupportedEncodingException {
+        User addUser = new User();
+        String openid = (String) userInfoMap.get("openid");
+        addUser.setId(randomIdCreate.getNewUserId());
+        String addName = (String) userInfoMap.get("nickname");
+        String newAddName = new String(addName.getBytes("ISO-8859-1"), "utf-8");
+        addUser.setWxName(newAddName);
+        addUser.setOpenId(openid);
+        addUser.setCover((String) userInfoMap.get("headimgurl"));
+        //新增用户
+        ResData resData = wxUserService.addWXUser(addUser);
+        if(resData.getData()!=null){
+            session.setAttribute("user",resData.getData());
+        }
+        return resData;
+    }
+
+    //用户绑定
+    @PutMapping
+    public ResData UserBinding(@RequestBody LinkedHashMap userInfoMap,
+                               @RequestParam("phone")String phone,
+                               @RequestParam("code")String code,
+                               HttpSession session) throws UnsupportedEncodingException {
+        ValidCode validCode1 = userValid.getUserValidsList().get(phone);
+        long currTime = System.currentTimeMillis();
+        if(validCode1 == null || !validCode1.getCode().equals(code) || currTime- validCode1.getUpdateDate() > validTime) {
+            return ResData.of(1007, "验证码错误或过期，请重新获取验证码", null);
+        }
+        //验证通过移除验证码
+        userValid.getUserValidsList().remove(phone);
+        User user = new User();
+        String addName = (String) userInfoMap.get("nickname");
+        String newAddName = new String(addName.getBytes("ISO-8859-1"), "utf-8");
+        user.setOpenId((String) userInfoMap.get("openid"));
+        user.setWxName(newAddName);
+        user.setCover((String) userInfoMap.get("headimgurl"));
+        //用户绑定
+        ResData resData = wxUserService.UserBinding(user, phone);
+        if(resData.getData()!=null){
+            session.setAttribute("user",resData.getData());
+        }
+        return resData;
+    }
+}

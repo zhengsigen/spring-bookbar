@@ -1,0 +1,59 @@
+package com.c1801.spring.dzy.controller.addr;
+
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.mapper.AddrMapper;
+import com.c1801.spring.dzy.mapper.OrderMapper;
+import com.c1801.spring.dzy.mapper.UserMapper;
+import com.c1801.spring.dzy.model.Account;
+import com.c1801.spring.dzy.model.Address;
+import com.c1801.spring.dzy.model.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.Scanner;
+
+/**
+ * 前端
+ */
+
+@RestController
+@Transactional
+@RequestMapping("/dzy/addr")
+public class AddrController {
+
+    @Autowired
+    AddrMapper addrMapper;
+    @Autowired
+    UserMapper userMapper;
+    @Autowired
+    OrderMapper orderMapper;
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+    //获取指定用户地址
+    @GetMapping
+    public ResData getAddrByUserId(HttpSession session) {
+        Scanner sc = new Scanner(System.in);
+        User u = (User)session.getAttribute("user");
+        User user = userMapper.getUserById(u.getId());
+        Address addr = addrMapper.getAddrById(user.getAddrId());
+        logger.info("用户获取地址：" + addr);
+        return ResData.of(0, "成功", addr);
+    }
+
+    //修改地址
+    @PutMapping()
+    public ResData editAddr(@RequestBody Address addr,@RequestParam("orderId") Integer orderId,HttpSession session){
+        User u = (User)session.getAttribute("user");
+        User user = userMapper.getUserById(u.getId());
+        if(user==null) return ResData.ofSuccess(10033,"用户不存在");
+        //修改用户地址
+        addrMapper.updateAddr(addr,user.getAddrId());
+        //修改订单地址
+        Integer data = orderMapper.updateOrderAddr(orderId,addr);
+        return  ResData.ofSuccess(0,"修改地址成功",data);
+    }
+}

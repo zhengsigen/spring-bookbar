@@ -1,0 +1,159 @@
+package com.c1801.spring.dzy.service;
+
+import com.c1801.spring.dzy.common.PageInfo;
+import com.c1801.spring.dzy.common.RandomIdCreate;
+import com.c1801.spring.dzy.mapper.AddrMapper;
+import com.c1801.spring.dzy.mapper.CategoryMapper;
+import com.c1801.spring.dzy.mapper.UserMapper;
+import com.c1801.spring.dzy.mapper.UserOperationRecordController;
+import com.c1801.spring.dzy.model.Account;
+import com.c1801.spring.dzy.model.Address;
+import com.c1801.spring.dzy.model.Category;
+import com.c1801.spring.dzy.model.StatisticUser;
+import com.c1801.spring.dzy.model.User;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Date;
+import java.util.List;
+
+/**
+ * user：少
+ * dateTime: 2019/8/7 14:05
+ */
+@Service
+public class UserService {
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+
+    @Autowired
+    private UserMapper userMapper;
+
+    @Autowired
+    private AddrMapper addrMapper;
+
+    @Autowired
+    private CategoryMapper categoryMapper;
+
+    @Autowired
+    private UserOperationRecordController userOperationRecordController;
+
+    @Autowired
+    private RandomIdCreate randomIdCreate;
+
+    /**
+     * 用户登录
+     *
+     * @param user
+     * @return
+     */
+    public Account userLogin(User user) {
+        User tempUser = userMapper.getUser(user);
+        //第一次登录保存到数据库
+        Account account = new Account();
+        if (tempUser == null) {
+            logger.info("tempUser = " + user);
+            Integer id = randomIdCreate.getUserId().get(0);
+            randomIdCreate.getUserId().remove(0);
+            if (randomIdCreate.getUserId().size() < 10) randomIdCreate.addUserId();
+            user.setId(id);
+            int result = userMapper.addUser(user);
+            user = userMapper.getUser(user);
+            account.setUserId(user.getId());
+            account.setUser(user);
+            account.setAddress(new Address());
+            //  不是第一次登录，获取以前填写的地址信息
+        } else {
+            tempUser.setLoginDate(new Date());
+            userMapper.updateLoginDate(tempUser);
+            Address addr = addrMapper.getAddrById(tempUser.getAddrId());
+            account.setUserId(tempUser.getId());
+            account.setUser(tempUser);
+            if (addr == null) {
+                addr = new Address();
+            }
+            account.setAddress(addr);
+        }
+        return account;
+    }
+
+
+    /**
+     * 根据用户id查询用户信息和地址信息
+     *
+     * @param id
+     * @return
+     */
+    public Account getAccountById(Integer id) {
+        return userMapper.getAccount(id);
+    }
+
+
+    //用户记录
+    public void UserOperationRecordByBooks(Integer userId, List<Integer> bookId) {
+        //返回书对应的分类id
+        List<Integer> categorys = categoryMapper.getCategoryMapByBooksId(bookId);
+        for (Integer category : categorys) {
+            //查询该分类是否已经在该用户记录里
+            Category temp = userOperationRecordController.IsUserHasCategory(userId, category);
+            if (temp == null) {
+                //记录用户
+                userOperationRecordController.UserRecordAdd(userId, category);
+            }
+        }
+    }
+
+
+    /**
+     * 根据一组用户id查询用户名
+     *
+     * @param userIds
+     * @return
+     */
+    public List<User> getUserListByUserIds(List<Integer> userIds) {
+        List<User> userList = userMapper.getUserListByUserIds(userIds);
+        return userList;
+    }
+
+
+    /**
+     * 统计最近7天创建用户数量
+     *
+     * @param minDate
+     * @param maxDate
+     * @return
+     */
+    public List<StatisticUser> getStatisticUserByCreaeteDate(String minDate, String maxDate) {
+
+        List<StatisticUser> statisticUserMap = userMapper.statisticUserByCreaeteDate(minDate, maxDate);
+        return statisticUserMap;
+    }
+
+
+    /**
+     * 条件查询用户分页
+     *
+     * @return
+     */
+    public PageInfo getUserListOfPage(String name, Integer pageSize, Integer pageNum, String minDate, String maxDate) {
+
+        PageHelper.startPage(pageNum, pageSize);
+        Page<User> userList = userMapper.queryUserListOfPage(name, minDate, maxDate);
+        PageInfo pageInfo = PageInfo.ofPageInfo(userList);
+        logger.info("userList.getTotal() = " + userList.getTotal());
+        logger.info("pageInfo = " + pageInfo);
+        return pageInfo;
+    }
+
+    /**
+     * 获取用户是否禁用
+     */
+    public Integer queryUserEnabled(Integer id ){
+        return userMapper.queryUserEnabled(id);
+    }
+
+}

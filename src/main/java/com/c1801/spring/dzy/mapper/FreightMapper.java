@@ -1,0 +1,24 @@
+package com.c1801.spring.dzy.mapper;
+
+import com.c1801.spring.dzy.model.Freight;
+import com.github.pagehelper.Page;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+
+@Mapper
+public interface FreightMapper {
+
+    public boolean add(@Param("freight") Freight freight);
+
+    public boolean update(@Param("freight") Freight freight);
+
+    public Page<Freight> query();
+
+    public Freight queryUser(@Param("id") Integer id);
+
+    public Freight queryByProvince(@Param("province") String province);
+
+    public Freight queryByID(@Param("id") Integer id);
+}

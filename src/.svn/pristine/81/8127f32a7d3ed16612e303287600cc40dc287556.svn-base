@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.c1801.spring.dzy.mapper.InviteRecordMapper">
+
+    <!--    新增一条邀请记录-->
+    <insert id="createInviteRecord">
+        insert invite_record_tb(inviter_id,invitee_id) values (#{inviterId},#{inviteeId})
+    </insert>
+
+
+    <!--    修改邀请状态-->
+    <update id="updateInviteStatus">
+        update invite_record_tb set status= #{status} where invitee_id =#{inviteeId}
+    </update>
+
+
+    <!--    根据被邀请人查询邀请人-->
+    <select id="queryInviteRecordByInviteeId" resultType="user">
+        select inviter.id, inviter.name , inviter.wx_name ,inviter.open_id, inviter.cover , irt.create_date, irt.update_date
+        from invite_record_tb irt left join users_tb inviter on irt.inviter_id = inviter.id
+        where invitee_id =#{inviteeId}
+    </select>
+
+<!--    根据邀请人查询邀请记录-->
+<!--    inviter.id inviterId,inviter.name inviterName, inviter.wx_name inviterWxName,-->
+<!--    left join users_tb inviter on irt.inviter_id = inviter.id-->
+    <select id="queryInviteRecordByInviterId" resultMap="inviteRecordMap">
+        select irt.`status` , invitee.id inviteeId,invitee.name inviteeName, invitee.wx_name inviteeWxName, invitee.cover inviteeCover, irt.create_date inviteeCreateDate, irt.update_date inviteeUpdateDate
+        from invite_record_tb irt left join users_tb invitee on irt.invitee_id = invitee.id
+        where irt.inviter_id = #{inviterId}
+    </select>
+
+
+    <select id="queryInviteByInviteeId" resultMap="inviteRecordMap">
+        select inviter.id inviterId,inviter.name inviterName, inviter.wx_name inviterWxName, inviter.open_id inviterOpenId, inviter.cover inviterCover,irt.`status`,
+                invitee.id inviteeId,invitee.name inviteeName, invitee.wx_name inviteeWxName, invitee.open_id inviteeOpenId, invitee.cover inviteeCover,
+                irt.create_date inviteeCreateDate, irt.update_date inviteeUpdateDate
+        from invite_record_tb irt left join users_tb inviter on irt.inviter_id = inviter.id
+        left join users_tb invitee on irt.invitee_id = invitee.id
+        where invitee.id = #{inviteeId}
+    </select>
+
+<!--    查询邀请记录-->
+<!--    <sql id="queryInviteRecord" >-->
+<!--        select inviter.id inviterId,inviter.name inviterName, inviter.wx_name inviterWxName, inviter.cover inviterCover,irt.`status` ,-->
+<!--        invitee.id inviteeId,invitee.name inviteeName, invitee.wx_name inviteeWxName, invitee.cover inviteeCover,-->
+<!--        irt.create_date inviteeCreateDate, irt.update_date inviteeUpdateDate-->
+<!--        from invite_record_tb irt left join users_tb inviter on irt.inviter_id = inviter.id-->
+<!--        left join users_tb invitee on irt.invitee_id = invitee.id-->
+<!--        where inviter.id = 17-->
+<!--    </sql>-->
+
+
+    <resultMap id="inviteRecordMap" type="inviteRecord" autoMapping="true">
+        <result column="inviteeCreateDate" property="createDate"/>
+        <result column="inviteeUpdateDate" property="updateDate"/>
+        <association column="inviteeId" property="inviteeUser">
+            <id column="inviteeId" property="id"/>
+            <result column="inviteeName" property="name"/>
+            <result column="inviteeWxName" property="wxName"/>
+            <result column="inviterOpenId" property="openId"/>
+            <result column="inviteeCover" property="cover"/>
+        </association>
+        <association column="inviterId" property="inviterUser">
+            <id column="inviterId" property="id"/>
+            <result column="inviterName" property="name"/>
+            <result column="inviterWxName" property="wxName"/>
+            <result column="inviterOpenId" property="openId"/>
+            <result column="inviterCover" property="cover"/>
+        </association>
+    </resultMap>
+
+</mapper>

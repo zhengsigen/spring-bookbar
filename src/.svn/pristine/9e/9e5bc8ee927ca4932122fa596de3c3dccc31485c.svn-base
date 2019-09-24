@@ -1,0 +1,35 @@
+package com.c1801.spring.dzy;
+
+import com.c1801.spring.dzy.mapper.CouponMapper;
+import com.c1801.spring.dzy.mapper.CouponRuleMappler;
+import com.c1801.spring.dzy.mapper.FreightMapper;
+import com.c1801.spring.dzy.mapper.UserMapper;
+import com.c1801.spring.dzy.model.*;
+import com.c1801.spring.dzy.service.CouponService;
+import com.fasterxml.jackson.databind.annotation.JsonAppend;
+import com.github.pagehelper.Page;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import javax.sound.midi.Soundbank;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class DzyApplicationTests {
+    @Autowired
+    CouponRuleMappler mappler;
+    @Test
+    public void contextLoads() {
+//        Page<CouponRule> couponRules = mappler.queryCouponRule();
+//        for(CouponRule rule:couponRules){
+//            System.out.println(rule);
+//        }
+    }
+
+}

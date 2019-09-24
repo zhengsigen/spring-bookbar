@@ -1,0 +1,18 @@
+package com.c1801.spring.dzy.mapper;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+@Mapper
+public interface CommentMapper {
+    //删除二级评论
+    public void delMessage(@Param("messageId") Integer messageId, @Param("userId") Integer userId);
+
+    //删除一级评论底下的二级评论
+    public void delMessageByCommentId(@Param("commentId") Integer commentId);
+
+    //删除一级评论
+    public void delComment(@Param("commentId") Integer commentId,@Param("userId") Integer userId);
+
+
+}

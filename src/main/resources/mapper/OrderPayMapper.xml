@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.c1801.spring.dzy.mapper.OrderPayMapper">
+
+    <update id="orderPaymentRecord">
+        UPDATE order_pay_tb
+		SET
+		<if test="feePay!=null and feePay!=''">
+			fee_pay=#{feePay},
+		</if>
+		<if test="wxPay!=null and wxPay!=''">
+			wx_pay=#{wxPay},
+		</if>
+		pay_type=#{payType}
+		WHERE order_id = #{orderId}
+    </update>
+
+<!--	添加一条订单支付信息记录-->
+	<insert id="addOrderPayRecord">
+		insert order_pay_tb(order_id, final_price, auto_confirm_time, coupon_id, freight_id, coupon_amount, freight_amount)
+		values(#{orderId}, #{finalPrice}, #{autoConfirmTime},#{couponId}, #{freightId}, #{couponAmount}, #{freightAmount})
+	</insert>
+
+<!--	查询单个订单支付信息-->
+	<select id="queryOrderPay" resultMap="orderMap">
+		select ot.id, ot.user_id,ot.`status`,ot.`type`,ot.total,ot.freight, ot.create_time , ot.update_time ,DATE_ADD(ot.create_time,INTERVAL opt.auto_confirm_time second) <![CDATA[ <= ]]> now() timeout,
+			opt.final_price, opt.pay_type, opt.fee_pay, opt.wx_pay, opt.auto_confirm_time,
+			opt.coupon_id, opt.freight_id, opt.coupon_amount, opt.freight_amount, opt.remark
+		from orders_tb ot left join order_pay_tb opt on ot.id = opt.order_id
+		where order_id = #{orderId}
+	</select>
+
+<!--	查询未支付订单-->
+	<select id="queryNonPaymentOrder" resultMap="orderMap" >
+		select ot.id, ot.user_id,ot.`status`,ot.`type`,ot.total,ot.freight, ot.create_time , ot.update_time ,DATE_ADD(ot.create_time,INTERVAL opt.auto_confirm_time second) <![CDATA[ <= ]]> now() timeout,
+			opt.final_price, opt.pay_type, opt.fee_pay, opt.wx_pay, opt.auto_confirm_time,
+			opt.coupon_id, opt.freight_id, opt.coupon_amount, opt.freight_amount, opt.remark
+		from orders_tb ot left join order_pay_tb opt on ot.id = opt.order_id
+		where ot.`status` = 0 and ot.`type` = 1
+
+	</select>
+
+	<resultMap id="orderMap" type="order" autoMapping="true">
+		<id column="id" property="id"/>
+		<association property="orderPay" column="id" autoMapping="true">
+			<id column="id" property="orderId"/>
+		</association>
+	</resultMap>
+
+</mapper>

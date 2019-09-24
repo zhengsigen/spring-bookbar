@@ -1,0 +1,26 @@
+package com.c1801.spring.dzy.mapper;
+
+import com.c1801.spring.dzy.model.OrderPay;
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface OrderPayMapper {
+
+    /**
+     * 生成订单支付记录
+     * @param orderPay
+     * @return
+     */
+    public int addOrderPayRecord(OrderPay orderPay);
+
+    //订单支付记录
+    public void orderPaymentRecord(OrderPay orderPay);
+
+    /**
+     * 同订单查询支付信息
+     * 退款
+     * @param orderId
+     * @return
+     */
+    public OrderPay queryOrderPay(Integer orderId);
+}

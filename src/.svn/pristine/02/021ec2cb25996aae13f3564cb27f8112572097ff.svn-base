@@ -1,0 +1,38 @@
+package com.c1801.spring.dzy.controller.applaud;
+
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.mapper.ApplaudMapper;
+import com.c1801.spring.dzy.model.RecommendAccount;
+import com.c1801.spring.dzy.model.User;
+import com.c1801.spring.dzy.service.ApplaudService;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpSession;
+import java.util.List;
+
+@RestController
+@Transactional
+@RequestMapping("/dzy/applaud")
+public class ApplaudController {
+
+    @Autowired
+    private ApplaudService applaudService;
+
+
+
+    @PostMapping("/{recommendId:\\d+}")
+    public ResData applaud(@PathVariable("recommendId") Integer recommendId, HttpSession session){
+
+        User user =(User) session.getAttribute("user");
+        RecommendAccount result = applaudService.applaud(recommendId, user.getId());
+        return ResData.ofSuccess(0, "成功",result);
+    }
+
+}

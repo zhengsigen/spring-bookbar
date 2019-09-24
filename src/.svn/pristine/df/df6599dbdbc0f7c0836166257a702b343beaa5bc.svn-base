@@ -1,0 +1,31 @@
+package com.c1801.spring.dzy.service;
+
+import com.c1801.spring.dzy.mapper.CartMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Map;
+
+/**
+ * user：少
+ * dateTime: 2019/8/27 11:01
+ * 购物车service
+ */
+@Service
+public class CartService {
+
+    /**
+     * 购物车数据库接口
+     */
+    @Autowired
+    private CartMapper cartMapper;
+
+
+//    public int addShopToCart(Map<Integer,Integer> shop){
+//
+//
+//
+//    }
+
+
+}

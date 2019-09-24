@@ -1,0 +1,24 @@
+package com.c1801.spring.dzy.common.wx.qr;
+
+import com.c1801.spring.dzy.common.ZXingUtil;
+
+import java.util.Map;
+import java.util.TreeMap;
+
+/**
+ * @郑思根
+ * 二维码生成
+ */
+public class QRGenerate {
+
+    /**
+     * 传入url地址返回生成后的二维码
+     * @param url
+     * @return
+     */
+    public static Map<String, Object>  getQRGenerate(String url){
+        Map<String, Object> packageParams = new TreeMap<>();
+        packageParams.put("img", ZXingUtil.getBase64QRCodeData(url, 300, 300));
+        return packageParams;
+    }
+}

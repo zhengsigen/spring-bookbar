@@ -1,0 +1,33 @@
+package com.c1801.spring.dzy.model;
+
+import lombok.Data;
+
+import java.util.Date;
+
+@Data
+public class UserCoupon {
+    private Integer id;
+    private Integer couponID;
+    private Integer userID;
+    private String  name;
+    private String  wxName;
+    private String  cover;
+
+    //备注
+    private String  remark;
+    //0：未使用，1：已使用，2：已过期
+    private Integer state;
+    //使用日期
+    private Date useTime;
+    //截止日期
+    private Date expirationDate;
+    public UserCoupon(){
+
+    }
+    public UserCoupon(Integer userID,Integer couponID,String remarks,Date expirationDate){
+        this.userID=userID;
+        this.couponID=couponID;
+        this.remark=remarks;
+        this.expirationDate=expirationDate;
+    }
+}

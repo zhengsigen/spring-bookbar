@@ -1,0 +1,25 @@
+package com.c1801.spring.dzy.config;
+
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+/**
+ * user：少
+ * dateTime: 2019/8/15 18:41
+ * 扫描过滤器到容器中
+ */
+//@Configuration
+public class FilterConfig {
+
+
+    @Bean
+    public FilterRegistrationBean registrationBean(){
+        FilterRegistrationBean registration = new FilterRegistrationBean();
+        registration.setFilter(new LogCostFilter());
+        registration.addUrlPatterns("/dzy/*");
+        registration.setName("LogCostFilter");
+        registration.setOrder(1);
+        return registration;
+    }
+}

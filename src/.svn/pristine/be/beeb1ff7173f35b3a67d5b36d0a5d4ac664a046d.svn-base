@@ -1,0 +1,16 @@
+package com.c1801.spring.dzy.mapper;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+@Mapper
+public interface CommentApplaudMapper {
+
+    //删除点赞
+    public Integer cancleApplaud(@Param("commentId") Integer commentId, @Param("userId") Integer userId);
+
+    //点赞
+    public void addApplaud(@Param("commentId") Integer commentId,@Param("userId") Integer userId);
+}
+
+

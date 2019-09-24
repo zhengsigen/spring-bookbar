@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.c1801.spring.dzy.mapper.OrderInfoMapper">
+<!--    查询订单信息-->
+    <select id="queryOrderByOrderId" resultType="order">
+        select id, user_id, status, type, total, freight, province, city, district, street, user_name, phone, anony, create_time, update_time
+        from orders_tb
+        where id = #{id}
+    </select>
+
+<!--    根据订单id查询用户的买书订单-->
+    <select id="queryOrderAccountByOrderId" resultMap="queryOrderAccount">
+
+        SELECT
+            o.id, ob.book_id,o.user_id, o.`status`, o.`type`, o.total, o.freight,
+            opt.final_price,opt.coupon_amount,opt.freight_amount, opt.pay_type,
+            o.province, o.city, o.district, o.street, o.user_name, o.phone, o.create_time, o.update_time,
+            bt.isbn10, bt.isbn13, bt.name, bt.cover, bt.author, bt.price, bt.publisher, bt.pub_date, bt.douban_rate,
+            bt.gist, bt.binding, ob.discount min_discount, ob.condition
+        FROM orders_tb o
+        left join order_pay_tb opt on opt.order_id = o.id
+        left join order_books_tb ob on o.id = ob.order_id
+        left join books_tb bt on bt.id = ob.book_id
+		where o.id =#{order_id}
+    </select>
+
+
+    <resultMap type="OrderAccount" id="queryOrderAccount" autoMapping="true">
+        <id column="id" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+
+        <association property="orderPay" column="id" autoMapping="true">
+            <id column="id" property="orderId"/>
+        </association>
+
+        <collection property="orderBooksConditions" ofType="OrderBooksCondition" autoMapping="true">
+            <id column="book_id" property="id"/>
+            <result column="isbn10" property="ISBN10"/>
+            <result column="isbn13" property="ISBN13"/>
+<!--            <result column="name" property="name"/>-->
+<!--            <result column="cover" property="cover"/>-->
+<!--            <result column="author" property="author"/>-->
+<!--            <result column="price" property="price"/>-->
+<!--            <result column="publisher" property="publisher"/>-->
+<!--            <result column="pub_date" property="pubDate"/>-->
+<!--            <result column="douban_rate" property="doubanRate"/>-->
+<!--            <result column="gist" property="gist"/>-->
+<!--            <result column="binding" property="binding"/>-->
+            <result column="create_date" property="createDate"/>
+            <result column="update_date" property="updateDate"/>
+            <result column="condition" property="condition"/>
+            <result column="max_discount" property="maxDiscount"/>
+            <result column="min_discount" property="minDiscount"/>
+        </collection>
+
+    </resultMap>
+
+
+
+</mapper>

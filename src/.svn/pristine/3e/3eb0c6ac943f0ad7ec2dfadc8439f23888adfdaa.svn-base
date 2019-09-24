@@ -1,0 +1,163 @@
+package com.c1801.spring.dzy.controller.collection;
+
+import com.c1801.spring.dzy.common.PageInfo;
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.mapper.BookCollectionMapper;
+import com.c1801.spring.dzy.mapper.CategoryMapper;
+import com.c1801.spring.dzy.model.*;
+import com.c1801.spring.dzy.service.BookCategoryService;
+import com.c1801.spring.dzy.service.CartService;
+import com.c1801.spring.dzy.service.CollectionService;
+import com.github.pagehelper.PageHelper;
+import org.apache.ibatis.annotations.Param;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static javax.swing.UIManager.get;
+
+/**
+ * 书单
+ */
+@RestController
+@RequestMapping("/dzy/collection")
+public class CollectionController {
+
+    @Autowired
+    private BookCollectionMapper  bookCollectionMapper;
+
+    @Autowired
+    private CollectionService collectionService;
+
+    private Logger logger = LoggerFactory.getLogger(getClass());
+
+    @Autowired
+    private CartService cartService;
+
+    /**
+     * 何
+     * 查询首页书单列表数据
+     *
+     * @return
+     */
+    @GetMapping
+    public ResData getBookCollectionList(
+            @RequestParam(value = "page",defaultValue = "1")Integer page,
+            @RequestParam(value = "pageSize", defaultValue = "5")Integer pageSize
+    ){
+//        PageHelper.startPage(page, pageSize);
+        Integer start = (page - 1) * pageSize;
+        start = start < 0 ? 0 : start;
+        //获取书单详情和推荐用户集合
+        List<BookCollectionPack> bookCollection = bookCollectionMapper.getBookCollectionPack(start, pageSize);
+
+
+
+        List<Integer>ids = new ArrayList<>();
+        for(BookCollectionPack b: bookCollection){
+            ids.add(b.getId());
+        }
+        //获取指定书单用户熟练，书籍数量
+        List<BookCollectionPack> counts = bookCollectionMapper.getCountByCollectionIds(ids);
+
+        //数据合并返回
+        for(BookCollectionPack b: bookCollection){
+            for(BookCollectionPack c :counts){
+                if(b.getId() == c.getId()){
+                    b.setContributorsCount(c.getContributorsCount());
+                    b.setItemsCount(c.getItemsCount());
+                }
+                if (b.getItemsCount() == null )b.setItemsCount(0);
+                if (b.getContributorsCount() == null ) b.setContributorsCount(0);
+            }
+        }
+        return ResData.ofSuccess(0, "查询成功", bookCollection);
+    }
+
+
+    @GetMapping("/list")
+    public ResData getBookListSum(){
+        ResData resData = new ResData();
+        Integer integer =bookCollectionMapper.getBookListSum();
+        return  resData.ofSuccess(0, "查询成功",integer);
+    }
+
+    /**
+     * @return
+     * @郑思根 新增指定书籍到指定书单
+     */
+    @PostMapping("/recommend")
+    public ResData addBookAppointCollection(@RequestBody RecommendBook recommendBook, HttpSession session) {
+        //如果书单id为空
+        if (recommendBook.getCollectionId() == null ||
+                //如果书籍id或者isbn都为空
+                (recommendBook.getBookId() == null && recommendBook.getIsbn() == null)) {
+            return ResData.ofFail(1001, "参数缺失");
+    }
+        User user = (User) session.getAttribute("user");
+        recommendBook.setUserId(user.getId());
+        return collectionService.addBookAppointCollection(recommendBook);
+    }
+
+
+    /***
+     * @郑思根
+     * 根据推荐id获取到 书单详情(书单推荐用户数量，书单推荐书籍数量)，书籍详情，用户详情，推荐详情
+     * @return
+     */
+    @GetMapping("/recommend")
+    public ResData queryRecommendAccountById(@RequestParam("id") Integer id){
+        if(id==null){
+            return ResData.ofFail(1001, "参数缺失");
+        }
+        return collectionService.queryRecommendAccountById(id);
+    }
+
+
+
+    /**
+     * 蒋
+     * 查询单个书单详情
+     * @param collectionId
+     * @return
+     */
+    @GetMapping("/{collectionId:\\d+}")
+    public ResData querySingleCollection(@PathVariable("collectionId") Integer collectionId){
+
+        BookCollectionPack collectionPack = collectionService.querySingleCollection(collectionId);
+        return ResData.ofSuccess(0, "成功", collectionPack);
+    }
+
+
+    /**
+     * 蒋
+     * 查询书单书籍
+     * @param collectionId
+     * @param pageSize
+     * @param pageNum
+     * @return
+     */
+    @GetMapping("/book")
+    public ResData queryRecommedList(@RequestParam("collectionId")Integer collectionId, @RequestParam(value = "pageSize", defaultValue = "5")Integer pageSize, @RequestParam(value = "pageNum", defaultValue = "1")Integer pageNum,@RequestParam(value = "lastDate",required = false) Date lastDate, HttpSession session){
+
+        User user = (User) session.getAttribute("user");
+
+        if(user == null){
+            user = new User();
+        }
+        Map<String,Object> map = collectionService.queryRecommedList(collectionId, pageSize, pageNum,lastDate, user.getId());
+
+        return ResData.ofSuccess(0, "成功", map);
+    }
+
+
+
+}

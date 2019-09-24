@@ -1,0 +1,236 @@
+package com.c1801.spring.dzy.controller.comment;
+
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.mapper.CommentApplaudMapper;
+import com.c1801.spring.dzy.mapper.CommentMapper;
+import com.c1801.spring.dzy.mapper.UserMapper;
+import com.c1801.spring.dzy.mapper.UserSubscribeMapper;
+import com.c1801.spring.dzy.model.*;
+import com.c1801.spring.dzy.service.ApplaudService;
+import com.c1801.spring.dzy.service.CommentService;
+import com.c1801.spring.dzy.service.MessageTemplateService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.util.List;
+/**
+ * user：马映佳
+ * dateTime: 2019/9/5
+ * 书籍评论 controller
+ */
+@RestController
+@Transactional
+@RequestMapping("/dzy/comment")
+public class CommentController {
+
+    @Autowired
+    private CommentMapper commentMapper;
+
+    @Autowired
+    private CommentApplaudMapper commentApplaudMapper;
+
+    @Autowired
+    private CommentService commentService;
+
+    @Autowired
+    private UserSubscribeMapper userSubscribeMapper;
+    @Autowired
+    private MessageTemplateService messageTemplateService;
+    @Autowired
+    private UserMapper userMapper;
+
+
+    /**
+     * 删除二级评论
+     * @param messageId
+     * @param session
+     * @return
+     */
+    @DeleteMapping("/message")
+    public ResData delMessage(@RequestParam("messageId") Integer messageId, HttpSession session) {
+        User  u = (User) session.getAttribute("user");
+        if(u == null){
+            u  = new User();
+            return ResData.ofFail(2002, "用户没有登录", null);
+        }
+        commentMapper.delMessage(messageId,u.getId());
+        ResData resData = new ResData();
+        resData.setCode(0);
+        resData.setData("删除成功");
+        System.out.println("返回结果：" + resData);
+        return resData;
+    }
+
+    /**
+     * 删除一级评论包括底下的二级评论
+     * @param commentId
+     * @param session
+     * @return
+     */
+    @DeleteMapping
+    public ResData delComment(@RequestParam("commentId") Integer commentId, HttpSession session) {
+        User u = (User)session.getAttribute("user");
+        if(u == null){
+            u  = new User();
+            return ResData.ofFail(2002, "用户没有登录", null);
+        }
+        System.out.println("删除操作：messageId：" + commentId + "，userId：" + u.getId());
+        commentApplaudMapper.deleteApplaud(commentId);
+        commentMapper.delMessageByCommentId(commentId);
+        commentMapper.delComment(commentId,u.getId());
+        ResData resData = new ResData();
+        resData.setCode(0);
+        resData.setData("删除成功");
+        System.out.println("返回结果：" + resData);
+        return resData;
+    }
+
+    /**
+     *
+     * 查询一级评论
+     * @param bookId
+     * @param pageSize
+     * @param page
+     * @return
+     */
+    @GetMapping
+    public ResData queryCommentList(@RequestParam("bookId")Integer bookId, @RequestParam(value = "pageSize", defaultValue = "5")Integer pageSize, @RequestParam(value = "page", defaultValue = "1")Integer page,  HttpSession session){
+        User user = (User) session.getAttribute("user");
+        if(user == null){
+            user = new User();
+        }
+        List<BookComment> bookComment  = commentService.queryCommentList(bookId,  user.getId());
+        //分页
+        Pager pager = new Pager();
+        Integer index = (page-1)*pageSize+pageSize;
+        Integer end  = bookComment.size() > index  ? index : bookComment.size();
+        pager.setTotal(bookComment.size());
+        bookComment = bookComment.subList((page-1)*pageSize,end);
+        System.out.println("查询一级评论"+bookComment);
+        System.out.println("查询一级评论总数"+bookComment.size());
+        pager.setPages(page);
+        pager.setData(bookComment);
+
+        return ResData.ofSuccess(0, "成功", pager);
+    }
+
+    /**
+     *
+     * 查询一级评论包括底下的二级评论
+     * @param commentId
+     * @param pageSize
+     * @param page
+     * @return
+     */
+    @GetMapping("/message")
+    public ResData queryCommentAndMessageList(@RequestParam("commentId")Integer commentId,@RequestParam("bookId")Integer bookId, @RequestParam(value = "pageSize", defaultValue = "5")Integer pageSize, @RequestParam(value = "page", defaultValue = "1")Integer page,  HttpSession session){
+        User user = (User) session.getAttribute("user");
+        if(user == null){
+            user = new User();
+        }
+        Integer index = (page-1)*pageSize + pageSize;
+        BookComment bookComment  = commentService.queryCommentAndMessageList(commentId, bookId, index, user.getId());
+        System.out.println("查询一级评论包括底下的二级评论"+bookComment);
+        return ResData.ofSuccess(0, "成功", bookComment);
+    }
+
+    /**
+     * 回复评论
+     * @param commentId
+     * @param message
+     * @param session
+     * @return
+     */
+    @PostMapping("/message")
+    public ResData addReplyOfComments(@RequestParam("commentId")Integer commentId,@RequestParam("message")String message,HttpSession session) throws IOException {
+        User user = (User) session.getAttribute("user");
+        if(user == null){
+            user = new User();
+            return ResData.ofFail(2002, "用户没有登录", null);
+        }
+        //判断用户是否回复过此评论
+        Integer isReplied = commentMapper.isReplied(commentId,user.getId());
+        if(isReplied == 1){
+            return ResData.ofFail(3002,"该用户已经回复过一次了，不能重复回复",null);
+        }
+        //消息推送
+        Comment comment = commentMapper.getCommentById(commentId);
+        UserSubscribe userSubscribe = userSubscribeMapper.getUserSubscribe(comment.getUserId());
+        if(userSubscribe.getAgree()){
+            User receiveUser = userMapper.getUserById(comment.getUserId());
+            messageTemplateService.sendDynamic(receiveUser, user, message,comment.getBookId(),commentId);
+        }
+
+        commentMapper.addReplyOfComments(commentId,user.getId(),message);
+        return ResData.ofSuccess(0, "成功", null);
+    }
+
+    /**
+     * 发表评论
+     * @param bookId
+     * @param comment
+     * @param session
+     * @return
+     */
+    @PostMapping
+    public ResData addComments(@RequestParam("bookId")Integer bookId,@RequestParam("comment")String comment,HttpSession session){
+        System.out.println("评语："+comment);
+        User user = (User) session.getAttribute("user");
+        if(user == null){
+            user = new User();
+            return ResData.ofFail(2002, "用户没有登录", null);
+        }
+        //判断用户是否买过这本书
+        Integer isReplied = commentMapper.userIsBought(bookId,user.getId());
+        if(isReplied == 0){
+            return ResData.ofFail(3003,"该用户没买过这本书，不能评论",null);
+        }
+        // 查询用户是否评价过这本书
+        Integer isEvaluation = commentMapper.userIsEvaluation(user.getId(),bookId);
+        if(isEvaluation == 1){
+            return ResData.ofFail(3004,"该用户已经评论过一次了，不能重复评论",null);
+        }
+        commentMapper.addComments(bookId,user.getId(),comment);
+        return ResData.ofSuccess(0,"评论成功",null);
+    }
+
+    /**
+     * 用户是否能给书评价
+     * @param bookId
+     * @param session
+     * @return
+     */
+    @GetMapping("evaluate")
+    public ResData userCanComments(@RequestParam("bookId")Integer bookId,HttpSession session){
+        User user = (User) session.getAttribute("user");
+        if(user == null){
+            return ResData.ofFail(3005,"用户还没登录",null);
+        }
+        //判断用户是否买过这本书
+        Integer isReplied = commentMapper.userIsBought(bookId,user.getId());
+        if(isReplied == 0){
+            return ResData.ofFail(3003,"该用户没买过这本书，不能评论",null);
+        }
+        // 查询用户是否评价过这本书
+        Integer isEvaluation = commentMapper.userIsEvaluation(user.getId(),bookId);
+        if(isEvaluation == 1){
+            return ResData.ofFail(3004,"该用户已经评论过一次了，不能重复评论",null);
+        }
+        return ResData.ofSuccess(0,"成功",null);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

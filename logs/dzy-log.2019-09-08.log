@@ -1,0 +1,1302 @@
+15:12:15.38 [restartedMain] INFO  c.c.s.d.DzyApplication - [logStarting,50] - Starting DzyApplication on DESKTOP-85KN65G with PID 15076 (started by admin in C:\开发\项目\springboot\dzy2.0\demo 微信)
+15:12:15.45 [restartedMain] INFO  c.c.s.d.DzyApplication - [logStartupProfileInfo,650] - The following profiles are active: dev
+15:12:15.138 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - [logTo,225] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+15:12:15.139 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - [logTo,225] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+15:12:17.161 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer - [initialize,90] - Tomcat initialized with port(s): 8090 (http)
+15:12:17.176 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8090"]
+15:12:17.185 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+15:12:17.186 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.21]
+15:12:17.289 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+15:12:17.289 [restartedMain] INFO  o.s.w.c.ContextLoader - [prepareWebApplicationContext,283] - Root WebApplicationContext: initialization completed in 2149 ms
+15:12:18.318 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - [initialize,171] - Initializing ExecutorService 'applicationTaskExecutor'
+15:12:18.643 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - [startServer,57] - LiveReload server is running on port 35729
+15:12:18.673 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8090"]
+15:12:18.709 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer - [start,202] - Tomcat started on port(s): 8090 (http) with context path ''
+15:12:18.712 [restartedMain] INFO  c.c.s.d.DzyApplication - [logStarted,59] - Started DzyApplication in 4.056 seconds (JVM running for 4.697)
+16:15:28.617 [restartedMain] INFO  c.c.s.d.DzyApplication - [logStarting,50] - Starting DzyApplication on DESKTOP-85KN65G with PID 1152 (started by admin in C:\开发\项目\springboot\dzy2.0\demo 微信)
+16:15:28.619 [restartedMain] INFO  c.c.s.d.DzyApplication - [logStartupProfileInfo,650] - The following profiles are active: dev
+16:15:28.674 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - [logTo,225] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+16:15:28.674 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - [logTo,225] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+16:15:30.259 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer - [initialize,90] - Tomcat initialized with port(s): 8090 (http)
+16:15:30.274 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8090"]
+16:15:30.283 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+16:15:30.283 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.21]
+16:15:30.374 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+16:15:30.374 [restartedMain] INFO  o.s.w.c.ContextLoader - [prepareWebApplicationContext,283] - Root WebApplicationContext: initialization completed in 1700 ms
+16:15:31.348 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - [initialize,171] - Initializing ExecutorService 'applicationTaskExecutor'
+16:15:31.634 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - [startServer,57] - LiveReload server is running on port 35729
+16:15:31.659 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8090"]
+16:15:31.682 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer - [start,202] - Tomcat started on port(s): 8090 (http) with context path ''
+16:15:31.684 [restartedMain] INFO  c.c.s.d.DzyApplication - [logStarted,59] - Started DzyApplication in 3.382 seconds (JVM running for 3.915)
+16:40:59.957 [restartedMain] INFO  c.c.s.d.DzyApplication - [logStarting,50] - Starting DzyApplication on DESKTOP-85KN65G with PID 8360 (started by admin in C:\开发\项目\springboot\dzy2.0\demo 微信)
+16:40:59.959 [restartedMain] INFO  c.c.s.d.DzyApplication - [logStartupProfileInfo,650] - The following profiles are active: dev
+16:41:00.19 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - [logTo,225] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+16:41:00.20 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - [logTo,225] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+16:41:02.21 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer - [initialize,90] - Tomcat initialized with port(s): 8090 (http)
+16:41:02.34 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8090"]
+16:41:02.43 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+16:41:02.43 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.21]
+16:41:02.135 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+16:41:02.136 [restartedMain] INFO  o.s.w.c.ContextLoader - [prepareWebApplicationContext,283] - Root WebApplicationContext: initialization completed in 2116 ms
+16:41:03.530 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - [initialize,171] - Initializing ExecutorService 'applicationTaskExecutor'
+16:41:04.64 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - [startServer,57] - LiveReload server is running on port 35729
+16:41:04.135 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8090"]
+16:41:04.174 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer - [start,202] - Tomcat started on port(s): 8090 (http) with context path ''
+16:41:04.179 [restartedMain] INFO  c.c.s.d.DzyApplication - [logStarted,59] - Started DzyApplication in 4.551 seconds (JVM running for 5.131)
+19:46:28.249 [http-nio-8090-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+19:46:28.249 [http-nio-8090-exec-1] INFO  o.s.w.s.DispatcherServlet - [initServletBean,524] - Initializing Servlet 'dispatcherServlet'
+19:46:28.256 [http-nio-8090-exec-1] INFO  o.s.w.s.DispatcherServlet - [initServletBean,546] - Completed initialization in 7 ms
+19:46:28.344 [http-nio-8090-exec-1] INFO  c.a.d.p.DruidDataSource - [info,106] - {dataSource-1} inited
+19:59:36.744 [http-nio-8090-exec-8] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:00:12.536 [http-nio-8090-exec-2] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:00:14.148 [http-nio-8090-exec-7] INFO  c.c.s.d.c.c.CartController - [queryHasStockCartsCount,219] - 查询用户购物车有库存商品数量
+20:00:14.192 [http-nio-8090-exec-6] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,45] - name =  rate=0.0 pageSize = 3 pageNum =1
+20:00:14.192 [http-nio-8090-exec-6] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,49] - 查询所有书籍单品信息
+20:00:15.845 [http-nio-8090-exec-9] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:00:55.496 [http-nio-8090-exec-7] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:03:38.806 [http-nio-8090-exec-7] INFO  c.c.s.d.c.c.CartController - [queryHasStockCartsCount,219] - 查询用户购物车有库存商品数量
+20:03:38.829 [http-nio-8090-exec-4] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,45] - name =  rate=0.0 pageSize = 3 pageNum =1
+20:03:38.829 [http-nio-8090-exec-4] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,49] - 查询所有书籍单品信息
+20:03:40.649 [http-nio-8090-exec-5] INFO  c.c.s.d.c.c.CartController - [queryHasStockCartsCount,219] - 查询用户购物车有库存商品数量
+20:03:40.657 [http-nio-8090-exec-3] INFO  c.c.s.d.c.u.UserController - [getUser,96] - 根据id获取用户信息 = null
+20:03:40.662 [http-nio-8090-exec-3] INFO  c.c.s.d.c.u.UserController - [getUser,98] - user = null
+20:03:40.972 [http-nio-8090-exec-6] INFO  c.c.s.d.c.ContronllerAdvice - [exception,44] - 拦截异常e = java.lang.NullPointerException
+20:03:40.975 [http-nio-8090-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - [logException,198] - Resolved [java.lang.NullPointerException]
+20:03:45.995 [http-nio-8090-exec-10] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:05:20.436 [http-nio-8090-exec-7] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:07:20.185 [http-nio-8090-exec-4] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:07:26.753 [http-nio-8090-exec-6] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:07:30.154 [http-nio-8090-exec-7] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:07:58.287 [http-nio-8090-exec-3] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:08:59.51 [http-nio-8090-exec-5] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:09:32.33 [http-nio-8090-exec-2] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:10:06.642 [http-nio-8090-exec-3] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:12:27.28 [http-nio-8090-exec-5] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:12:36.312 [http-nio-8090-exec-2] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:12:39.921 [http-nio-8090-exec-4] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:13:17.303 [http-nio-8090-exec-10] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:13:29.405 [http-nio-8090-exec-8] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:15:57.05 [http-nio-8090-exec-4] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:16:02.33 [http-nio-8090-exec-10] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:16:41.270 [http-nio-8090-exec-2] INFO  c.c.s.d.c.c.CartController - [queryHasStockCartsCount,219] - 查询用户购物车有库存商品数量
+20:16:41.272 [http-nio-8090-exec-7] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,45] - name =  rate=0.0 pageSize = 3 pageNum =1
+20:16:41.272 [http-nio-8090-exec-7] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,49] - 查询所有书籍单品信息
+20:17:11.478 [http-nio-8090-exec-4] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:17:53.424 [http-nio-8090-exec-3] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:18:13.476 [http-nio-8090-exec-6] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:18:49.379 [http-nio-8090-exec-9] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:19:17.373 [http-nio-8090-exec-10] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:20:49.534 [http-nio-8090-exec-7] INFO  c.c.s.d.c.c.CartController - [queryHasStockCartsCount,219] - 查询用户购物车有库存商品数量
+20:20:49.549 [http-nio-8090-exec-9] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,45] - name =  rate=0.0 pageSize = 3 pageNum =1
+20:20:49.550 [http-nio-8090-exec-9] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,49] - 查询所有书籍单品信息
+20:20:50.479 [http-nio-8090-exec-8] INFO  c.c.s.d.c.ContronllerAdvice - [exception,44] - 拦截异常e = java.lang.NullPointerException
+20:20:50.481 [http-nio-8090-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - [logException,198] - Resolved [java.lang.NullPointerException]
+20:22:08.65 [http-nio-8090-exec-1] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:23:37.362 [http-nio-8090-exec-7] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:23:40.530 [http-nio-8090-exec-9] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:24:05.994 [http-nio-8090-exec-1] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:24:48.788 [http-nio-8090-exec-5] INFO  c.c.s.d.c.a.AddrController - [getAddrByUserId,43] - 用户获取地址：Address(id=11, name=张学友, phone=13055036723, province=广东省, city=深圳市, district=龙华区, street=观澜 安防学校, createDate=Mon Aug 19 19:21:53 CST 2019, updateDate=Mon Aug 19 19:21:53 CST 2019)
+20:26:25.775 [restartedMain] INFO  c.c.s.d.DzyApplication - [logStarting,50] - Starting DzyApplication on DESKTOP-85KN65G with PID 14816 (started by admin in C:\开发\项目\springboot\dzy2.0\demo 微信)
+20:26:25.778 [restartedMain] INFO  c.c.s.d.DzyApplication - [logStartupProfileInfo,650] - The following profiles are active: dev
+20:26:25.812 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - [logTo,225] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+20:26:25.812 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - [logTo,225] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+20:26:27.769 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer - [initialize,90] - Tomcat initialized with port(s): 8090 (http)
+20:26:27.784 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8090"]
+20:26:27.793 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+20:26:27.793 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.21]
+20:26:27.888 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+20:26:27.888 [restartedMain] INFO  o.s.w.c.ContextLoader - [prepareWebApplicationContext,283] - Root WebApplicationContext: initialization completed in 2076 ms
+20:26:28.896 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - [initialize,171] - Initializing ExecutorService 'applicationTaskExecutor'
+20:26:29.188 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - [startServer,57] - LiveReload server is running on port 35729
+20:26:29.213 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8090"]
+20:26:29.234 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer - [start,202] - Tomcat started on port(s): 8090 (http) with context path ''
+20:26:29.236 [restartedMain] INFO  c.c.s.d.DzyApplication - [logStarted,59] - Started DzyApplication in 3.778 seconds (JVM running for 4.354)
+20:27:01.823 [http-nio-8090-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+20:27:01.823 [http-nio-8090-exec-1] INFO  o.s.w.s.DispatcherServlet - [initServletBean,524] - Initializing Servlet 'dispatcherServlet'
+20:27:01.830 [http-nio-8090-exec-1] INFO  o.s.w.s.DispatcherServlet - [initServletBean,546] - Completed initialization in 6 ms
+20:27:03.814 [http-nio-8090-exec-4] INFO  c.c.s.d.c.c.CartController - [queryHasStockCartsCount,219] - 查询用户购物车有库存商品数量
+20:27:03.872 [http-nio-8090-exec-2] INFO  c.a.d.p.DruidDataSource - [info,106] - {dataSource-1} inited
+20:27:04.98 [http-nio-8090-exec-5] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,45] - name =  rate=0.0 pageSize = 3 pageNum =1
+20:27:04.98 [http-nio-8090-exec-5] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,49] - 查询所有书籍单品信息
+20:27:06.258 [http-nio-8090-exec-6] INFO  c.c.s.d.c.ContronllerAdvice - [exception,44] - 拦截异常e = java.lang.NullPointerException
+20:27:06.261 [http-nio-8090-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - [logException,198] - Resolved [java.lang.NullPointerException]
+20:27:26.308 [http-nio-8090-exec-10] INFO  c.c.s.d.c.c.CartController - [queryHasStockCartsCount,219] - 查询用户购物车有库存商品数量
+20:27:26.310 [http-nio-8090-exec-1] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,45] - name =  rate=0.0 pageSize = 3 pageNum =1
+20:27:26.311 [http-nio-8090-exec-1] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,49] - 查询所有书籍单品信息
+20:27:29.915 [http-nio-8090-exec-4] INFO  c.c.s.d.c.ContronllerAdvice - [exception,44] - 拦截异常e = java.lang.NullPointerException
+20:27:29.916 [http-nio-8090-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - [logException,198] - Resolved [java.lang.NullPointerException]
+20:27:36.226 [http-nio-8090-exec-5] INFO  c.c.s.d.c.c.CartController - [queryHasStockCartsCount,219] - 查询用户购物车有库存商品数量
+20:27:36.261 [http-nio-8090-exec-6] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,45] - name =  rate=0.0 pageSize = 3 pageNum =1
+20:27:36.261 [http-nio-8090-exec-6] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,49] - 查询所有书籍单品信息
+20:27:37.14 [http-nio-8090-exec-8] INFO  c.c.s.d.c.c.CartController - [queryHasStockCartsCount,219] - 查询用户购物车有库存商品数量
+20:27:37.21 [http-nio-8090-exec-7] INFO  c.c.s.d.c.u.UserController - [getUser,96] - 根据id获取用户信息 = null
+20:27:37.28 [http-nio-8090-exec-7] INFO  c.c.s.d.c.u.UserController - [getUser,98] - user = null
+20:27:37.31 [http-nio-8090-exec-10] INFO  c.c.s.d.c.ContronllerAdvice - [exception,44] - 拦截异常e = java.lang.NullPointerException
+20:27:37.33 [http-nio-8090-exec-10] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - [logException,198] - Resolved [java.lang.NullPointerException]
+20:28:12.319 [http-nio-8090-exec-2] INFO  c.c.s.d.c.c.CartController - [queryHasStockCartsCount,219] - 查询用户购物车有库存商品数量
+20:28:12.323 [http-nio-8090-exec-5] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,45] - name =  rate=0.0 pageSize = 3 pageNum =1
+20:28:12.324 [http-nio-8090-exec-5] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,49] - 查询所有书籍单品信息
+20:28:13.385 [http-nio-8090-exec-3] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,45] - name =  rate=0.0 pageSize = 3 pageNum =2
+20:28:13.385 [http-nio-8090-exec-3] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,49] - 查询所有书籍单品信息
+20:28:15.445 [http-nio-8090-exec-6] INFO  c.c.s.d.c.ContronllerAdvice - [exception,44] - 拦截异常e = java.lang.NullPointerException
+20:28:15.447 [http-nio-8090-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - [logException,198] - Resolved [java.lang.NullPointerException]
+20:29:17.126 [restartedMain] INFO  c.c.s.d.DzyApplication - [logStarting,50] - Starting DzyApplication on DESKTOP-85KN65G with PID 14340 (started by admin in C:\开发\项目\springboot\dzy2.0\demo 微信)
+20:29:17.129 [restartedMain] INFO  c.c.s.d.DzyApplication - [logStartupProfileInfo,650] - The following profiles are active: dev
+20:29:17.186 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - [logTo,225] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+20:29:17.187 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - [logTo,225] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+20:29:18.863 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer - [initialize,90] - Tomcat initialized with port(s): 8090 (http)
+20:29:18.876 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8090"]
+20:29:18.885 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+20:29:18.886 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.21]
+20:29:18.979 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+20:29:18.979 [restartedMain] INFO  o.s.w.c.ContextLoader - [prepareWebApplicationContext,283] - Root WebApplicationContext: initialization completed in 1792 ms
+20:29:19.881 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - [initialize,171] - Initializing ExecutorService 'applicationTaskExecutor'
+20:29:20.165 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - [startServer,57] - LiveReload server is running on port 35729
+20:29:20.188 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8090"]
+20:29:20.213 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer - [start,202] - Tomcat started on port(s): 8090 (http) with context path ''
+20:29:20.222 [restartedMain] INFO  c.c.s.d.DzyApplication - [logStarted,59] - Started DzyApplication in 3.397 seconds (JVM running for 3.915)
+20:29:57.285 [http-nio-8090-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+20:29:57.286 [http-nio-8090-exec-1] INFO  o.s.w.s.DispatcherServlet - [initServletBean,524] - Initializing Servlet 'dispatcherServlet'
+20:29:57.291 [http-nio-8090-exec-1] INFO  o.s.w.s.DispatcherServlet - [initServletBean,546] - Completed initialization in 5 ms
+20:29:57.324 [http-nio-8090-exec-4] INFO  c.c.s.d.c.c.CartController - [queryHasStockCartsCount,219] - 查询用户购物车有库存商品数量
+20:29:57.373 [http-nio-8090-exec-3] INFO  c.a.d.p.DruidDataSource - [info,106] - {dataSource-1} inited
+20:29:57.695 [http-nio-8090-exec-3] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,45] - name =  rate=0.0 pageSize = 3 pageNum =1
+20:29:57.695 [http-nio-8090-exec-3] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,49] - 查询所有书籍单品信息
+20:29:58.727 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=3C56C5B9C785A5A9CB83299F369B88EB
+20:29:58.728 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:29:58.728 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:29:58.728 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/sell
+20:31:34.143 [http-nio-8090-exec-7] INFO  c.c.s.d.c.u.UserWXLoginController - [getCode,96] - state:c05cee8219434518bdd7f84fbe25b3db
+20:31:51.462 [http-nio-8090-exec-10] INFO  c.c.s.d.c.u.UserWXLoginController - [getCode,96] - state:3033f30d5dbe472e800cf0815358add7
+20:32:21.162 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=C7E7040C42088760F7D0B901F602DA05
+20:32:21.162 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:32:21.162 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=C7E7040C42088760F7D0B901F602DA05
+20:32:21.162 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:32:21.162 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:32:21.162 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+20:32:21.162 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:32:21.162 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+20:32:40.128 [http-nio-8090-exec-5] INFO  c.c.s.d.c.c.CartController - [queryHasStockCartsCount,219] - 查询用户购物车有库存商品数量
+20:32:40.129 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:32:40.130 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:32:40.130 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:32:40.130 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/user/info/
+20:32:40.151 [http-nio-8090-exec-6] INFO  c.c.s.d.c.ContronllerAdvice - [exception,44] - 拦截异常e = java.lang.NullPointerException
+20:32:40.154 [http-nio-8090-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - [logException,198] - Resolved [java.lang.NullPointerException]
+20:32:48.667 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:32:48.667 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:32:48.667 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:32:48.667 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:32:48.667 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:32:48.667 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:32:48.667 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+20:32:48.667 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+20:38:02.582 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:38:02.582 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:38:02.582 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:38:02.582 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:38:02.582 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:38:02.582 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:38:02.582 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+20:38:02.582 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+20:43:45.987 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:43:45.988 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:43:45.988 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:43:45.988 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:43:45.988 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:43:45.988 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+20:43:45.988 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:43:45.988 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+20:44:07.491 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:44:07.492 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:44:07.492 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:44:07.492 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:44:07.492 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+20:44:07.492 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:44:07.492 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:44:07.492 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+20:44:52.164 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:44:52.165 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:44:52.165 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:44:52.165 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:44:52.165 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:44:52.165 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+20:44:52.165 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:44:52.165 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+20:45:51.137 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:45:51.137 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:45:51.137 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:45:51.137 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+20:45:51.142 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:45:51.142 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:45:51.143 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:45:51.143 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+20:46:06.407 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:46:06.408 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:46:06.408 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:46:06.408 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+20:46:06.408 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:46:06.408 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:46:06.408 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:46:06.408 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+20:47:18.667 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:47:18.667 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:47:18.667 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:47:18.668 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+20:47:18.669 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:47:18.669 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:47:18.669 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:47:18.669 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+20:47:32.575 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:47:32.575 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:47:32.575 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:47:32.575 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:47:32.575 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:47:32.575 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+20:47:32.575 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:47:32.575 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+20:48:01.206 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:48:01.206 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:48:01.206 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:48:01.207 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+20:48:01.208 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:48:01.208 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:48:01.208 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:48:01.208 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+20:48:12.679 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:48:12.679 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:48:12.679 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:48:12.679 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+20:48:12.682 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:48:12.683 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:48:12.683 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:48:12.683 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+20:48:36.71 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:48:36.71 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:48:36.71 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:48:36.71 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:48:36.71 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+20:48:36.71 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:48:36.71 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:48:36.72 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+20:51:00.702 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:51:00.702 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:51:00.702 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:51:00.702 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+20:51:00.704 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:51:00.704 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:51:00.705 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:51:00.705 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+20:52:06.882 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:52:06.882 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:52:06.882 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:52:06.882 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+20:52:07.110 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:52:07.111 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:52:07.111 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:52:07.111 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+20:53:35.961 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:53:35.961 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:53:35.961 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:53:35.961 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:53:35.961 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:53:35.961 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+20:53:35.961 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:53:35.961 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+20:53:50.50 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:53:50.50 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:53:50.50 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:53:50.50 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+20:53:50.52 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:53:50.53 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:53:50.53 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:53:50.53 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+20:54:51.456 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:54:51.456 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:54:51.456 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:54:51.456 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+20:54:51.692 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:54:51.692 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:54:51.692 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:54:51.692 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+20:54:53.18 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:54:53.19 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:54:53.19 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:54:53.19 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:54:53.19 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:54:53.19 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:54:53.19 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+20:54:53.19 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+20:55:05.883 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:55:05.883 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:55:05.884 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:55:05.884 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+20:55:06.101 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:55:06.101 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:55:06.101 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:55:06.101 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+20:56:02.716 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:56:02.716 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:56:02.716 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:56:02.716 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:56:02.717 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:56:02.717 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+20:56:02.717 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:56:02.717 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+20:57:02.187 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:57:02.187 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:57:02.188 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:57:02.188 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:57:02.188 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:57:02.188 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:57:02.188 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+20:57:02.188 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+20:57:16.63 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:57:16.63 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:57:16.63 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:57:16.63 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:57:16.63 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:57:16.63 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+20:57:16.63 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:57:16.64 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+20:57:48.727 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:57:48.727 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:57:48.728 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:57:48.728 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:57:48.728 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+20:57:48.728 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:57:48.728 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:57:48.728 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+20:58:51.473 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:58:51.474 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:58:51.474 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+20:58:51.474 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:58:51.474 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+20:58:51.474 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+20:58:51.474 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+20:58:51.474 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:00:57.502 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+21:00:57.502 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:00:57.502 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:00:57.502 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:00:57.503 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+21:00:57.503 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:00:57.503 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:00:57.503 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:02:28.822 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+21:02:28.823 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:02:28.823 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+21:02:28.823 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:02:28.823 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:02:28.823 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:02:28.823 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:02:28.823 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:02:34.608 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+21:02:34.608 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:02:34.608 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+21:02:34.608 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:02:34.608 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:02:34.608 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:02:34.609 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:02:34.609 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:02:52.816 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+21:02:52.816 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:02:52.816 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:02:52.816 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:02:52.817 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+21:02:52.817 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:02:52.818 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:02:52.818 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:03:13.406 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+21:03:13.406 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:03:13.406 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:03:13.406 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:03:13.636 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+21:03:13.637 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:03:13.637 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:03:13.637 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:03:37.898 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+21:03:37.898 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:03:37.898 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+21:03:37.898 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:03:37.899 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:03:37.899 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:03:37.899 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:03:37.899 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:03:43.835 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+21:03:43.835 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+21:03:43.835 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:03:43.835 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:03:43.835 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:03:43.835 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:03:43.835 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:03:43.835 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:03:53.792 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+21:03:53.792 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:03:53.792 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+21:03:53.793 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:03:53.793 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:03:53.793 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:03:53.793 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:03:53.793 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:04:04.39 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+21:04:04.39 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+21:04:04.39 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:04:04.39 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:04:04.40 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:04:04.40 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:04:04.40 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:04:04.40 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:04:07.338 [http-nio-8090-exec-2] INFO  c.c.s.d.c.c.CartController - [queryHasStockCartsCount,219] - 查询用户购物车有库存商品数量
+21:04:07.411 [http-nio-8090-exec-6] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,45] - name =  rate=0.0 pageSize = 3 pageNum =1
+21:04:07.411 [http-nio-8090-exec-6] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,49] - 查询所有书籍单品信息
+21:04:12.709 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+21:04:12.710 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:04:12.710 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+21:04:12.710 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:04:12.710 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:04:12.710 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:04:12.710 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:04:12.710 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:04:26.784 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+21:04:26.784 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:04:26.784 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:04:26.785 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:04:26.785 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+21:04:26.785 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:04:26.785 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:04:26.785 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:04:47.697 [restartedMain] INFO  c.c.s.d.DzyApplication - [logStarting,50] - Starting DzyApplication on DESKTOP-85KN65G with PID 7704 (started by admin in C:\开发\项目\springboot\dzy2.0\demo 微信)
+21:04:47.710 [restartedMain] INFO  c.c.s.d.DzyApplication - [logStartupProfileInfo,650] - The following profiles are active: dev
+21:04:47.752 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - [logTo,225] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+21:04:47.753 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - [logTo,225] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+21:04:49.363 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer - [initialize,90] - Tomcat initialized with port(s): 8090 (http)
+21:04:49.377 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8090"]
+21:04:49.386 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+21:04:49.387 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.21]
+21:04:49.480 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+21:04:49.480 [restartedMain] INFO  o.s.w.c.ContextLoader - [prepareWebApplicationContext,283] - Root WebApplicationContext: initialization completed in 1727 ms
+21:04:50.402 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - [initialize,171] - Initializing ExecutorService 'applicationTaskExecutor'
+21:04:50.704 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - [startServer,57] - LiveReload server is running on port 35729
+21:04:50.727 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8090"]
+21:04:50.748 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer - [start,202] - Tomcat started on port(s): 8090 (http) with context path ''
+21:04:50.751 [restartedMain] INFO  c.c.s.d.DzyApplication - [logStarted,59] - Started DzyApplication in 3.369 seconds (JVM running for 3.9)
+21:05:08.962 [http-nio-8090-exec-2] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:05:08.962 [http-nio-8090-exec-2] INFO  o.s.w.s.DispatcherServlet - [initServletBean,524] - Initializing Servlet 'dispatcherServlet'
+21:05:08.967 [http-nio-8090-exec-2] INFO  o.s.w.s.DispatcherServlet - [initServletBean,546] - Completed initialization in 5 ms
+21:05:08.980 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+21:05:08.980 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=B12F2F0D1E777137C0541C3DC8A7F7B8
+21:05:08.980 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:05:08.980 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:05:08.980 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:05:08.981 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:05:08.981 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:05:08.981 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:05:30.454 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:05:30.455 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:05:30.455 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:05:30.455 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:05:30.455 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:05:30.455 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:05:30.455 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:05:30.455 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:06:25.578 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:06:25.578 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:06:25.578 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:06:25.578 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:06:25.578 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:06:25.579 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:06:25.579 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:06:25.579 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:08:06.299 [http-nio-8090-exec-8] INFO  c.c.s.d.c.c.CartController - [queryHasStockCartsCount,219] - 查询用户购物车有库存商品数量
+21:08:06.345 [http-nio-8090-exec-10] INFO  c.a.d.p.DruidDataSource - [info,106] - {dataSource-1} inited
+21:08:06.544 [http-nio-8090-exec-10] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,45] - name =  rate=0.0 pageSize = 3 pageNum =1
+21:08:06.544 [http-nio-8090-exec-10] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,49] - 查询所有书籍单品信息
+21:08:26.31 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:08:26.31 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:08:26.31 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:08:26.32 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:08:26.32 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:08:26.32 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:08:26.32 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:08:26.32 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:10:01.128 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:10:01.129 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:10:01.129 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:10:01.129 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:10:01.134 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:10:01.135 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:10:01.135 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:10:01.135 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:10:31.946 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:10:31.946 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:10:31.946 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:10:31.946 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:10:31.947 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:10:31.947 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:10:31.947 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:10:31.947 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:10:37.753 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:10:37.753 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:10:37.753 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:10:37.754 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:10:37.754 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:10:37.754 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:10:37.754 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:10:37.754 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:11:02.764 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:11:02.764 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:11:02.765 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:11:02.765 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:11:02.766 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:11:02.766 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:11:02.766 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:11:02.767 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:11:48.777 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=848C21B3B309C9598D626A8BED170646
+21:11:48.777 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:11:48.777 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:11:48.777 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart
+21:12:07.117 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:12:07.117 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:12:07.117 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:12:07.117 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:12:07.119 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:12:07.119 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:12:07.119 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:12:07.119 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:12:38.134 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:12:38.135 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:12:38.135 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:12:38.135 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:12:38.135 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:12:38.135 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:12:38.135 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:12:38.135 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:16:01.865 [http-nio-8090-exec-9] INFO  c.c.s.d.c.c.CartController - [queryHasStockCartsCount,219] - 查询用户购物车有库存商品数量
+21:16:01.870 [http-nio-8090-exec-10] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,45] - name =  rate=0.0 pageSize = 3 pageNum =1
+21:16:01.870 [http-nio-8090-exec-10] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,49] - 查询所有书籍单品信息
+21:16:10.419 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:16:10.419 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:16:10.419 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:16:10.419 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart
+21:18:34.810 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:18:34.810 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:18:34.810 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:18:34.810 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:18:34.810 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:18:34.810 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:18:34.810 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:18:34.810 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:19:25.727 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:19:25.727 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:19:25.727 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:19:25.727 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:19:25.727 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:19:25.727 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:19:25.727 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:19:25.728 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:19:58.188 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:19:58.189 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:19:58.189 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:19:58.189 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:19:58.189 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:19:58.189 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:19:58.189 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:19:58.189 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:20:29.359 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:20:29.359 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:20:29.359 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:20:29.359 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:20:30.362 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:20:30.362 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:20:30.363 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:20:30.363 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:21:03.224 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:21:03.224 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:21:03.224 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:21:03.225 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:21:03.226 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:21:03.227 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:21:03.227 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:21:03.227 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:21:32.500 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:21:32.500 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:21:32.500 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:21:32.501 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:21:32.501 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:21:32.501 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:21:32.501 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:21:32.502 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:22:00.552 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:22:00.553 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:22:00.553 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:22:00.553 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:22:01.557 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:22:01.558 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:22:01.558 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:22:01.558 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:22:40.89 [http-nio-8090-exec-9] INFO  c.c.s.d.c.c.CartController - [queryHasStockCartsCount,219] - 查询用户购物车有库存商品数量
+21:22:40.96 [http-nio-8090-exec-8] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,45] - name =  rate=0.0 pageSize = 3 pageNum =1
+21:22:40.97 [http-nio-8090-exec-8] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,49] - 查询所有书籍单品信息
+21:23:17.10 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:23:17.10 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:23:17.10 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:23:17.11 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:23:18.04 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:23:18.05 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:23:18.05 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:23:18.05 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:23:26.132 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:23:26.132 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:23:26.133 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:23:26.133 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:23:27.138 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:23:27.138 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:23:27.138 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:23:27.138 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:23:32.566 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:23:32.566 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:23:32.566 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:23:32.566 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:23:32.572 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:23:32.572 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:23:32.572 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:23:32.572 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:23:33.184 [http-nio-8090-exec-9] INFO  c.c.s.d.c.c.CartController - [queryHasStockCartsCount,219] - 查询用户购物车有库存商品数量
+21:23:33.240 [http-nio-8090-exec-8] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,45] - name =  rate=0.0 pageSize = 3 pageNum =1
+21:23:33.240 [http-nio-8090-exec-8] INFO  c.c.s.d.c.b.BookController - [getIsSellBookSkuList,49] - 查询所有书籍单品信息
+21:24:42.868 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:24:42.869 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:24:42.869 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:24:42.869 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:24:43.869 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:24:43.870 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:24:43.870 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:24:43.870 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:25:41.844 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:25:41.844 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:25:41.845 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:25:41.845 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:25:41.845 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:25:41.845 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:25:41.845 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:25:41.845 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:26:25.861 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:26:25.861 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:26:25.862 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:26:25.862 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:26:25.862 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:26:25.862 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:26:25.862 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:26:25.862 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:28:00.176 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:28:00.176 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:28:00.176 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:28:00.176 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:28:00.178 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:28:00.178 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:28:00.178 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:28:00.178 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:28:06.35 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:28:06.35 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:28:06.35 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:28:06.35 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:28:06.39 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:28:06.39 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:28:06.39 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:28:06.39 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:28:36.833 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:28:36.834 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:28:36.834 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:28:36.834 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:28:37.835 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:28:37.836 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:28:37.836 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:28:37.836 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:28:42.116 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:28:42.117 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:28:42.117 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:28:42.117 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:28:42.120 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:28:42.120 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:28:42.120 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:28:42.120 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:28:52.926 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:28:52.927 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:28:52.927 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:28:52.927 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:28:52.935 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:28:52.935 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:28:52.935 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:28:52.935 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:29:35.427 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:29:35.427 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:29:35.427 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:29:35.427 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:29:35.429 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:29:35.429 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:29:35.429 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:29:35.429 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:30:41.718 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:30:41.719 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:30:41.719 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:30:41.719 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:30:41.719 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:30:41.719 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:30:41.719 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:30:41.719 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:30:54.178 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:30:54.178 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:30:54.178 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:30:54.178 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:30:54.178 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:30:54.178 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:30:54.178 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:30:54.178 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:31:21.78 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:31:21.78 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:31:21.78 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:31:21.78 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:31:21.81 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:31:21.81 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:31:21.81 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:31:21.81 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:31:41.690 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:31:41.691 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:31:41.691 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:31:41.691 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:31:41.693 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:31:41.693 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:31:41.693 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:31:41.693 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:32:01.478 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:32:01.478 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:32:01.478 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:32:01.479 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:32:01.480 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:32:01.480 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:32:01.480 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:32:01.480 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:32:22.50 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:32:22.51 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:32:22.51 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:32:22.51 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:32:22.51 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:32:22.51 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:32:22.51 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:32:22.52 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:32:33.355 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:32:33.355 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:32:33.355 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:32:33.355 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:32:34.361 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:32:34.361 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:32:34.361 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:32:34.361 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:32:36.64 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:32:36.64 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:32:36.64 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:32:36.64 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:32:36.66 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:32:36.66 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:32:36.67 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:32:36.67 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:33:58.764 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:33:58.765 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:33:58.765 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:33:58.765 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:33:59.768 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:33:59.769 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:33:59.769 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:33:59.769 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:34:01.686 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:34:01.686 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:34:01.686 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:34:01.686 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:34:01.687 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:34:01.687 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:34:01.687 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:34:01.687 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:34:06.219 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:34:06.219 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:34:06.220 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:34:06.220 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:34:06.220 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:34:06.220 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:34:06.220 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:34:06.221 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:34:31.83 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:34:31.83 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:34:31.83 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:34:31.83 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:34:31.83 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:34:31.83 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:34:31.83 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:34:31.83 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:34:55.59 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:34:55.60 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:34:55.60 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:34:55.60 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:34:55.61 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:34:55.61 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:34:55.61 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:34:55.61 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:35:10.449 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:35:10.449 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:35:10.449 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:35:10.449 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:35:10.450 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:35:10.450 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:35:10.450 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:35:10.450 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:35:25.553 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:35:25.553 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:35:25.554 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:35:25.554 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:35:25.555 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:35:25.555 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:35:25.555 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:35:25.555 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:36:15.994 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:36:15.994 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:36:15.995 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:36:15.995 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:36:15.995 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:36:15.995 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:36:15.995 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:36:15.995 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:36:44.944 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:36:44.944 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:36:44.944 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:36:44.944 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:36:44.944 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:36:44.944 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:36:44.944 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:36:44.944 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:36:53.387 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:36:53.387 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:36:53.388 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:36:53.388 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:36:53.388 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:36:53.388 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:36:53.388 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:36:53.388 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:37:22.865 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:37:22.865 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:37:22.865 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:37:22.865 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:37:22.866 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:37:22.866 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:37:22.866 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:37:22.866 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:37:36.584 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:37:36.584 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:37:36.584 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:37:36.584 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:37:36.585 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:37:36.585 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:37:36.585 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:37:36.585 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:38:16.712 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:38:16.713 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:38:16.713 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:38:16.713 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:38:16.714 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:38:16.714 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:38:16.714 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:38:16.714 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:39:06.222 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:39:06.222 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:39:06.222 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:39:06.222 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:39:06.223 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:39:06.223 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:39:06.223 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:39:06.223 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:39:29.97 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:39:29.97 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:39:29.97 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:39:29.97 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:39:29.99 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:39:29.100 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:39:29.100 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:39:29.100 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:41:00.693 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:41:00.694 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:41:00.694 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:41:00.694 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:41:00.694 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:41:00.694 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:41:00.695 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:41:00.695 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:41:56.411 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:41:56.411 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:41:56.411 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:41:56.412 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:41:56.412 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:41:56.412 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:41:56.412 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:41:56.413 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:43:15.268 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:43:15.268 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:43:15.268 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:43:15.268 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:43:15.268 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:43:15.269 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:43:15.269 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:43:15.269 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:44:25.932 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:44:25.932 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:44:25.932 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:44:25.932 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:44:26.930 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:44:26.931 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:44:26.931 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:44:26.931 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:44:29.229 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:44:29.229 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:44:29.229 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:44:29.229 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:44:29.234 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:44:29.234 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:44:29.235 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:44:29.235 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:46:35.495 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:46:35.495 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:46:35.495 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:46:35.495 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:46:35.497 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:46:35.497 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:46:35.497 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:46:35.497 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:46:53.672 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:46:53.672 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:46:53.672 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:46:53.672 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:46:54.675 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:46:54.675 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:46:54.675 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:46:54.675 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:46:56.19 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:46:56.19 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:46:56.19 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:46:56.19 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:46:56.23 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:46:56.23 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:46:56.23 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:46:56.23 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:47:59.759 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:47:59.759 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:47:59.760 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:47:59.760 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:47:59.761 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:47:59.761 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:47:59.761 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:47:59.761 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:48:34.451 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:48:34.451 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:48:34.451 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:48:34.452 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:48:34.453 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:48:34.453 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:48:34.454 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:48:34.454 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:48:56.408 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:48:56.409 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:48:56.409 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:48:56.409 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:48:56.410 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:48:56.410 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:48:56.410 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:48:56.410 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:49:17.109 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:49:17.109 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:49:17.109 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:49:17.109 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:49:17.109 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:49:17.109 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:49:17.109 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:49:17.109 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:50:23.493 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:50:23.493 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:50:23.493 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:50:23.493 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:50:23.548 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:50:23.548 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:50:23.549 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:50:23.549 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:50:24.499 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:50:24.500 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:50:24.500 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:50:24.500 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:50:25.504 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:50:25.504 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:50:25.504 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:50:25.504 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:51:03.865 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:51:03.865 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:51:03.865 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:51:03.865 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:51:04.873 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:51:04.873 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:51:04.874 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:51:04.874 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:51:06.868 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:51:06.868 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:51:06.868 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:51:06.868 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:51:06.869 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:51:06.870 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:51:06.870 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:51:06.870 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:51:22.246 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:51:22.246 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:51:22.246 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:51:22.246 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:51:22.248 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:51:22.248 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:51:22.248 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:51:22.248 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:52:02.200 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:52:02.200 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:52:02.200 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:52:02.200 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:52:02.200 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:52:02.200 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:52:02.200 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:52:02.200 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:52:10.616 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:52:10.616 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:52:10.616 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:52:10.617 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:52:10.618 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:52:10.618 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:52:10.618 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:52:10.618 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:56:30.266 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:56:30.266 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:56:30.266 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:56:30.266 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:56:30.266 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:56:30.266 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:56:30.267 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:56:30.267 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:57:05.965 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:57:05.965 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:57:05.965 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:57:05.965 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:57:05.965 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:57:05.965 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:57:05.965 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:57:05.965 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+21:57:47.137 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:57:47.137 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+21:57:47.137 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:57:47.137 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+21:57:47.137 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:57:47.137 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+21:57:47.137 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+21:57:47.137 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+22:06:59.912 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+22:06:59.912 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+22:06:59.912 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+22:06:59.912 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+22:06:59.913 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+22:06:59.913 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+22:06:59.914 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+22:06:59.914 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+22:07:08.391 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+22:07:08.391 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+22:07:08.391 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+22:07:08.391 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+22:07:08.392 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+22:07:08.392 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+22:07:08.392 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+22:07:08.392 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+22:07:40.454 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+22:07:40.454 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+22:07:40.455 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+22:07:40.455 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+22:07:40.455 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+22:07:40.456 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+22:07:40.456 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+22:07:40.456 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+22:08:34.583 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+22:08:34.584 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+22:08:34.584 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+22:08:34.584 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+22:08:35.586 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+22:08:35.587 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+22:08:35.587 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+22:08:35.587 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+22:09:07.357 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+22:09:07.357 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+22:09:07.358 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+22:09:07.358 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+22:09:09.196 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+22:09:09.196 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+22:09:09.196 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+22:09:09.196 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+22:09:13.765 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+22:09:13.766 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+22:09:13.766 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+22:09:13.766 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+22:09:13.766 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+22:09:13.766 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+22:09:13.766 [http-nio-8090-exec-8] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+22:09:13.766 [http-nio-8090-exec-9] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+22:09:57.662 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+22:09:57.662 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+22:09:57.662 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+22:09:57.663 [http-nio-8090-exec-7] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+22:09:58.664 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+22:09:58.664 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+22:09:58.664 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+22:09:58.664 [http-nio-8090-exec-10] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+22:10:00.766 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+22:10:00.766 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+22:10:00.766 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+22:10:00.767 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+22:10:00.767 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+22:10:00.767 [http-nio-8090-exec-1] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+22:10:00.767 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+22:10:00.767 [http-nio-8090-exec-2] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+22:11:06.318 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+22:11:06.318 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+22:11:06.319 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+22:11:06.319 [http-nio-8090-exec-3] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+22:11:07.330 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+22:11:07.330 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+22:11:07.330 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+22:11:07.330 [http-nio-8090-exec-4] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+22:11:11.785 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+22:11:11.786 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+22:11:11.786 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+22:11:11.786 [http-nio-8090-exec-6] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/cart/checkout
+22:11:11.787 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,44] - request.getHeader("Cookie") = JSESSIONID=06EF10AE66A8CB9910944F41BED3ECA6
+22:11:11.787 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,45] - request.getHeader("token") = 
+22:11:11.787 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,46] - accountMap = {}
+22:11:11.787 [http-nio-8090-exec-5] INFO  c.c.s.d.c.LogCostInterceptor - [preHandle,47] - 当前请求的接口 = /dzy/addr
+22:11:28.468 [restartedMain] INFO  c.c.s.d.DzyApplication - [logStarting,50] - Starting DzyApplication on DESKTOP-85KN65G with PID 13076 (started by admin in C:\开发\项目\springboot\dzy2.0\demo 微信)
+22:11:28.471 [restartedMain] INFO  c.c.s.d.DzyApplication - [logStartupProfileInfo,650] - The following profiles are active: dev
+22:11:28.531 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - [logTo,225] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+22:11:28.532 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - [logTo,225] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+22:11:30.171 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer - [initialize,90] - Tomcat initialized with port(s): 80 (http)
+22:11:30.183 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-80"]
+22:11:30.193 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+22:11:30.193 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.21]
+22:11:30.289 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+22:11:30.289 [restartedMain] INFO  o.s.w.c.ContextLoader - [prepareWebApplicationContext,283] - Root WebApplicationContext: initialization completed in 1757 ms
+22:11:31.252 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - [initialize,171] - Initializing ExecutorService 'applicationTaskExecutor'
+22:11:31.546 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - [startServer,57] - LiveReload server is running on port 35729
+22:11:31.568 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-80"]
+22:11:31.579 [restartedMain] ERROR o.a.c.u.LifecycleBase - [log,175] - Failed to start component [Connector[HTTP/1.1-80]]
+org.apache.catalina.LifecycleException: Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1008)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:227)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:263)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:195)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.startWebServer(ServletWebServerApplicationContext.java:296)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.finishRefresh(ServletWebServerApplicationContext.java:162)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:552)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:742)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:389)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1213)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1202)
+	at com.c1801.spring.dzy.DzyApplication.main(DzyApplication.java:22)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:230)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:213)
+	at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1124)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1210)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:585)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1005)
+	... 19 common frames omitted
+22:11:31.583 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Pausing ProtocolHandler ["http-nio-80"]
+22:11:31.584 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Stopping service [Tomcat]
+22:11:31.599 [restartedMain] INFO  o.a.c.u.LifecycleBase - [log,173] - The stop() method was called on component [StandardServer[-1]] after stop() had already been called. The second call will be ignored.
+22:11:31.600 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Stopping ProtocolHandler ["http-nio-80"]
+22:11:31.600 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Destroying ProtocolHandler ["http-nio-80"]
+22:11:31.602 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - [logMessage,135] - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+22:11:31.604 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - [report,40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 80 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 80, or configure this application to listen on another port.
+
+22:11:31.608 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - [shutdown,208] - Shutting down ExecutorService 'applicationTaskExecutor'
+22:11:50.143 [restartedMain] INFO  c.c.s.d.DzyApplication - [logStarting,50] - Starting DzyApplication on DESKTOP-85KN65G with PID 2556 (started by admin in C:\开发\项目\springboot\dzy2.0\demo 微信)
+22:11:50.146 [restartedMain] INFO  c.c.s.d.DzyApplication - [logStartupProfileInfo,650] - The following profiles are active: dev
+22:11:50.209 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - [logTo,225] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+22:11:50.209 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - [logTo,225] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+22:11:51.919 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer - [initialize,90] - Tomcat initialized with port(s): 80 (http)
+22:11:51.936 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-80"]
+22:11:51.946 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+22:11:51.947 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.21]
+22:11:52.41 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+22:11:52.41 [restartedMain] INFO  o.s.w.c.ContextLoader - [prepareWebApplicationContext,283] - Root WebApplicationContext: initialization completed in 1832 ms
+22:11:52.970 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - [initialize,171] - Initializing ExecutorService 'applicationTaskExecutor'
+22:11:53.285 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - [startServer,57] - LiveReload server is running on port 35729
+22:11:53.311 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-80"]
+22:11:53.333 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer - [start,202] - Tomcat started on port(s): 80 (http) with context path ''
+22:11:53.336 [restartedMain] INFO  c.c.s.d.DzyApplication - [logStarted,59] - Started DzyApplication in 3.509 seconds (JVM running for 4.073)
+22:11:55.153 [http-nio-80-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+22:11:55.153 [http-nio-80-exec-1] INFO  o.s.w.s.DispatcherServlet - [initServletBean,524] - Initializing Servlet 'dispatcherServlet'
+22:11:55.159 [http-nio-80-exec-1] INFO  o.s.w.s.DispatcherServlet - [initServletBean,546] - Completed initialization in 6 ms
+22:13:27.742 [restartedMain] INFO  c.c.s.d.DzyApplication - [logStarting,50] - Starting DzyApplication on DESKTOP-85KN65G with PID 13324 (started by admin in C:\开发\项目\springboot\dzy2.0\demo 微信)
+22:13:27.746 [restartedMain] INFO  c.c.s.d.DzyApplication - [logStartupProfileInfo,650] - The following profiles are active: dev
+22:13:27.804 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - [logTo,225] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+22:13:27.804 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - [logTo,225] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+22:13:29.390 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer - [initialize,90] - Tomcat initialized with port(s): 80 (http)
+22:13:29.403 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-80"]
+22:13:29.413 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+22:13:29.413 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.21]
+22:13:29.508 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+22:13:29.508 [restartedMain] INFO  o.s.w.c.ContextLoader - [prepareWebApplicationContext,283] - Root WebApplicationContext: initialization completed in 1704 ms
+22:13:30.409 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - [initialize,171] - Initializing ExecutorService 'applicationTaskExecutor'
+22:13:30.728 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - [startServer,57] - LiveReload server is running on port 35729
+22:13:30.752 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-80"]
+22:13:30.774 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer - [start,202] - Tomcat started on port(s): 80 (http) with context path ''
+22:13:30.776 [restartedMain] INFO  c.c.s.d.DzyApplication - [logStarted,59] - Started DzyApplication in 3.358 seconds (JVM running for 3.878)
+22:13:46.176 [http-nio-80-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+22:13:46.176 [http-nio-80-exec-1] INFO  o.s.w.s.DispatcherServlet - [initServletBean,524] - Initializing Servlet 'dispatcherServlet'
+22:13:46.182 [http-nio-80-exec-1] INFO  o.s.w.s.DispatcherServlet - [initServletBean,546] - Completed initialization in 5 ms
+22:13:46.423 [http-nio-80-exec-2] INFO  c.a.d.p.DruidDataSource - [info,106] - {dataSource-1} inited
+22:31:59.147 [Thread-6] INFO  o.s.s.c.ThreadPoolTaskExecutor - [shutdown,208] - Shutting down ExecutorService 'applicationTaskExecutor'
+22:31:59.151 [Thread-6] INFO  c.a.d.p.DruidDataSource - [info,106] - {dataSource-1} closed
+22:32:18.866 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [buildDefaultMergedContextConfiguration,308] - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.c1801.spring.dzy.DzyApplicationTests], using SpringBootContextLoader
+22:32:18.871 [main] INFO  o.s.t.c.s.AbstractContextLoader - [generateDefaultLocations,264] - Could not detect default resource locations for test class [com.c1801.spring.dzy.DzyApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+22:32:18.872 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - [detectDefaultConfigurationClasses,83] - Could not detect default configuration classes for test class [com.c1801.spring.dzy.DzyApplicationTests]: DzyApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+22:32:18.965 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getOrFindConfigurationClasses,235] - Found @SpringBootConfiguration com.c1801.spring.dzy.DzyApplication for test class com.c1801.spring.dzy.DzyApplicationTests
+22:32:19.47 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getDefaultTestExecutionListenerClassNames,248] - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+22:32:19.60 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - [getTestExecutionListeners,177] - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@f736069, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6da21078, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@7fee8714, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@4229bb3f, org.springframework.test.context.support.DirtiesContextTestExecutionListener@56cdfb3b, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2b91004a, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@20ccf40b, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@2fb3536e, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@169e6180, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@35aea049, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7205765b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@47987356]
+22:32:19.311 [main] INFO  c.c.s.d.DzyApplicationTests - [logStarting,50] - Starting DzyApplicationTests on DESKTOP-85KN65G with PID 14548 (started by admin in C:\开发\项目\springboot\dzy2.0\demo 微信)
+22:32:19.311 [main] INFO  c.c.s.d.DzyApplicationTests - [logStartupProfileInfo,650] - The following profiles are active: dev
+22:32:21.648 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - [initialize,171] - Initializing ExecutorService 'applicationTaskExecutor'
+22:32:22.75 [main] INFO  c.c.s.d.DzyApplicationTests - [logStarted,59] - Started DzyApplicationTests in 2.986 seconds (JVM running for 3.798)
+22:32:22.344 [main] INFO  c.a.d.p.DruidDataSource - [info,106] - {dataSource-1} inited
+22:32:22.825 [Thread-3] INFO  o.s.s.c.ThreadPoolTaskExecutor - [shutdown,208] - Shutting down ExecutorService 'applicationTaskExecutor'
+22:32:22.830 [Thread-3] INFO  c.a.d.p.DruidDataSource - [info,106] - {dataSource-1} closed

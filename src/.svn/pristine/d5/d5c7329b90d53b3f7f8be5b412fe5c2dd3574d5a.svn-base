@@ -1,0 +1,65 @@
+package com.c1801.spring.dzy.service;
+
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.mapper.CouponMapper;
+import com.c1801.spring.dzy.model.Coupon;
+import com.c1801.spring.dzy.model.UserCoupon;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * 黄
+ * 优惠券
+ */
+@Service
+public class CouponService {
+    @Autowired
+    CouponMapper couponMapper;
+
+    /**
+     * 满足消费门槛发送优惠券
+     * @param id                优惠券id
+     * @param remarks           备注
+     * @param expirationDate    截止日期
+     */
+    public void sendCouponByMoney(Integer id, String remarks, Date expirationDate){
+        HashMap<String, Integer> map = couponMapper.queryCouponByMoney(20.40);
+        Integer couponID = map.get("id");
+        Integer count = map.get("count");
+        UserCoupon coupon = new UserCoupon(id, couponID,remarks,expirationDate);
+        for (Integer i = 0; i < count; i++) {
+            couponMapper.sendCoupon(coupon);
+        }
+    }
+
+    /**
+     * 发送优惠券
+     * @param coupon
+     */
+    public Boolean sendCoupon(UserCoupon coupon){
+        return couponMapper.sendCoupon(coupon);
+    }
+
+    /**
+     * 使用优惠券
+     * @param id
+     */
+    public Boolean useCoupon(Integer id){
+        return couponMapper.useCoupon(id,1);
+    }
+
+    /**
+     * 查询用户某张优惠券的信息，若查询不到则被使用了
+     * @param id        优惠券id
+     * @param userId    用户id
+     * @return Coupon   {id,name,remark备注,type类型,amount费用,c.per_limit使用门槛,expiration_date截止日期,c.expires_in,uc.create_date,uc.update_date}
+     */
+    public Coupon queryCouponByUser(Integer id , Integer userId){
+        return couponMapper.queryCouponByUserID(id,userId,0);
+    }
+}

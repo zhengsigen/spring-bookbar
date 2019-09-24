@@ -1,0 +1,89 @@
+package com.c1801.spring.dzy.service;
+
+import com.c1801.spring.dzy.mapper.BookSkuMapper;
+import com.c1801.spring.dzy.mapper.CommentApplaudMapper;
+import com.c1801.spring.dzy.mapper.CommentMapper;
+import com.c1801.spring.dzy.model.Applaud;
+import com.c1801.spring.dzy.model.BookComment;
+import com.c1801.spring.dzy.model.BookInfo;
+import com.c1801.spring.dzy.model.BookMessage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
+
+@Service
+@Transactional
+public class CommentService {
+    @Autowired
+    CommentMapper commentMapper;
+
+    @Autowired
+    CommentApplaudMapper commentApplaudMapper;
+
+    @Autowired
+    BookSkuMapper bookSkuMapper;
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+
+    //查询一级评论
+    public List<BookComment> queryCommentList(Integer bookId, Integer pageSize, Integer pageNum, Integer userId) {
+        BookComment bookComment = commentMapper.queryCommentFirst(bookId);
+        System.out.println("bookComment"+bookComment);
+        System.out.println("bookCommentId"+bookComment.getId());
+        Integer isApplaud = commentApplaudMapper.isApplaud(bookComment.getId(),userId);
+        System.out.println("isApplaud"+isApplaud);
+        if(isApplaud == 1){
+            bookComment.setApplaud(true);
+        }else{
+            bookComment.setApplaud(false);
+        }
+
+        List<BookComment> list = commentMapper.queryComment(bookId);
+        for(int i=0;i<list.size();i++){
+            Integer isApplaud1 = commentApplaudMapper.isApplaud(list.get(i).getId(),userId);
+            System.out.println("isApplaud"+isApplaud);
+            if(isApplaud1 == 1){
+                list.get(i).setApplaud(true);
+            }else{
+                list.get(i).setApplaud(false);
+            }
+        }
+        list.add(0,bookComment);
+        return list;
+    }
+
+    //查询一级评论包括底下的所有回复
+    public BookComment queryCommentAndMessageList(Integer commentId,Integer bookId, Integer pageSize, Integer pageNum, Integer userId) {
+        System.out.println("commentId:"+commentId);
+        BookComment bookComment = commentMapper.queryCommentById(commentId);
+        //查看用户是否点赞
+        Integer isApplaud = commentApplaudMapper.isApplaud(bookComment.getId(),userId);
+        if(isApplaud == 1){
+            bookComment.setApplaud(true);
+        }else{
+            bookComment.setApplaud(false);
+        }
+        //查找底下的所有回复
+        List<BookMessage> BookMessage = commentMapper.queryMessageById(commentId);
+        //查找回复该评论的书籍信息
+        BookInfo  bookInfo = bookSkuMapper.getIsSellBookInfo(bookId);
+        //判断用户是否回复过此评论
+        Integer isReplied = commentMapper.isReplied(commentId,userId);
+        if(isReplied == 1){
+            bookComment.setReplied(true);
+        }else{
+            bookComment.setReplied(false);
+        }
+        //获取回复评论人的用户信息
+        List<Applaud> applaud  = commentApplaudMapper.getUserInfo(commentId);
+        System.out.println(applaud);
+        bookComment.setBookMessage(BookMessage);
+        bookComment.setBookInfo(bookInfo);
+        bookComment.setUserInfo(applaud);
+        return bookComment;
+
+    }
+}

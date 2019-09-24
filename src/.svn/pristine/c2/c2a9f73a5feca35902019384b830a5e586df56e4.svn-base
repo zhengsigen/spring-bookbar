@@ -1,0 +1,188 @@
+package com.c1801.spring.dzy.controller.user;
+
+import com.alibaba.fastjson.JSON;
+import com.c1801.spring.dzy.common.RandomIdCreate;
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.config.UserValids;
+import com.c1801.spring.dzy.config.WXAuthorizedValids;
+import com.c1801.spring.dzy.mapper.UserMapper;
+import com.c1801.spring.dzy.model.*;
+import com.c1801.spring.dzy.service.UserService;
+import com.c1801.spring.dzy.service.WXUserService;
+import org.hibernate.validator.constraints.pl.REGON;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
+
+import javax.servlet.http.HttpSession;
+import java.io.UnsupportedEncodingException;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+@RestController
+@Transactional
+@RequestMapping("/dzy/wx")
+public class UserWXLoginController {
+
+    private HttpSession phoneSession;
+    RestTemplate restTemplate = new RestTemplate();
+
+    /**
+     * 微信授权存储中心
+     */
+    @Autowired
+    WXAuthorizedValids wxAuthorizedValids;
+    /**
+     * 微信公众号
+     */
+    @Autowired
+    WXSubscription wxSubscription;
+
+    /**
+     * 随机生成用户id
+     */
+    @Autowired
+    RandomIdCreate randomIdCreate;
+
+    @Autowired
+    UserMapper userMapper;
+    /**
+     * 微信用户service
+     */
+    @Autowired
+    WXUserService wxUserService;
+
+    /**
+     * 已发短信的用户手机短信集合
+     */
+    @Autowired
+    private UserValids userValid;
+
+    /**
+     * 验证码有效时长
+     */
+    private Long validTime = 300000L;
+
+    /**
+     *
+     */
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+
+    //根据用户code返回用户信息
+    @GetMapping("/login")
+    public ResData getCode(@RequestParam("code") String code, @RequestParam(value = "state", required = false) String state, HttpSession session) throws UnsupportedEncodingException {
+        logger.info("state:" + state);
+        //清除多余的二维码
+        AuthorizedValids authorizedValids = null;
+        //如果是pc端登录
+        if (state != null) {
+            phoneSession = session;
+            //但是state查询不到，说明二维码失效
+            authorizedValids = wxAuthorizedValids.getWxAuthorizedValids().get(state);
+            if (authorizedValids == null) return ResData.ofFail(1017, "该二维码已失效，请重新获取");
+        }
+        //获取微信授权的用户信息
+        String tokenUrl = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=" + wxSubscription.getAppid() + "&secret=" + wxSubscription.getAppsecret() + "&code=" + code + "&grant_type=authorization_code";
+        ResponseEntity<String> tokenlist = restTemplate.getForEntity(tokenUrl, String.class);
+        LinkedHashMap hashMap = JSON.parseObject(tokenlist.getBody(), LinkedHashMap.class);
+        String access_token = (String) hashMap.get("access_token");
+        String openId = (String) hashMap.get("openid");
+        String userUrl = "https://api.weixin.qq.com/sns/userinfo?access_token=" + access_token + "&openid=" + openId + "&lang=zh_CN";
+        ResponseEntity<String> user = restTemplate.getForEntity(userUrl, String.class);
+        LinkedHashMap userInfoMap = JSON.parseObject(user.getBody(), LinkedHashMap.class);
+
+        //如果是PC扫码，需将数据返回给pc端
+        if (state != null) {
+            authorizedValids.setLinkedHashMap(userInfoMap);
+        }
+        //查询登录的用户是新用户还是老用户
+        String openid = (String) userInfoMap.get("openid");
+        User queryUser = wxUserService.queryUserByOpenId(openid);
+        //不等于null说明是老用户登录
+        if (queryUser != null) {
+            session.setAttribute("user", queryUser);
+            //如果是pc端，需将用户传到到pc端
+            if (state != null) {
+                authorizedValids.setUser(queryUser);
+                wxAuthorizedValids.getWxAuthorizedValids().put(state, authorizedValids);
+            }
+            logger.info("老用户：" + wxAuthorizedValids.getWxAuthorizedValids().get(state));
+            return ResData.of(0, "老用户", queryUser);
+        }
+        session.setAttribute("userInfoMap", userInfoMap);
+        //如果是pc端，需将新用户传到pc端
+        if (state != null) {
+            wxAuthorizedValids.getWxAuthorizedValids().put(state, authorizedValids);
+            logger.info("新用户：" + wxAuthorizedValids.getWxAuthorizedValids().get(state));
+        }
+        return ResData.of(1, "新用户", userInfoMap.get("headimgurl"));
+    }
+
+    //新增用户
+    @PostMapping
+    public ResData addUser(HttpSession session) throws UnsupportedEncodingException {
+        logger.info("新用户新增");
+        LinkedHashMap userInfoMap = (LinkedHashMap) session.getAttribute("userInfoMap");
+        logger.info("userInfoMap：" + userInfoMap);
+        if (userInfoMap == null) return ResData.ofFail(20013, "请先授权");
+        User addUser = new User();
+        String openid = (String) userInfoMap.get("openid");
+        addUser.setId(randomIdCreate.getNewUserId());
+        String addName = (String) userInfoMap.get("nickname");
+        String newAddName = new String(addName.getBytes("ISO-8859-1"), "utf-8");
+        addUser.setWxName(newAddName);
+        addUser.setOpenId(openid);
+        addUser.setCover((String) userInfoMap.get("headimgurl"));
+        //新增用户
+        ResData resData = wxUserService.addWXUser(addUser);
+        if (resData.getData() != null) {
+            session.setAttribute("user", resData.getData());
+        }
+        return resData;
+    }
+
+    //用户绑定
+    @PutMapping
+    public ResData UserBinding(@RequestParam("phone") String phone,
+                               @RequestParam("code") String code,
+                               HttpSession session) throws UnsupportedEncodingException {
+        //根据手机获取用户
+        User userByPhone = userMapper.getUserByPhone(phone);
+        if (userByPhone == null) {
+            return ResData.ofFail(10065, "手机号未注册");
+        }
+        if (userByPhone.getEnabled() == 0) {
+            return ResData.ofFail(2003, "该账号已被封");
+        }
+        if (userByPhone.getOpenId() != null) {
+            return ResData.ofFail(10074, "该用户已经被绑定");
+        }
+        LinkedHashMap userInfoMap = (LinkedHashMap) session.getAttribute("userInfoMap");
+        logger.info("userInfoMap：" + userInfoMap);
+        if (userInfoMap == null) return ResData.ofFail(20013, "请先授权");
+        ValidCode validCode1 = userValid.getUserValidsList().get(phone);
+        long currTime = System.currentTimeMillis();
+//        if(validCode1 == null || !validCode1.getCode().equals(code) || currTime- validCode1.getUpdateDate() > validTime) {
+//            return ResData.of(1007, "验证码错误或过期，请重新获取验证码", null);
+//       }
+        //验证通过移除验证码
+        userValid.getUserValidsList().remove(phone);
+        User user = new User();
+        String addName = (String) userInfoMap.get("nickname");
+        String newAddName = new String(addName.getBytes("ISO-8859-1"), "utf-8");
+        user.setOpenId((String) userInfoMap.get("openid"));
+        user.setWxName(newAddName);
+        user.setCover((String) userInfoMap.get("headimgurl"));
+        //用户绑定
+        ResData resData = wxUserService.UserBinding(user, phone);
+        if (resData.getData() != null) {
+            session.setAttribute("user", resData.getData());
+        }
+        return resData;
+    }
+}

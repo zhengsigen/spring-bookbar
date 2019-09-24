@@ -1,0 +1,109 @@
+
+package com.c1801.spring.dzy.config;
+
+import com.aliyuncs.exceptions.ClientException;
+import com.aliyuncs.exceptions.ServerException;
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.common.exception.CusBookException;
+import com.c1801.spring.dzy.common.exception.ShortException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.validation.FieldError;
+import org.springframework.web.HttpMediaTypeNotSupportedException;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.MissingServletRequestParameterException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+
+import java.text.ParseException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * user：少
+ * dateTime: 2019/6/13 11:24
+ * 处理异常请求
+ */
+@RestControllerAdvice
+public class ContronllerAdvice {
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+
+    @Autowired
+    private ExceptionEmial exceptionEmial;
+
+
+    @ExceptionHandler()
+    public ResData exception(Exception e){
+        logger.info("拦截异常e = " + e);
+
+        //参数验证 字段不符合要求
+        if(e instanceof MethodArgumentNotValidException){
+
+            List<FieldError> fieldErrors = ((MethodArgumentNotValidException) e).getBindingResult().getFieldErrors();
+            Map errorsMsg = new HashMap<>();
+            fieldErrors.forEach(error->{
+
+                errorsMsg.put(error.getField(),error.getDefaultMessage()+" 【"+error.getRejectedValue()+"】");
+            });
+            logger.info("errorcode = " + 1000);
+            return ResData.ofFail(1000,null,errorsMsg);
+
+        //缺少Servlet请求参数异常
+        }else if(e instanceof MissingServletRequestParameterException){
+            logger.info("errorcode = " + 1001);
+            return ResData.ofFail(1001,e.getMessage());
+
+        //"/dzy/q" 参数类型异常
+        }else if(e instanceof MethodArgumentTypeMismatchException){
+            logger.info("errorcode = " + 1002);
+            return ResData.ofFail(1002,e.getMessage());
+
+        //不支持的Http媒体类型异常
+        }else if(e instanceof HttpMediaTypeNotSupportedException){
+            logger.info("errorcode = " + 1003);
+            return ResData.ofFail(1003,e.getMessage());
+
+        //信息格式不匹配
+        }else if(e instanceof HttpMessageNotReadableException){
+            logger.info("errorcode = " + 1004);
+            return ResData.ofFail(1004,e.getMessage());
+
+        //请求方法不支持
+        }else if(e instanceof HttpRequestMethodNotSupportedException) {
+            logger.info("errorcode = " + 1005);
+            return ResData.ofFail(1005, "请求方法不匹配", e.getMessage());
+
+        //调用图书api异常
+        }else if (e instanceof CusBookException) {
+
+            //发送邮件
+//            exceptionEmial.exceptionEmial(e);
+            logger.error(e.getMessage());
+            return ResData.ofFail(1006, "请求图书api失败", e.getMessage());
+
+        //短信发送异常
+        } else if (e instanceof ClientException || e instanceof ServerException || e instanceof ShortException) {
+
+            //发送邮件
+            exceptionEmial.exceptionEmial(e);
+            logger.error(e.getMessage());
+            return ResData.ofFail(1007, "发送短信失败", e.getMessage());
+
+        //其他异常 后端代码异常
+        }
+        else {
+
+            e.printStackTrace();
+
+            return ResData.ofFail(2000,e.getMessage());
+        }
+    }
+
+}
+

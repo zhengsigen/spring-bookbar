@@ -1,0 +1,24 @@
+package com.c1801.spring.dzy.model;
+
+import lombok.Data;
+
+import java.util.List;
+
+@Data
+public class BookCollectionPack extends  BookCollection {
+
+    /**
+     * 书单推荐人数
+     */
+    private Integer contributorsCount;
+
+    /**
+     * 书单有多少本书
+     */
+    private Integer itemsCount;
+
+    /**
+     * 推荐书单显示的五个用户
+     */
+    private List<User> contributors;
+}

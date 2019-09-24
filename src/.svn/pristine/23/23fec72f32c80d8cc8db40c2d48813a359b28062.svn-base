@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.c1801.spring.dzy.mapper.OrderPayMapper">
+
+    <update id="orderPaymentRecord">
+        UPDATE order_pay_tb
+		SET
+		<if test="feePay!=null and feePay!=''">
+			fee_pay=#{feePay},
+		</if>
+		<if test="wxPay!=null and wxPay!=''">
+			wx_pay=#{wxPay},
+		</if>
+		pay_type=#{payType}
+		WHERE order_id = #{orderId}
+    </update>
+
+<!--	添加一条订单支付信息记录-->
+	<insert id="addOrderPayRecord">
+		insert order_pay_tb(order_id, final_price, auto_confirm_time, coupon_id, freight_id, coupon_amount, freight_amount)
+		values(#{orderId}, #{finalPrice}, #{autoConfirmTime},#{couponId}, #{freightId}, #{couponAmount}, #{freightAmount})
+	</insert>
+
+<!--	查询单个订单支付信息-->
+	<select id="queryOrderPay" resultType="orderPay">
+		select order_id, pay_type, fee_pay, wx_pay, auto_confirm_time, coupon_id, freight_id,  final_price
+		from order_pay_tb opt
+		where order_id = #{orderId}
+	</select>
+
+</mapper>

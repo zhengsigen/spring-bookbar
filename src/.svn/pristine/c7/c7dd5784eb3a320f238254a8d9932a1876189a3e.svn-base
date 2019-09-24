@@ -1,0 +1,144 @@
+package com.c1801.spring.dzy.controller.collection;
+
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.mapper.BookCollectionMapper;
+import com.c1801.spring.dzy.model.*;
+import com.c1801.spring.dzy.service.BookCategoryService;
+import com.c1801.spring.dzy.service.CollectionService;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import static javax.swing.UIManager.get;
+
+/**
+ * 书单
+ */
+@RestController
+@RequestMapping("/dzy/collection")
+public class CollectionController {
+
+    @Autowired
+    private BookCollectionMapper  bookCollectionMapper;
+
+    @Autowired
+    private CollectionService collectionService;
+
+    /**
+     * 何
+     * 查询首页书单列表数据
+     *
+     * @return
+     */
+    @GetMapping
+    public ResData getBookCollectionList() {
+        ResData resData = new ResData();
+        //获取书单详情和推荐用户集合
+        List<BookCollectionPack> bookCollection = bookCollectionMapper.getBookCollectionPack();
+        List<Integer>ids = new ArrayList<>();
+        for(BookCollectionPack b: bookCollection){
+            ids.add(b.getId());
+        }
+        //获取指定书单用户熟练，书籍数量
+        List<BookCollectionPack> counts = bookCollectionMapper.getCountByCollectionIds(ids);
+
+        //数据合并返回
+        for(BookCollectionPack b: bookCollection){
+            for(BookCollectionPack c :counts){
+                if(b.getId() == c.getId()){
+                    b.setContributorsCount(c.getContributorsCount());
+                    b.setItemsCount(c.getItemsCount());
+                }
+            }
+        }
+        return resData.ofSuccess(0, "查询成功", bookCollection);
+    }
+    /**
+     * @return
+     * @郑思根 新增指定书籍到指定书单
+     */
+    @PostMapping("/recommend")
+    public ResData addBookAppointCollection(@RequestBody RecommendBook recommendBook, HttpSession session) {
+        //如果书单id为空
+        if (recommendBook.getCollectionId() == null ||
+                //如果书籍id或者isbn都为空
+                (recommendBook.getBookId() == null && recommendBook.getIsbn() == null)) {
+            return ResData.ofFail(1001, "参数缺失");
+    }
+        User user = (User) session.getAttribute("user");
+        recommendBook.setUserId(user.getId());
+        return collectionService.addBookAppointCollection(recommendBook);
+    }
+
+    /**
+     * 黄
+     * 书单详情
+     * @param id
+     * @return
+     */
+    @GetMapping("/id")
+    public ResData getBookCollectionByID(@Param("id")Integer id){
+        ResData resData=new ResData();
+        return resData.ofSuccess(0,"查询成功",collectionService.getBookCollectionByID(id));
+    }
+
+    /**
+     * 黄
+     * 查询书单下的书籍
+     * @param id
+     * @return
+     */
+    @GetMapping("/book/id")
+    public ResData getBookCollectionBookByID(@Param("id")Integer id,@Param("page")Integer page){
+        Integer size = 5;
+        ResData resData=new ResData();
+        Pager pager = collectionService.getBookCollectionBookByID(id, (page - 1) * size);
+        return resData.ofSuccess(0,"查询成功",pager);
+    }
+
+
+    /***
+     * @郑思根
+     * 根据推荐id获取到 书单详情(书单推荐用户数量，书单推荐书籍数量)，书籍详情，用户详情，推荐详情
+     * @return
+     */
+    @GetMapping("/recommend")
+    public ResData queryRecommendAccountById(@RequestParam("id") Integer id){
+        if(id==null){
+            return ResData.ofFail(1001, "参数缺失");
+        }
+        return collectionService.queryRecommendAccountById(id);
+    }
+
+
+    /**
+     * 黄
+     * 点赞
+     * @param id            userID
+     * @param bookID
+     * @param collectionID
+     * @param state         true：点赞，false：取消点赞
+     */
+    @GetMapping("/applaud")
+    public ResData Applaud(@Param("id")Integer id ,@Param("bookID")Integer bookID ,@Param("collectionID")Integer collectionID, @Param("state") Boolean state){
+        boolean res = collectionService.Applaud(id, bookID, collectionID, state);
+        if(res){
+            return ResData.ofSuccess(0, "点赞-操作成功");
+        }else{
+            return ResData.ofSuccess(1001, "点赞-操作失败");
+        }
+    }
+
+    @GetMapping("/user/applaud")
+    public ResData queryApplaudBookByUser(@Param("id") Integer id,@Param("collectionID")Integer colllectionID){
+        List<Integer> applaudList = bookCollectionMapper.queryApplaudBookByUser(id, colllectionID);
+        System.out.println(applaudList);
+        return ResData.ofSuccess(0, "查询成功",applaudList);
+    }
+
+}

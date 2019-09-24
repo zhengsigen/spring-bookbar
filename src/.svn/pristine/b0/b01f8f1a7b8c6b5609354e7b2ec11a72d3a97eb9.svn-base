@@ -1,0 +1,32 @@
+package com.c1801.spring.dzy.controller.applaud;
+
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.mapper.CommentApplaudMapper;
+import com.c1801.spring.dzy.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.HttpSession;
+
+public class CommentApplaudController {
+    @Autowired
+    private CommentApplaudMapper commentApplaudMapper;
+    //点赞/取消点赞
+    @PostMapping
+    public ResData applaudOrCancle(@RequestParam("commentId") Integer commentId, HttpSession session) {
+        User u = (User) session.getAttribute("user");
+        Integer num = commentApplaudMapper.cancleApplaud(commentId, u.getId());
+        if (num == 1) {
+            ResData resData = new ResData();
+            resData.setCode(0);
+            resData.setData("成功");
+            return resData;
+        }
+        commentApplaudMapper.addApplaud(commentId, u.getId());
+        ResData resData = new ResData();
+        resData.setCode(0);
+        resData.setData("成功");
+        return resData;
+    }
+}

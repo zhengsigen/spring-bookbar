@@ -1,0 +1,108 @@
+package com.c1801.spring.dzy.service;
+
+import com.alibaba.fastjson.JSON;
+import com.c1801.spring.dzy.common.RandomIdCreate;
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.config.WXAuthorizedValids;
+import com.c1801.spring.dzy.mapper.UserMapper;
+import com.c1801.spring.dzy.model.AuthorizedValids;
+import com.c1801.spring.dzy.model.User;
+import com.c1801.spring.dzy.model.WXSubscription;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import javax.servlet.http.HttpSession;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+@Service
+public class WXUserService {
+
+    RestTemplate restTemplate = new RestTemplate();
+
+    /**
+     *
+     */
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+
+    @Autowired
+    UserMapper userMapper;
+
+    @Autowired
+    WXSubscription wxSubscription;
+
+    @Autowired
+    WXAuthorizedValids wxAuthorizedValids;
+
+    /**
+     * 根据openid查询用户
+     *
+     * @param openid
+     * @return
+     */
+    public User queryUserByOpenId(String openid) {
+        User user = userMapper.queryUserByOpenId(openid);
+        return user;
+    }
+
+    /**
+     * 新增用户并返回新增的用户
+     *
+     * @param user
+     * @return
+     */
+    public ResData addWXUser(User user) {
+        User queryUserByOpenId = userMapper.queryUserByOpenId(user.getOpenId());
+        if(queryUserByOpenId!=null){
+            return ResData.ofFail(10074, "用户已经注册");
+        }
+        //新增用户
+        userMapper.addWXUser(user);
+        //返回新增成功的用户
+        User msgUser = userMapper.queryUserByOpenId(user.getOpenId());
+        if (msgUser == null) {
+            return ResData.ofFail(10073, "新增失败");
+        }
+        return ResData.of(0, "新增成功", msgUser);
+    }
+
+    /**
+     * 用户绑定并返回绑定结果
+     *
+     * @param user
+     * @param phone
+     * @return
+     */
+    public ResData UserBinding(User user, String phone) {
+        User userByPhone = userMapper.getUserByPhone(phone);
+        //用户绑定
+        Integer integer = userMapper.UserBinding(user, userByPhone.getId());
+        if (integer <= 0) {
+            return ResData.ofSuccess(10075, "绑定失败");
+        }
+        //返回绑定后的用户
+        User msgUser = userMapper.queryUserByOpenId(user.getOpenId());
+        return ResData.of(0, "绑定成功", msgUser);
+    }
+
+    /**
+     * 整理失效或过期微信二维码
+     * @郑思根
+     * */
+    public void arrangementQR(String state,long validTime){
+        wxAuthorizedValids.getWxAuthorizedValids().remove(state);
+        //使用迭代器的remove()方法删除元素
+        Iterator<Map.Entry<String, AuthorizedValids>> it = wxAuthorizedValids.getWxAuthorizedValids().entrySet().iterator();
+        while(it.hasNext()){
+            Map.Entry<String, AuthorizedValids> entry = it.next();
+            long currTime = System.currentTimeMillis();
+            if(currTime - entry.getValue().getUpdateDate() > validTime)
+                it.remove();
+        }
+    }
+}

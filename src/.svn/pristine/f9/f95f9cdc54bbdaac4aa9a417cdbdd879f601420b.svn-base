@@ -1,0 +1,4 @@
+package com.c1801.spring.dzy.service;
+
+public class CollectionService {
+}

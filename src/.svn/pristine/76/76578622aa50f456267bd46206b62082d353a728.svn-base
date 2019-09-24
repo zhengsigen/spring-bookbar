@@ -1,0 +1,47 @@
+package com.c1801.spring.dzy.controller.comment;
+
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.mapper.CommentMapper;
+import com.c1801.spring.dzy.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
+
+@RestController
+@Transactional
+@RequestMapping("/dzy/comment")
+public class CommentController {
+
+    @Autowired
+    private CommentMapper commentMapper;
+    //删除二级评论
+    @DeleteMapping("/message")
+    public ResData delMessage(@RequestParam("messageId") Integer messageId, HttpSession session) {
+        User u = (User)session.getAttribute("user");
+        System.out.println("删除操作：messageId：" + messageId + "，userId：" + u.getId());
+        commentMapper.delMessage(messageId,u.getId());
+        ResData resData = new ResData();
+        resData.setCode(0);
+        resData.setData("删除成功");
+        System.out.println("返回结果：" + resData);
+        return resData;
+    }
+
+    //删除一级评论包括底下的二级评论
+    @DeleteMapping()
+    public ResData delComment(@RequestParam("commentId") Integer commentId, HttpSession session) {
+        User u = (User)session.getAttribute("user");
+        System.out.println("删除操作：messageId：" + commentId + "，userId：" + u.getId());
+        commentMapper.delMessageByCommentId(commentId);
+        commentMapper.delMessage(commentId,u.getId());
+        ResData resData = new ResData();
+        resData.setCode(0);
+        resData.setData("删除成功");
+        System.out.println("返回结果：" + resData);
+        return resData;
+    }
+
+
+}

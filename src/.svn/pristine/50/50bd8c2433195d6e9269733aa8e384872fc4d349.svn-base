@@ -1,0 +1,58 @@
+package com.c1801.spring.dzy.controller.applaud;
+
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.mapper.*;
+import com.c1801.spring.dzy.model.BookComment;
+import com.c1801.spring.dzy.model.RecommendAccount;
+import com.c1801.spring.dzy.model.User;
+import com.c1801.spring.dzy.model.UserSubscribe;
+import com.c1801.spring.dzy.service.ApplaudService;
+import com.c1801.spring.dzy.service.MessageTemplateService;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.util.List;
+
+@RestController
+@Transactional
+@RequestMapping("/dzy/applaud")
+public class ApplaudController {
+
+    /**
+     * 书单点赞
+     */
+    @Autowired
+    private ApplaudService applaudService;
+    @Autowired
+    private UserSubscribeMapper userSubscribeMapper;
+    @Autowired
+    private MessageTemplateService messageTemplateService;
+    @Autowired
+    private UserMapper userMapper;
+
+
+    @PostMapping("/{recommendId:\\d+}")
+    public ResData applaud(@PathVariable("recommendId") Integer recommendId, HttpSession session) throws IOException {
+
+        User user = (User) session.getAttribute("user");
+        RecommendAccount result = applaudService.applaud(recommendId, user.getId());
+        if (true) {
+            //消息推送
+            UserSubscribe userSubscribe = userSubscribeMapper.getUserSubscribe(result.getUser().getId());
+            if (userSubscribe.getAgree()) {
+                User userById = userMapper.getUserById(result.getUser().getId());
+                messageTemplateService.sendDynamic(userById, user, null, null, null);
+            }
+        }
+        return ResData.ofSuccess(0, "成功", result);
+    }
+
+}

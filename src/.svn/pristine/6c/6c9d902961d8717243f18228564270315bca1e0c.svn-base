@@ -1,0 +1,83 @@
+package com.c1801.spring.dzy.common.shortmsg;
+
+
+import java.util.concurrent.ThreadLocalRandom;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.aliyuncs.CommonRequest;
+import com.aliyuncs.CommonResponse;
+import com.aliyuncs.DefaultAcsClient;
+import com.aliyuncs.IAcsClient;
+import com.aliyuncs.exceptions.ClientException;
+import com.aliyuncs.exceptions.ServerException;
+import com.aliyuncs.http.MethodType;
+import com.aliyuncs.profile.DefaultProfile;
+import com.c1801.spring.dzy.common.exception.ShortException;
+import com.c1801.spring.dzy.model.ShortMessageConfiguration;
+import lombok.EqualsAndHashCode;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * httpUrlConnection访问远程接口工具
+ * 短信发送服务
+ */
+@EqualsAndHashCode
+public class ShortMessage {
+
+
+    private static final Logger logger = LoggerFactory.getLogger(ShortMessage.class);
+
+
+    public static String getVerCode(String phone,ShortMessageConfiguration smc) throws ClientException,ServerException ,ShortException{
+
+        //region-id是您正在使用的地域ID。你可以通过调用DescribeRegions接口查看地域ID。
+        //您的AccessKey ID/AccessKey Secret
+        DefaultProfile profile = DefaultProfile.getProfile(smc.getAccessKey(), smc.getAccessId(), smc.getSecret());
+        IAcsClient client = new DefaultAcsClient(profile);
+
+        CommonRequest request = new CommonRequest();
+        //request.setProtocol(ProtocolType.HTTPS);
+        request.setMethod(MethodType.POST);
+
+        //域名(domain)：该产品的服务地址。
+        request.setDomain(smc.getDomain());
+
+        //API版本(version)：该API的版本号，格式为YYYY-MM-DD。
+        request.setVersion(smc.getVersion());
+        request.setAction(smc.getAction());
+
+        //地域id
+        request.putQueryParameter("RegionId", smc.getAccessKey());
+
+        //要发送信息的手机号码
+        request.putQueryParameter("PhoneNumbers", phone);
+
+        //签名名称
+        request.putQueryParameter("SignName", smc.getSignName());
+
+        //模版CODE
+        request.putQueryParameter("TemplateCode", smc.getTemplateCode());
+
+//        String VerCode = getMsgCode();
+        String verCode = String.valueOf(ThreadLocalRandom.current().nextInt(100000,999999));
+        request.putQueryParameter("TemplateParam", "{\"code\":\""+verCode+"\"}");
+
+        CommonResponse response = client.getCommonResponse(request);
+        int status = response.getHttpStatus();
+        logger.info(status+"");
+        logger.info("发送短信完成");
+
+        logger.info(response.getData());
+        JSONObject jsonObject = JSON.parseObject(response.getData());
+        String code = jsonObject.getString("Code");
+
+        if(!"OK".equals(code)){
+            throw new ShortException("1007",jsonObject.getString("Message"));
+        }
+
+        return verCode;
+    }
+
+}

@@ -1,0 +1,38 @@
+package com.c1801.spring.dzy.model;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
+import java.util.List;
+
+/**
+ * user：黄
+ * dateTime: 2019/8/26 11:16
+ * 书单书籍表
+ */
+@Data
+public class BookCollectionList {
+    private Integer id;
+    private Integer bookID;
+    private String  name;
+    private String  author;
+    private String  cover;
+    private String  userName;
+    private String  wxName;
+    //评语
+    private String  comment;
+    private Double  price;
+    private Double  doubanRate;
+    private Date    createDate;
+    //点赞总数
+    private Integer applaudstotal;
+    //点赞数
+    private List<Applaud> applauds;
+    public void setApplaudstotal(Integer applaudstotal){
+        this.applaudstotal = applaudstotal;
+    }
+}

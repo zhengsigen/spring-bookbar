@@ -1,0 +1,49 @@
+package com.c1801.spring.dzy.mapper;
+
+import com.c1801.spring.dzy.model.Address;
+import com.c1801.spring.dzy.model.Order;
+import com.c1801.spring.dzy.model.OrderAccount;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.Date;
+import java.util.List;
+
+@Mapper
+public interface OrderMapper {
+    //新增订单
+    public int addOrder(Order order);
+    //修改订单状态
+    public Integer cancelOrder(Integer orderId,Integer status);
+    //修改订单地址
+    public int updateOrderAddr(@Param("orderId") Integer orderId,@Param("address") Address address);
+    //查询订单列表
+    public List<OrderAccount> queryOrderList(@Param("index")Integer index,@Param("pageSize")Integer pageSize);
+    //查询订单数量
+    public List<Order> queryOrderListTotal();
+    //根据订单id查询订单
+    public OrderAccount queryOrderAccountByOrderId(Integer orderId);
+    //查询指定用户所有订单
+    public List<OrderAccount> queryOrderAccountByUserId(Integer userId);
+    //修改订单总价
+    public void updateOrderTotal(@Param("total")Double total,@Param("orderId")Integer orderId);
+    //查询一个月内所有订单
+    public List<OrderAccount> queryOrderListInDate();
+
+    //条件查询订单列表，分页
+    public List<OrderAccount> querOrderListInSection(
+            @Param("start") String start,
+            @Param("end") String end,
+            @Param("name")String  name,
+            @Param("index")Integer index,
+            @Param("pageSize")Integer pageSize,
+            @Param("totalPriceStatus") Integer totalPriceStatus,
+            @Param("totalStatus") Integer totalStatus);
+
+    //条件查询订单列表数量
+    public List<OrderAccount> querOrderListInSectionTotal(@Param("start") String start,@Param("end") String end,@Param("name")String  name);
+    //条件查询已完成订单列表，分页
+    public List<OrderAccount> queryOrderListInSectionAndComplete(@Param("start") String start,@Param("end") String end,@Param("name")String  name,@Param("index")Integer index,@Param("pageSize")Integer pageSize);
+    //条件查询已完成订单数量
+    public List<OrderAccount> queryOrderListInSectionAndCompleteTotal(@Param("start") String start,@Param("end") String end,@Param("name")String  name);
+}

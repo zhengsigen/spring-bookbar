@@ -1,0 +1,68 @@
+package com.c1801.spring.dzy.controller.wx;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.c1801.spring.dzy.model.WXSubscription;
+import org.apache.commons.codec.digest.DigestUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.*;
+
+@RestController
+@Transactional
+@RequestMapping("/dzy/wx/interface")
+public class WXController {
+
+    /**
+     * 微信公众号
+     */
+    @Autowired
+    WXSubscription wxSubscription;
+
+    RestTemplate restTemplate = new RestTemplate();
+
+    @GetMapping("/config")
+    public Map config(@RequestHeader("Referer") String url){
+        // 1. accessToken
+        String forObject = restTemplate.getForObject("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxb18d04da9e4e8f9d&secret=81fb5ee14f84a952ee0deaeef6afff1c", String.class);
+        JSONObject jsonObject = JSON.parseObject(forObject);
+        String accessToken = jsonObject.getString("access_token");
+        System.out.println("forObject = " + forObject);
+
+        // 2. jsapiTicket
+        String jsapiTicketJSON = restTemplate.getForObject(String.format("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=%s&type=jsapi", accessToken), String.class);
+        JSONObject jsapiTicketJsonObject = JSON.parseObject(jsapiTicketJSON);
+        String ticket = jsapiTicketJsonObject.getString("ticket");
+        System.out.println("jsapiTicketJsonObject = " + jsapiTicketJsonObject);
+
+        // 3. 签名(完全性)
+        Map<String, String> packageParams = new TreeMap<>();
+        packageParams.put("timestamp", System.currentTimeMillis() / 1000 + "");
+        packageParams.put("noncestr", UUID.randomUUID().toString().replaceAll("-", ""));
+        packageParams.put("jsapi_ticket", ticket);
+        packageParams.put("url", url);
+        // timestamp=&noncestr=&jsapi_ticket=&url=
+        Set<String> params = packageParams.keySet();
+        StringBuffer sign = new StringBuffer();
+        for (String param : params) {
+            if(sign.length() > 0){
+                sign.append("&");
+            }
+            sign.append(param).append("=").append(packageParams.get(param));
+        }
+        String sha1Sign = DigestUtils.sha1Hex(sign.toString());
+        System.out.println("sha1Sign = " + sha1Sign);
+
+        // 4. 返回前端
+        Map<String, String> configParams = new HashMap<>();
+        configParams.put("appId", "wxb18d04da9e4e8f9d");
+        configParams.put("timestamp", packageParams.get("timestamp"));
+        configParams.put("nonceStr", packageParams.get("noncestr"));
+        configParams.put("signature", sha1Sign);
+        System.out.println("configParams = " + configParams);
+        return configParams;
+    }
+}

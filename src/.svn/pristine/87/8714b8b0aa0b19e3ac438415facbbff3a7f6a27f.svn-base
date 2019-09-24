@@ -1,0 +1,76 @@
+package com.c1801.spring.dzy.controller.order;
+
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.model.Order;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpSession;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * user：少
+ * dateTime: 2019/8/30 11:06
+ * 用户买书订单
+ */
+@RestController
+@RequestMapping("/dzy/purchase")
+public class PurchaseOrderController {
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+
+    //1.有使用券 则查询券是否可用
+    //2.余额付款 则查询余额是否充足
+    //3.查询库存
+    //4.扣库存
+    //5.生成订单
+    //6.修改购物车商品状态
+
+    /**
+     *  生成订单
+     * @param cartIds 结算的商品
+     * @param payType 支付方式
+     * @return
+     */
+    @PostMapping("/{payType:\\d}")
+    public ResData createOrder(@RequestBody List<Integer>cartIds, @PathVariable Integer payType, HttpSession session){
+        logger.info(cartIds.toString()+payType);
+        return ResData.ofSuccess(0, "成功");
+    }
+
+    /**
+     * 支付
+     * @param orderId
+     * @param session
+     * @return
+     */
+    @PutMapping
+    public ResData purchase(@RequestBody Integer orderId,HttpSession session){
+        logger.info(orderId+"");
+        return ResData.ofSuccess(0, "成功");
+    }
+
+
+
+    /**
+     * 修改订单状态
+     * @param order
+     * @return
+     */
+    @PatchMapping
+    public ResData updateOrderStatus(Order order){
+        return ResData.ofSuccess(0, "成功");
+    }
+
+
+
+
+}

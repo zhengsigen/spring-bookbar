@@ -1,0 +1,28 @@
+package com.c1801.spring.dzy.service;
+
+import com.c1801.spring.dzy.mapper.ApplaudMapper;
+import com.c1801.spring.dzy.model.Applaud;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class ApplaudService {
+    @Autowired
+    ApplaudMapper applaudBook;
+    /**
+     * 黄
+     * 点赞
+     * @param id
+     * @param bookID
+     * @param collectionID
+     * @param state
+     */
+    public boolean Applaud(Integer id ,Integer bookID ,Integer collectionID, Boolean state){
+        if(state){
+            return applaudBook.applaudBook(id,bookID,collectionID);
+        }else{
+            return applaudBook.cancelApplaudBook(id,bookID,collectionID);
+        }
+    }
+}
+

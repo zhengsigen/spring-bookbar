@@ -1,0 +1,46 @@
+package com.c1801.spring.dzy.mapper;
+
+import com.c1801.spring.dzy.model.InviteRecord;
+import com.github.pagehelper.Page;
+
+/**
+ * user：少
+ * dateTime: 2019/9/5 11:36
+ * 邀请记录数据库接口
+ */
+public interface InviteRecordMapper {
+
+    /**
+     * 新增一条邀请记录
+     * @param inviterId 邀请人id
+     * @param inviteeId 被邀请人id
+     * @return
+     */
+    public int createInviteRecord(Integer inviterId,Integer inviteeId);
+
+
+    /**
+     * 修改邀请状态
+     * @param inviteeId 被邀请人id
+     * @param status 状态
+     * @return
+     */
+    public int updateInviteStatus(Integer inviteeId,Integer status);
+
+
+    /**
+     * 根据被邀请人查询邀请人id
+     * @param inviteeId
+     * @return
+     */
+    public Integer queryInviteRecordByInviteeId(Integer inviteeId);
+
+    /**
+     * 根据邀请人查询邀请记录
+     * @param inviterId 邀请人id
+     * @return
+     */
+    public Page<InviteRecord> queryInviteRecordByInviterId(Integer inviterId);
+
+
+}

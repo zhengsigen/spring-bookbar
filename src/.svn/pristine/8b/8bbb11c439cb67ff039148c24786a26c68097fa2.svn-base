@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.c1801.spring.dzy.mapper.CollectionMapper">
+
+<!--    查询单个书单信息-->
+    <select id="querySingleCollection" resultType="bookCollectionPack">
+        select bc.id id, bc.name, bc.intro, bc.background_image, bc.background_color,
+        count(distinct bcl.user_id) contributorsCount ,count(distinct bcl.book_id) itemsCount, bc.expiration_date,
+        bc.create_date, bc.update_date
+        from book_collection_tb bc right join book_collection_list_tb bcl on bc.id = bcl.collection_id
+        where bc.id = #{collectionId} and bc.state = 1 and bc.expiration_date >= now()
+    </select>
+
+
+
+</mapper>

@@ -1,0 +1,26 @@
+package com.c1801.spring.dzy.config;
+
+import com.c1801.spring.dzy.common.Constant;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+/**
+ * user：少
+ * dateTime: 2019/8/18 18:23
+ * 注册拦截器
+ */
+@Configuration
+public class WebConfigurer implements WebMvcConfigurer {
+
+    @Bean
+    public LogCostInterceptor LogCostInterceptor() {
+        return new LogCostInterceptor();
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor( LogCostInterceptor() ).addPathPatterns(Constant.URL);
+    }
+}

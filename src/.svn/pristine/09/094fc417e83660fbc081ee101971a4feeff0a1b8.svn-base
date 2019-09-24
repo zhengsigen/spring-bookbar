@@ -1,0 +1,169 @@
+package com.c1801.spring.dzy.service;
+
+import com.c1801.spring.dzy.common.RandomIdCreate;
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.common.exception.OrderException;
+import com.c1801.spring.dzy.mapper.OrderBookMapper;
+import com.c1801.spring.dzy.mapper.OrderMapper;
+import com.c1801.spring.dzy.mapper.SellBookMapper;
+import com.c1801.spring.dzy.mapper.UserMapper;
+import com.c1801.spring.dzy.model.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Service
+@Transactional
+public class OrderService {
+
+    @Autowired
+    OrderMapper orderMapper;
+    @Autowired
+    SellBookMapper sellBookMapper;
+
+    @Autowired
+    UserMapper userMapper;
+    @Autowired
+    private CartService cartService;
+
+    @Autowired
+    private CouponService couponService;
+
+    @Autowired
+    private MessageTemplateService messageTemplateService;
+
+    private long autoConfirmTime = 15 * 60 * 60;
+
+    /**
+     * id
+     */
+    @Autowired
+    private RandomIdCreate randomIdCreate;
+
+    public ResData changeOrderStatus(Order order) throws IOException {
+        Integer status = 0;
+        if (order.getStatus() >= 10) {
+            OrderAccount orderAccount = orderMapper.queryOrderAccountByOrderId(order.getId());
+            if (orderAccount.getStatus() >= 10) {
+                return ResData.ofSuccess(0, "当前订单不支持取消");
+            }
+            //获取订单所有书籍
+            List<Integer> bookId = new ArrayList<>();
+            for (Book b : orderAccount.getOrderBooksConditions()) {
+                bookId.add(b.getId());
+            }
+            //将卖书列表中的书籍从订单中删除
+            sellBookMapper.sellBookWhetherInOrder(orderAccount.getUserId(), bookId, 0);
+            status = orderMapper.cancelOrder(order.getId(), order.getStatus() + orderAccount.getStatus());
+        } else {
+            if (order.getStatus() > 4) {
+                return ResData.ofSuccess(0, "当前状态不支持修改");
+            }
+            status = orderMapper.cancelOrder(order.getId(), order.getStatus());
+        }
+        //消息推送
+        User user = userMapper.getUserById(order.getUserId());
+        messageTemplateService.sendOrderStatus(user, order);
+        return ResData.of(0, "状态修改成功", order.getStatus());
+    }
+
+
+    //1.有使用券 则查询券是否可用
+    // 是否过期，是否超过门槛 券的类型是否正确，锁定券
+
+    //2.查询库存
+    //对比2结果
+    //3.修改购物车商品状态 和 扣库存
+    //对比3执行修改的结果数据条数和要修改的数据条数是否有异
+    //4.生成订单
+    public Object purchaseOrder(OrderParam orderParam, Integer userId) {
+
+        Integer couponId = orderParam.getCouponId();
+        if (couponId != null) {
+            //TODO
+            couponService.queryCouponByUser(couponId, userId);
+        }
+
+        //确认要结算的购物车商品
+        List<Cart> carts = updateCartAndSku(orderParam.getCartIds(), userId);
+        return null;
+    }
+
+    private List<Cart> updateCartAndSku(List<Integer> cartIds, Integer userId) {
+
+        //查询要生成订单商品中是在售有库存
+        List<Cart> carts = cartService.queryPurchaseCarts(cartIds, userId);
+
+        int count = cartIds.size();
+
+        /*
+        查询出的购物车商品数量和要结算的商品相同且一样才能继续生产订单，
+        否则 不能生产订单，需要用户再确认
+         */
+        List<Integer> queryCartIds = carts.stream().map(cart -> cart.getId()).collect(Collectors.toList());
+        if (!(count == carts.size() && cartIds.containsAll(queryCartIds))) {
+            throw new OrderException(3006, "结算的部分商品已发生改变");
+        }
+
+        //修改购物车商品状态和减库存
+        int result = cartService.updateInOrderOfCartsAndStock(cartIds, 1, userId);
+
+        /*
+        因为同时修改购物车和库存 每一个商品有两条记录 返回结果为购物车商品数量的两倍
+         */
+        if (result != count * 2) {
+            // 实际修改的与预期不修改数不同,需要用户再确认
+            throw new OrderException(3007, "结算的部分商品已下架或没有库存");
+        }
+
+        return carts;
+    }
+
+
+    /**
+     * 创建订单
+     *
+     * @return
+     */
+    private Order createOrder(OrderParam orderParam, List<Cart> carts, Integer userId) {
+
+        Address address = orderParam.getAddress();
+
+        /**
+         * 订单基本信息
+         */
+        Order order = new Order();
+        Integer orderId = randomIdCreate.getNewOrderId();
+        order.setId(orderId);
+        order.setUserId(userId);
+        order.setStatus(0);
+        order.setType(1);
+//        order.setTotal();
+//        order.setFreight();
+        order.setProvince(address.getProvince());
+        order.setCity(address.getCity());
+        order.setDistrict(address.getDistrict());
+        order.setStreet(address.getStreet());
+        order.setUserName(address.getName());
+        order.setPhone(address.getPhone());
+
+
+        /**
+         * 订单 过期 和使用的券
+         */
+        OrderPay orderPay = new OrderPay();
+        orderPay.setOrderId(orderId);
+        orderPay.setAutoConfirmTime(autoConfirmTime);
+
+        orderPay.setCouponId(orderParam.getCouponId());
+        orderPay.setFreightId(orderParam.getFreightCouponId());
+
+        return null;
+    }
+}

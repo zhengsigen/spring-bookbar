@@ -1,0 +1,55 @@
+package com.c1801.spring.dzy.controller.Applaud;
+
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.mapper.ApplaudMapper;
+import com.c1801.spring.dzy.service.ApplaudService;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+@Transactional
+@RequestMapping("/applaud")
+public class ApplaudController {
+
+    @Autowired
+    private ApplaudService applaudService;
+    @Autowired
+    private ApplaudMapper applaudMapper;
+
+    /**
+     * 黄
+     * 点赞
+     * @param id            userID
+     * @param bookID
+     * @param collectionID
+     * @param state         true：点赞，false：取消点赞
+     */
+    @GetMapping("/applaud")
+    public ResData Applaud(@Param("id")Integer id , @Param("bookID")Integer bookID , @Param("collectionID")Integer collectionID, @Param("state") Boolean state){
+        boolean res = applaudService.Applaud(id, bookID, collectionID, state);
+        if(res){
+            return ResData.ofSuccess(0, "点赞-操作成功");
+        }else{
+            return ResData.ofSuccess(1001, "点赞-操作失败");
+        }
+    }
+
+    /**
+     * 查询当前用户是否点过赞
+     * @param id
+     * @param colllectionID
+     * @return
+     */
+    @GetMapping("/user/applaud")
+    public ResData queryApplaudBookByUser(@Param("id") Integer id,@Param("collectionID")Integer colllectionID){
+        List<Integer> applaudList = applaudMapper.queryApplaudBookByUser(id, colllectionID);
+        System.out.println(applaudList);
+        return ResData.ofSuccess(0, "查询成功",applaudList);
+    }
+}

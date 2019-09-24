@@ -1,0 +1,67 @@
+package com.c1801.spring.dzy.service;
+
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.mapper.BookCollectionMapper;
+import com.c1801.spring.dzy.mapper.BookMapper;
+import com.c1801.spring.dzy.model.Book;
+import com.c1801.spring.dzy.model.RecommendBook;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class CollectionService {
+
+    /**
+     * @郑思根
+     *
+     */
+    @Autowired
+    BookMapper bookMapper;
+
+    @Autowired
+    BookCollectionMapper bookCollectionMapper;
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+
+    public ResData addBookAppointCollection(RecommendBook recommendBook){
+
+        //判断用户是通过扫描还是手动输入isbn码
+        if(recommendBook.getBookId()==null){
+            //再通过isbn获取到书籍id
+            Book book = bookMapper.queryBookByIBSN(recommendBook.getIsbn());
+            if(book==null){
+                return ResData.ofSuccess(20078,"该isbn码不存在");
+            }
+            recommendBook.setBookId(book.getId());
+        }
+
+        //查询该书的评分是否低于7.5
+        Book book = bookMapper.queryBookById(recommendBook.getBookId());
+        if(book==null){
+            return  ResData.ofSuccess(20080,"推荐的书籍不存在");
+        }
+
+        if(book.getDoubanRate()<7.5){
+            return  ResData.ofSuccess(20076,"推荐的书籍评分不能少于7.5");
+        }
+
+        //查询当前用户是否已经推荐过指定书籍
+        RecommendBook queryMsg = bookCollectionMapper.queryRecommendBook(recommendBook);
+        if(queryMsg!=null){
+            return ResData.ofSuccess(20077,"您已推荐过这本书，请不要重复推荐");
+        }
+
+        //新增用户推荐书籍
+        bookCollectionMapper.addRecommendBook(recommendBook);
+
+        //根据返回的id查询到指定推荐关联数据返回给前端
+        RecommendBook addMsg = bookCollectionMapper.queryRecommendBook(recommendBook);
+        if(addMsg==null){
+            return ResData.ofSuccess(20079,"推荐失败");
+
+        }
+        return ResData.of(0,"推荐成功",addMsg);
+    }
+}

@@ -1,0 +1,235 @@
+package com.c1801.spring.dzy.service;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.model.*;
+import okhttp3.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+@Service
+public class MessageTemplateService {
+    //卖书订单状态
+    private static final String[] sellingOrderStatus = {"已下单", "正在审核中", "已安排上门取件", "运送途中", "已签收", "已校对", "成功结算"};
+    //买书订单状态
+    private static final String[] purchaseOrderStatus = {"已下单", "已付款", "已发货", "运送途中", "已签收"};
+
+    SimpleDateFormat format = new SimpleDateFormat("yyy-MM-dd HH:mm:ss");
+    @Autowired
+    WXSubscription wxSubscription;
+
+    /**
+     * @param user
+     * @param order
+     * @return
+     * @郑思根 订单状态消息推送
+     */
+    public Integer sendOrderStatus(User user, Order order) throws IOException {
+        TemplateMessage templateMessage = new TemplateMessage();
+        templateMessage.setUrl(wxSubscription.getDomain());
+        templateMessage.setTouser(user.getOpenId());
+        templateMessage.setTemplate_id("_U5eCDYmb_yUHzT8tX1WyM8J6R95xuvoe_5sz2pzWx0");
+        //设置模板标题
+        Content first = new Content();
+        first.setValue("");
+        first.setColor("#808080");
+        //设置订单类型
+        Content keyword1 = new Content();
+        if (order.getType() == 1) {
+            keyword1.setValue("买书订单");
+        } else {
+            keyword1.setValue("卖书订单");
+        }
+        keyword1.setColor("#808080");
+        //设置订单状态
+        Content keyword2 = new Content();
+        if (order.getType() == 1) {
+            keyword2.setValue(purchaseOrderStatus[order.getStatus()]);
+        } else {
+            keyword2.setValue(sellingOrderStatus[order.getStatus()]);
+        }
+        keyword2.setColor("#808080");
+        //设置订单详情
+        Content keyword3 = new Content();
+        keyword3.setValue("联系人：" + order.getUserName() + "，联系方式：" + order.getPhone() + "，收货地址：" + order.getProvince() + order.getCity() + order.getDistrict() + order.getStreet());
+        keyword3.setColor("#808080");
+        //设置订单金额
+        Content keyword4 = new Content();
+        keyword4.setValue(order.getTotal() + "");
+        keyword4.setColor("#808080");
+        //设置跳转内容
+        Content remark = new Content();
+        remark.setValue("");
+        remark.setColor("#808080");
+        //创建模板信息数据对象
+        Contents data = new Contents();
+        data.setFirst(first);
+        data.setKeyword1(keyword1);
+        data.setKeyword2(keyword2);
+        data.setKeyword3(keyword3);
+        data.setKeyword4(keyword4);
+        data.setRemark(remark);
+        templateMessage.setData(data);
+        Response response = sendTemplateMessage(templateMessage);
+        JSONObject object = JSON.parseObject(response.toString());
+        return (Integer) object.get("code");
+    }
+
+
+    /**
+     * @param inviterUser 邀请人
+     * @param inviteeUser 受邀人
+     * @return
+     * @郑思根 邀请推送
+     */
+    public Integer sendInvitationResult(User inviterUser, User inviteeUser,String desc) throws IOException {
+        TemplateMessage templateMessage = new TemplateMessage();
+        templateMessage.setUrl(wxSubscription.getDomain());
+        templateMessage.setTouser(inviterUser.getOpenId());
+        templateMessage.setTemplate_id("gaOMIE1LViPi7ZTIJgPAcUbPIqn4812kys0hahljx5o");
+        //设置模板标题
+        Content first = new Content();
+        first.setValue(desc);
+        first.setColor("#808080");
+        //设置新增人员
+        Content keyword1 = new Content();
+        keyword1.setValue(inviteeUser.getWxName());
+        keyword1.setColor("#808080");
+        //设置加入时间
+        String format1 = format.format(new Date());
+        Content keyword2 = new Content();
+        keyword2.setValue(format1);
+        keyword2.setColor("#808080");
+        //设置邀请人
+        Content keyword3 = new Content();
+        keyword3.setValue(inviterUser.getWxName());
+        keyword3.setColor("#808080");
+        //设置订单金额
+        Content keyword4 = new Content();
+        keyword4.setValue("快去看看吧");
+        keyword4.setColor("#808080");
+        //设置跳转内容
+        Content remark = new Content();
+        remark.setValue("点击查看详情");
+        remark.setColor("#808080");
+        //创建模板信息数据对象
+        Contents data = new Contents();
+        data.setFirst(first);
+        data.setKeyword1(keyword1);
+        data.setKeyword2(keyword2);
+        data.setKeyword3(keyword3);
+        data.setKeyword4(keyword4);
+        data.setRemark(remark);
+        templateMessage.setData(data);
+        Response response = sendTemplateMessage(templateMessage);
+        JSONObject object = JSON.parseObject(response.body().string());
+        return (Integer) object.get("errcode");
+    }
+
+
+    /***
+     * @郑思根
+     * 点赞评论推送
+     * @param receiveUser 接收消息推送用户
+     * @param operationUser 操作用户
+     * @param desc    评论内容
+     * @return
+     */
+    public Integer sendDynamic(User receiveUser, User operationUser, String desc) throws IOException {
+        TemplateMessage templateMessage = new TemplateMessage();
+        templateMessage.setUrl(wxSubscription.getDomain());
+        templateMessage.setTouser(receiveUser.getOpenId());
+        templateMessage.setTemplate_id("8qpSMeeEzk8GvJEVVKBTdv1YRNzQtXaDV9FqZ3coNEs");
+        //设置模板标题
+        Content first = new Content();
+        first.setValue("你有一条新的动态");
+        first.setColor("#808080");
+        //设置加入时间
+        String format1 = format.format(new Date());
+        Content keyword1 = new Content();
+        keyword1.setValue(format1);
+        keyword1.setColor("#808080");
+        //设置内容
+        Content keyword2 = new Content();
+        if (desc == null) {
+            keyword2.setValue("动态内容：点赞");
+        } else {
+            keyword2.setValue("动态内容：评论");
+        }
+        keyword2.setColor("#808080");
+        //设置操作用户
+        Content keyword3 = new Content();
+        keyword3.setValue("用户：" + operationUser.getWxName());
+        keyword3.setColor("#808080");
+        //设置主内容
+        Content remark = new Content();
+        if(desc!=null){
+            remark.setValue(operationUser.getWxName()+"回复了你的评论");
+        }else{
+            remark.setValue(operationUser.getWxName()+"给您的评论点了个赞");
+        }
+        //设置跳转内容
+        //创建模板信息数据对象
+        Contents data = new Contents();
+        data.setFirst(first);
+        data.setKeyword1(keyword1);
+        data.setKeyword2(keyword2);
+        data.setKeyword3(keyword3);
+        data.setRemark(remark);
+        templateMessage.setData(data);
+        Response response = sendTemplateMessage(templateMessage);
+        JSONObject object = JSON.parseObject(response.body().string());
+        return (Integer) object.get("errcode");
+    }
+
+
+    /**
+     * 模板消息请求路径
+     */
+    private static String TemplateMessage_Url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=ACCESS_TOKEN";
+
+    /**
+     * 获取access_token
+     *
+     * @return
+     * @throws IOException
+     */
+    public String getAccessToken() throws IOException {
+        //获取access_token
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder().url("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" + wxSubscription.getAppid() + "&secret=" + wxSubscription.getAppsecret()).get().build();
+        Response response = client.newCall(request).execute();
+        ResponseBody responseBody = response.body();
+        String stringXML = responseBody.string();
+        JSONObject object = JSON.parseObject(stringXML);
+        String access_token = (String) object.get("access_token");
+        return access_token;
+    }
+
+    /**
+     * @return
+     * @郑思根 发送模板消息
+     */
+    public Response sendTemplateMessage(TemplateMessage templateMessage) throws IOException {
+        OkHttpClient client = new OkHttpClient();
+        //获取accesstoken
+        String access_token = getAccessToken();
+        //创建返回实体对象
+        ResData resData = new ResData();
+        //获得新的token
+        String url = TemplateMessage_Url.replace("ACCESS_TOKEN", access_token);
+        // 获取请求体
+        String jsonString = JSON.toJSONString(templateMessage);
+        // 构建请求
+        okhttp3.RequestBody requestBody = RequestBody.create(MediaType.parse("application/xml"), jsonString);
+        Request msg = new Request.Builder().url(url).post(requestBody).build();
+        Response response = client.newCall(msg).execute();
+        return response;
+    }
+
+}

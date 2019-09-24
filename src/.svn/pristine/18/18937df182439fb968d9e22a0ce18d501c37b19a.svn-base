@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.c1801.spring.dzy.mapper.CouponRuleMappler">
+    <select id="queryCouponRule" resultType="CouponRule">
+      SELECT id, coupon_id, send_condition, `count` FROM coupon_rule_tb
+    </select>
+
+    <insert id="addCouponRule">
+		INSERT INTO coupon_rule_tb (coupon_id, send_condition, count)
+          VALUES (#{rule.couponId}, #{rule.sendCondition}, #{rule.count})
+    </insert>
+
+    <update id="updateCouponRule">
+        UPDATE coupon_rule_tb SET send_condition=#{rule.sendCondition}, count=#{rule.count}
+	      WHERE id=#{rule.id};
+    </update>
+
+    <delete id="deleteCouponRule">
+        DELETE FROM coupon_rule_tb WHERE id=#{id};
+    </delete>
+</mapper>

@@ -1,0 +1,38 @@
+package com.c1801.spring.dzy.model;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
+
+@Data
+public class BalanceDetail {
+
+    //明细id
+    private  Integer id;
+
+    //用户id
+    private  Integer userId;
+
+    //订单id
+    private Integer orderId;
+
+    //类型
+    private Integer type;
+
+    //费用
+    private Double fee;
+
+    //创建时间
+    @JsonFormat(pattern = "YYYY-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date createTime;
+
+    //修改时间
+    @JsonFormat(pattern = "YYYY-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date updateTime;
+
+
+}

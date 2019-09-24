@@ -1,0 +1,33 @@
+package com.c1801.spring.dzy.model;
+
+import lombok.Data;
+
+import java.util.Date;
+
+@Data
+public class Coupon {
+    private Integer id;
+    private Integer couponID;
+    private Integer orderID;
+    private Integer userID;
+
+
+    //类型，0：邀请劵，1：运费劵
+    private Boolean type;
+    //卷面值
+    private Integer worth;
+    //使用门槛
+    private Integer condition;
+
+
+    //备注
+    private String  remarks;
+    //0：未使用，1：已使用，2：已过期
+    private Integer state;
+    //使用日期
+    private Date useTime;
+    //截止日期
+    private Date expirationDate;
+    //创建日期
+    private Date createDate;
+}

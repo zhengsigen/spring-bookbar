@@ -1,0 +1,54 @@
+package com.c1801.spring.dzy.controller.user;
+
+import com.c1801.spring.dzy.common.Constant;
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.common.wx.qr.QRGenerate;
+import com.c1801.spring.dzy.model.User;
+import com.c1801.spring.dzy.model.WXSubscription;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpSession;
+import java.util.Map;
+
+/**
+ * user：少
+ * dateTime: 2019/9/3 19:12
+ * 邀请新用户
+ */
+@RestController
+@RequestMapping("/dzy/invite")
+public class InviteController {
+
+    private Logger logger = LoggerFactory.getLogger(getClass());
+
+
+    //微信授权url
+    public static final String WX_URL = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=%s&redirect_uri=%s&response_type=code&scope=snsapi_userinfo&state=%s#wechat_redirect";
+
+    /**
+     * 微信配置
+     */
+    @Autowired
+    private WXSubscription wxSubscription;
+
+    @GetMapping("/qr")
+    public ResData getInviteQr(HttpSession session){
+
+        User user = (User) session.getAttribute("user");
+        //域名
+        String domain = wxSubscription.getDomain();
+        String  url = "http//" + domain + "/";
+        logger.info(url);
+
+        String wxUrl = String.format( "http://wx.panqingshan.cn/accredit",wxSubscription.getAppid(),url,16);
+        Map<String, Object> qrGenerate = QRGenerate.getSmallQRGenerate("http://wx.panqingshan.cn/accredit");
+
+        return ResData.ofSuccess(0,"成功",qrGenerate);
+    }
+
+}

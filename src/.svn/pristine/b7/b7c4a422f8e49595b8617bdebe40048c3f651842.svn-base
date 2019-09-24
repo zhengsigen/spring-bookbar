@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.c1801.spring.dzy.mapper.BookCollectionMapper">
+
+    <select id="queryBookCollection" resultType="BookCollection">
+      SELECT id, name, intro, background_image, background_color, state, sort, expiration_date,
+        create_date, update_date FROM book_collection_tb limit #{page},#{size};
+    </select>
+
+    <insert id="addBookCollection" useGeneratedKeys="true" keyProperty="id" parameterType="BookCollection">
+      INSERT INTO book_collection_tb
+	    (name, intro, background_image, background_color, state, sort, expiration_date)
+        VALUES (#{data.name}, #{data.intro}, #{data.backgroundImage},
+         #{data.backgroundColor}, #{data.state}, #{data.sort}, #{data.expirationDate});
+    </insert>
+
+
+</mapper>

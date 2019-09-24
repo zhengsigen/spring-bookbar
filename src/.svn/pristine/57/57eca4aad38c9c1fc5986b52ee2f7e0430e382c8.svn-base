@@ -1,0 +1,17 @@
+package com.c1801.spring.dzy.controller.collection;
+
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * 后台管理：书单
+ * user：黄
+ * dateTime: 2019/8/26 11:16
+ */
+@RestController
+@Transactional
+@RequestMapping("/manage/collection")
+public class ManageCollectionController {
+
+}

@@ -1,0 +1,59 @@
+package com.c1801.spring.dzy.service;
+
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.mapper.UserMapper;
+import com.c1801.spring.dzy.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class WXUserService {
+
+    @Autowired
+    UserMapper userMapper;
+
+    /**
+     * 根据openid查询用户
+     *
+     * @param openid
+     * @return
+     */
+    public User queryUserByOpenId(String openid){
+        User user = userMapper.queryUserByOpenId(openid);
+        return user;
+    }
+
+    /**
+     * 新增用户并返回新增的用户
+     * @param user
+     * @return
+     */
+    public ResData addWXUser(User user){
+        //新增用户
+        userMapper.addWXUser(user);
+        //返回新增成功的用户
+        User msgUser = userMapper.queryUserByOpenId(user.getOpenId());
+        if(msgUser==null){
+            return ResData.ofSuccess(10073,"新增失败");
+        }
+        return ResData.of(0,"新增成功",msgUser);
+    }
+
+    /**
+     * 用户绑定并返回绑定结果
+     * @param user
+     * @param phone
+     * @return
+     */
+    public ResData UserBinding(User user, String phone){
+        User userByPhone = userMapper.getUserByPhone(phone);
+        //用户绑定
+        Integer integer = userMapper.UserBinding(user, userByPhone.getId());
+        if (integer<=0) {
+            return ResData.ofSuccess(10075,"绑定失败");
+        }
+        //返回绑定后的用户
+        User msgUser= userMapper.queryUserByOpenId(user.getOpenId());
+        return ResData.of(0,"绑定成功",msgUser);
+    }
+}

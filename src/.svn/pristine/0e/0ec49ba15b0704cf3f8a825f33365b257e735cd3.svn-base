@@ -1,0 +1,59 @@
+package com.c1801.spring.dzy.mapper;
+
+
+import com.c1801.spring.dzy.model.BookCollection;
+import com.c1801.spring.dzy.model.BookCollectionList;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
+
+/**
+ * user：黄
+ * dateTime: 2019/8/26 11:16
+ */
+@Mapper
+public interface BookCollectionMapper {
+    /**
+     * 查询书单总数
+     * @return
+     */
+    @Select("select count(*) from book_collection_tb")
+    public Integer queryBookCollectionTotal();
+
+    /**
+     * 查询所有书单
+     * @param page
+     * @param size
+     * @return
+     */
+    public List<BookCollection> queryBookCollection(@Param("page") Integer page ,@Param("size") Integer size);
+
+    /**
+     * 添加书单
+     * @param collection
+     * @return
+     */
+    public boolean addBookCollection(@Param("data")BookCollection collection);
+
+
+    public List<BookCollection> getBookCollection();
+
+    /**
+     * 查询书单里的书籍
+     * @param id
+     * @return
+     */
+    public BookCollection queryBookCollectionByID(@Param("id")Integer id);
+
+    /**
+     * 查询书单里的书籍的点赞数
+     * @param id        书单id
+     * @param bookId    书籍id
+     * @return
+     */
+    @Select("SELECT count(*) FROM applaud_tb where book_id=#{bookId} and book_collection_id=#{id};")
+    public Integer queryBookCollectionApplaudTotal(@Param("id")Integer id,@Param("bookId")Integer bookId);
+
+}

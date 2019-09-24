@@ -1,0 +1,15 @@
+package com.c1801.spring.dzy.model;
+
+import lombok.Data;
+
+import java.util.Date;
+@Data
+public class Freight {
+    private Integer id;
+    private String  province;
+    private Double  charge;
+    private Double  pinkage;
+    private Boolean isShipments;
+    private Date    createDate;
+    private Date    updateDate;
+}

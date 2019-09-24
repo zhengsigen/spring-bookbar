@@ -1,0 +1,117 @@
+package com.c1801.spring.dzy.controller.cart;
+
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.model.Cart;
+import org.omg.PortableInterceptor.INACTIVE;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpSession;
+import java.util.List;
+import java.util.Map;
+
+
+/**
+ * user：少
+ * dateTime: 2019/8/26 20:41
+ * 购物车 controller
+ */
+@RestController
+@RequestMapping("/dzy/cart")
+public class CartController {
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+
+
+    /**
+     * 添加到购物车
+     * @return
+     */
+    @PostMapping("/{skuId:\\d+}")
+    public ResData addShopToCart(@RequestBody Map<Integer, Integer> shop, HttpSession session) {
+        logger.info(shop +"");
+
+        return ResData.ofSuccess(0,"成功");
+    }
+
+    /**
+     * 从购物车删除商品
+     * @param cartId
+     * @return
+     */
+    @DeleteMapping("/{cartId:\\d+}")
+    public ResData delShopFromCart(@PathVariable Integer cartId) {
+        logger.info(cartId +"");
+
+        return ResData.ofSuccess(0, "成功");
+    }
+
+    /**
+     * 修改商品品相
+     */
+    @PatchMapping
+    public ResData updateConditoinOfCart(@RequestBody Cart cart) {
+        logger.info(cart +"");
+
+        return ResData.ofSuccess(0, "成功");
+    }
+
+
+    /**
+     * 选中或取消选中商品
+     * @return
+     */
+    @PatchMapping("/{cartId:\\d+}")
+    public ResData editSelectedCart(@PathVariable Integer cartId){
+        logger.info(cartId +"");
+
+        return ResData.ofSuccess(0, "成功");
+    }
+
+    /**
+     * 批量选中或取消
+     */
+    @PutMapping
+    public ResData editSelectedCarts(@RequestBody Map<Integer, List<Integer>> cartIds) {
+        logger.info(cartIds +"");
+
+        return ResData.ofSuccess(0, "成功");
+    }
+
+    /**
+     * 查询购物车有库存商品
+     * @param pageSize
+     * @param pageNum
+     * @return
+     */
+    @GetMapping
+    public ResData queryCarts(@RequestParam(value = "pageSize", defaultValue = "10")Integer pageSize, @RequestParam(value = "pageNum", defaultValue = "1")Integer pageNum) {
+        logger.info(pageSize + "\t" + pageNum);
+
+        return ResData.ofSuccess(0, "成功");
+    }
+
+    /**
+     * 查询购物车缺货商品
+     * @param pageSize
+     * @param pageNum
+     * @return
+     */
+    @GetMapping("/stockout")
+    public ResData queryStockoutCarts(@RequestParam(value = "pageSize", defaultValue = "10")Integer pageSize, @RequestParam(value = "pageNum", defaultValue = "1")Integer pageNum) {
+        logger.info(pageSize + "\t" + pageNum);
+
+        return ResData.ofSuccess(0, "成功");
+    }
+
+}

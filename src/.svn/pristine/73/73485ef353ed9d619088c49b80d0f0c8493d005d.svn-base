@@ -1,0 +1,216 @@
+package com.c1801.spring.dzy.service;
+
+import com.c1801.spring.dzy.common.PageInfo;
+import com.c1801.spring.dzy.mapper.CartMapper;
+import com.c1801.spring.dzy.model.Cart;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+
+/**
+ * user：少
+ * dateTime: 2019/8/27 11:01
+ * 购物车service
+ */
+@Service
+@Transactional
+public class CartService {
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+
+    /**
+     * 购物车数据库接口
+     */
+    @Autowired
+    private CartMapper cartMapper;
+
+
+    /**
+     * 添加商品到购物车
+     * @param bookId
+     * @param condition
+     * @param userId
+     * @return
+     */
+    public int addShopToCart(Integer bookId, Integer condition, Integer userId){
+
+        //1. 查询购物车有没有满
+        int i = cartMapper.queryUserCartCount(userId);
+        if(i >= 100){
+           return i;
+        }
+
+        //2.查询书籍是否在购物车中
+        Cart cart = queryBookInCart(bookId, userId);
+
+        if(cart != null){
+            //已存在于购物车
+            return 0;
+        }
+
+        //3. 添加到购物车
+        int result = cartMapper.addShopToCart(bookId, condition, userId);
+        return result;
+    }
+
+
+    /**
+     * 删除商品从用户购物车
+     * @param cartId
+     * @param userId
+     * @return
+     */
+    public int delShopFromCart(Integer cartId, Integer userId){
+        int result = cartMapper.delShopFromCart(cartId, userId);
+        return result;
+    }
+
+
+    /**
+     * 删除购物车结算商品
+     * @param cartIds
+     * @param userId
+     * @return
+     */
+    public int delInOrderShopFromCart(List<Integer>cartIds, Integer userId){
+        return cartMapper.delInOrderShopFromCart(cartIds,userId);
+    }
+
+    /**
+     * 修改购物车商品品相
+     * @param cart
+     * @return
+     */
+    public int updateConditoinOfCart(Cart cart){
+        int result = cartMapper.updateConditoinOfCart(cart);
+        return result;
+    }
+
+
+    /**
+     * 用户购物车单个商品选中取消
+     * @param cartId
+     * @param userId
+     * @return
+     */
+    public int updateSelectedCart(Integer cartId, Integer userId) {
+        int result = cartMapper.updateSelectedCart(cartId, userId);
+        return result;
+    }
+
+
+    /**
+     * 批量商品选中/取消选中
+     * @param cartIds
+     * @param selected
+     * @param userId
+     * @return
+     */
+    public int updateSelectedCarts(List<Integer> cartIds, Integer selected, Integer userId) {
+
+        int result = cartMapper.updateSelectedCarts(cartIds, selected, userId);
+
+        //修改数据量超过最大要修改的数据量时回滚
+        if(result > cartIds.size()){
+            logger.info("数据回滚");
+        }
+        return result;
+    }
+
+
+    /**
+     * 查询书籍是否在用户购物车中
+     * @param bookId
+     * @param userId
+     * @return
+     */
+    public Cart queryBookInCart(Integer bookId, Integer userId) {
+
+        return cartMapper.queryBookInCart(bookId, userId);
+    }
+
+
+    /**
+     * 查询用户购物车有库存商品分页
+     * @param pageSize
+     * @param pageNum
+     * @param userId
+     * @return
+     */
+    public PageInfo queryHasStockCarts(Integer pageSize, Integer pageNum, Integer userId) {
+
+        PageHelper.startPage(pageNum, pageSize);
+
+        Page<Cart> carts = cartMapper.queryHasStockCarts(userId,null);
+        PageInfo pageInfo = PageInfo.ofPageInfo(carts);
+
+        return pageInfo;
+    }
+
+
+    /**
+     * 查询用户购物车缺货商品分页
+     * @param pageSize
+     * @param pageNum
+     * @param userId
+     * @return
+     */
+    public PageInfo queryStockoutCarts(Integer pageSize, Integer pageNum, Integer userId){
+
+        PageHelper.startPage(pageNum, pageSize);
+        Page<Cart> carts = cartMapper.queryStockoutCarts(userId);
+        PageInfo pageInfo = PageInfo.ofPageInfo(carts);
+
+        return pageInfo;
+    }
+
+
+    /**
+     * 查询用户购物车有库存商品数量
+     * @param userId
+     * @return
+     */
+    public int queryHasStockCartCount(Integer userId){
+        return cartMapper.queryHasStockCartCount(userId);
+    }
+
+    /**
+     * 查购物车中选中的商品
+     * @param userId
+     * @return
+     */
+    public List<Cart> queryCheckoutCarts(Integer userId){
+
+        return cartMapper.queryHasStockCarts(userId,1);
+    }
+
+
+    /**
+     * 要生成订单的商品还在购物车且有库存
+     * @param cartIds
+     * @param userId
+     * @return
+     */
+    public List<Cart> queryPurchaseCarts(List<Integer>cartIds, Integer userId){
+        return cartMapper.queryPurchaseCarts(cartIds,userId);
+    }
+
+    /**
+     * 修改购物车商品的是否在订单中的状态
+     * @param cartIds
+     * @param inOrder
+     * @param userId
+     * @return
+     */
+    public int updateInOrderOfCartsAndStock(List<Integer> cartIds, Integer inOrder, Integer userId){
+
+        return cartMapper.updateInOrderOfCartsAndStock(cartIds, inOrder, userId);
+    }
+}

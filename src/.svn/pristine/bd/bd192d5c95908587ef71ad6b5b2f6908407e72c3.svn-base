@@ -1,0 +1,232 @@
+package com.c1801.spring.dzy.controller.cart;
+
+import com.c1801.spring.dzy.common.PageInfo;
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.model.Cart;
+import com.c1801.spring.dzy.model.User;
+import com.c1801.spring.dzy.service.CartService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.MissingServletRequestParameterException;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+
+/**
+ * user：少
+ * dateTime: 2019/8/26 20:41
+ * 购物车 controller
+ */
+@RestController
+@RequestMapping("/dzy/cart")
+public class CartController {
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+
+    @Autowired
+    private CartService cartService;
+
+//    private Integer userId  =16;
+
+    /**
+     * 添加到购物车
+     * @return
+     */
+    @PostMapping
+    public ResData addShopToCart(@RequestBody Cart cart, HttpSession session) throws MissingServletRequestParameterException {
+        logger.info(cart +"添加到购物车");
+
+        //验证参数
+        if(cart.getBookId() == null){
+            throw new MissingServletRequestParameterException("bookId", "书籍id必须传入");
+        } else if(cart.getCondition() == null){
+            throw new MissingServletRequestParameterException("condition", "品相必须传入");
+        }
+
+        User user = (User) session.getAttribute("user");
+//        if(user == null || user.getId() == null){
+//            return ResData.ofFail(2002,"请登录");
+//        }
+        int reslut = cartService.addShopToCart(cart.getBookId(), cart.getCondition(),user.getId());
+
+        if(reslut == 0){
+            //失败 原因：购物车已存在、没有该单品、商品下架
+            return ResData.ofFail(3000,"添加购物车失败");
+        }else if (reslut >= 100) {
+            return ResData.ofFail(3001, "购物车已满");
+        }
+        return ResData.ofSuccess(0,"成功",reslut);
+
+    }
+
+    /**
+     * 从购物车删除商品
+     * @param cartId
+     * @return
+     */
+    @DeleteMapping("/{cartId:\\d+}")
+    public ResData delShopFromCart(@PathVariable Integer cartId, HttpSession session) {
+        logger.info(cartId +"从购物车删除");
+
+        User user = (User) session.getAttribute("user");
+        int result = cartService.delShopFromCart(cartId, user.getId());
+        if(result == 0){
+            return ResData.ofFail(3002, "删除购物车商品失败");
+        }
+        return ResData.ofSuccess(0, "成功", result);
+    }
+
+    /**
+     * 修改商品品相
+     */
+    @PatchMapping
+    public ResData updateConditoinOfCart(@RequestBody Cart cart, HttpSession session) throws MissingServletRequestParameterException {
+        logger.info(cart +"修改购物车商品品相");
+
+        //验证参数
+        if(cart.getBookId() == null){
+            throw new MissingServletRequestParameterException("bookId", "书籍id必须传入");
+        } else if(cart.getCondition() == null){
+            throw new MissingServletRequestParameterException("condition", "品相必须传入");
+        }
+
+        User user = (User) session.getAttribute("user");
+        cart.setUserId(user.getId());
+        int result = cartService.updateConditoinOfCart(cart);
+
+        if(result == 0){
+            return ResData.ofFail(3003, "修改购物车商品品相失败");
+        }
+
+        return ResData.ofSuccess(0, "成功", result);
+    }
+
+
+    /**
+     * 选中或取消选中商品
+     * @return
+     */
+    @PatchMapping("/{cartId:\\d+}")
+    public ResData editSelectedCart(@PathVariable Integer cartId, HttpSession session){
+        logger.info(cartId +"选中/取消");
+
+        User user = (User) session.getAttribute("user");
+        int result = cartService.updateSelectedCart(cartId, user.getId());
+
+        if(result == 0){
+            return ResData.ofFail(3004, "切换商品选中或取消失败");
+        }
+
+        return ResData.ofSuccess(0, "成功", result);
+    }
+
+    /**
+     * 批量选中或取消
+     * @param cartIds
+     * @param selected
+     * @return
+     */
+    @PutMapping
+    public ResData editSelectedCarts(@RequestBody List<Integer> cartIds,@RequestParam("selected") Integer selected, HttpSession session) throws MissingServletRequestParameterException {
+        logger.info(cartIds +"批量选中/取消");
+
+        if(cartIds.isEmpty()) {
+            throw new MissingServletRequestParameterException("cartIds", "购物车id必须传入");
+        }
+
+        User user = (User) session.getAttribute("user");
+        int result = cartService.updateSelectedCarts(cartIds, selected, user.getId());
+        return ResData.ofSuccess(0, "成功", result);
+    }
+
+
+
+
+    /**
+     * 查询购物车有库存商品
+     * @param pageSize
+     * @param pageNum
+     * @return
+     */
+    @GetMapping
+    public ResData queryCarts(@RequestParam(value = "pageSize", defaultValue = "100")Integer pageSize, @RequestParam(value = "pageNum", defaultValue = "1")Integer pageNum, HttpSession session) {
+        logger.info(pageSize + "\t" + pageNum + " 查询购物车有库存");
+
+        User user = (User) session.getAttribute("user");
+        PageInfo pageInfo = cartService.queryHasStockCarts(pageSize, pageNum, user.getId());
+
+        return ResData.ofSuccess(0, "成功", pageInfo);
+    }
+
+    /**
+     * 查询购物车缺货商品
+     * @param pageSize
+     * @param pageNum
+     * @return
+     */
+    @GetMapping("/stockout")
+    public ResData queryStockoutCarts(@RequestParam(value = "pageSize", defaultValue = "10")Integer pageSize, @RequestParam(value = "pageNum", defaultValue = "1")Integer pageNum, HttpSession session) {
+        logger.info(pageSize + "\t" + pageNum + "查询购物车没有库存");
+
+        User user = (User) session.getAttribute("user");
+        PageInfo pageInfo = cartService.queryStockoutCarts(pageSize, pageNum, user.getId());
+
+        return ResData.ofSuccess(0, "成功", pageInfo);
+    }
+
+
+    /**
+     * 查询书籍是否在购物车中
+     * @param bookId
+     * @return
+     */
+    @GetMapping("/book/{bookId:\\d+}")
+    public ResData queryBookInCart(@PathVariable Integer bookId, HttpSession session) {
+        logger.info(bookId + "查询是否在购物车中");
+        User user = (User) session.getAttribute("user");
+        //未登录用户没有购物车
+        if( user == null || user.getId() == null){
+            return ResData.ofSuccess(3005, "未登录的用户");
+        }
+        Cart cart = cartService.queryBookInCart(bookId,user.getId());
+
+        return ResData.ofSuccess(0, "成功", cart);
+    }
+
+
+    /**
+     * 查询用户购物车有库存商品数量
+     * @param session
+     * @return
+     */
+    @GetMapping("/count")
+    public ResData queryHasStockCartsCount(HttpSession session){
+        logger.info("查询用户购物车有库存商品数量");
+
+        User user = (User) session.getAttribute("user");
+        //未登录用户没有购物车
+        if( user == null || user.getId() == null){
+            return ResData.ofSuccess(0, "成功",0);
+        }
+
+        int count = cartService.queryHasStockCartCount(user.getId());
+        logger.info(count + "");
+        return ResData.ofSuccess(0, "成功",count);
+    }
+
+}

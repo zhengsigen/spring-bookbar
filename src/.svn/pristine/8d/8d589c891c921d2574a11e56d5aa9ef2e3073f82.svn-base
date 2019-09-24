@@ -1,0 +1,139 @@
+package com.c1801.spring.dzy.mapper;
+
+
+import com.c1801.spring.dzy.model.*;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.HashMap;
+import java.util.List;
+
+/**
+ * user：黄
+ * dateTime: 2019/8/26 11:16
+ */
+@Mapper
+public interface BookCollectionMapper {
+
+    /**
+     * 首页五个书单
+     * @return
+     */
+    public List<BookCollection> getBookCollection();
+
+    /**
+     * 查询书单的基本信息
+     * @param id
+     * @return
+     */
+    @Select("SELECT * FROM book_collection_tb where id=#{id}")
+    public BookCollection getBookCollectionDetailed(@Param("id")Integer id);
+
+    /**
+     * 查询书单下有多少名贡献者贡献了多少本书
+     * @param id
+     * @return
+     */
+    @Select("SELECT count(distinct user_id) as userTotal, count(distinct book_id) as bookTotal FROM book_collection_list_tb where collection_id=#{id}")
+    public HashMap<String,String> getBookCollectionBookTotal(@Param("id")Integer id);
+
+    /**
+     * 查询五个用户头像
+     * @param id
+     * @return
+     */
+    @Select("SELECT u.cover,u.id,bcl.create_date  FROM book_collection_list_tb bcl,users_tb u where collection_id=#{id} and bcl.user_id=u.id order by  create_date asc limit 5")
+    public List<String> getBookCOllectionImage(@Param("id")Integer id);
+
+    /**
+     * 查询书单总数
+     * @return
+     */
+    @Select("select count(*) from book_collection_tb")
+    public Integer getBookCollectionTotal();
+
+    /**
+     * 查询书单下的书籍-分页-前端
+     * @param id
+     * @param page
+     * @param size
+     * @return
+     */
+    public List<BookCollectionList> getBookCollectionBookByID(@Param("id")Integer id,@Param("page")Integer page,@Param("size")Integer size);
+
+    /**
+     * 查询所有书单
+     * @param page
+     * @param size
+     * @return
+     */
+    public List<BookCollection> queryBookCollection(@Param("page") Integer page ,@Param("size") Integer size);
+
+    /**
+     * 添加书单
+     * @param collection
+     * @return
+     */
+    public boolean addBookCollection(@Param("data")BookCollection collection);
+
+    /**
+     * 查询书单里的书籍-后台管理
+     * @param id
+     * @return
+     */
+    public BookCollection queryBookCollectionByID(@Param("id")Integer id);
+
+    /**
+     * 查询书单里的书籍的点赞数
+     * @param id        书单id
+     * @param bookId    书籍id
+     * @return
+     */
+    @Select("SELECT count(*) FROM applaud_tb where book_id=#{bookId} and book_collection_id=#{id};")
+    public Integer queryBookCollectionApplaudTotal(@Param("id")Integer id,@Param("bookId")Integer bookId);
+
+
+    /**
+     * @郑思根
+     * 根据用户id和书籍id查询推荐书籍
+     * @param RecommendBook
+     * @return
+     */
+    public RecommendBook queryRecommendBook(RecommendBook RecommendBook);
+
+
+    /**
+     * @郑思根
+     * 新增一个推荐书籍到指定书单
+     * @param RecommendBook
+     * @return
+     */
+    public Integer addRecommendBook(RecommendBook RecommendBook);
+
+
+    /**
+     * @郑思根
+     * 根据id查询指定关联推荐
+     * @param id
+     * @return
+     */
+    public RecommendBook queryRecommendBookById(Integer id);
+
+
+    /**
+     * @郑思根
+     * 根据推荐id获取到 书单详情，书籍详情，用户详情，推荐详情
+     * @param id
+     * @return
+     */
+    public RecommendAccount queryRecommendAccountById(Integer id);
+
+    /**
+     * @郑思根
+     * 根据书单id 获取推荐人数，推荐书籍数量
+     * @param id
+     * @return
+     */
+    public BookCollectionPack queryCountByCollectionId(Integer id);
+}

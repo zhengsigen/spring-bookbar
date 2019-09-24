@@ -1,0 +1,45 @@
+package com.c1801.spring.dzy.common;
+
+import lombok.Data;
+import org.springframework.context.annotation.Configuration;
+
+import javax.annotation.PostConstruct;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.UUID;
+
+@Data
+@Configuration
+public class RandomIdCreate {
+    private List<Integer> userId = new ArrayList<>();
+    private List<Integer> orderId = new ArrayList<>();
+    private Random random = new Random();
+    //项目启动时调用
+    @PostConstruct
+    public void postConstruct() {
+        addOrderId();
+        addUserId();
+    }
+    public void addUserId(){
+        for (int i = 0; i < 100; i++) {
+            String id = String.valueOf(System.currentTimeMillis());
+            Integer temp = Integer.valueOf(id.substring(3,id.length()-1))+random.nextInt(1000000000);
+            userId.add(temp);
+        }
+    }
+    public void addOrderId(){
+        for (int i = 0; i < 100; i++) {
+            String id = String.valueOf(System.currentTimeMillis());
+            Integer temp = Integer.valueOf(id.substring(3,id.length()-1))+random.nextInt(1000000000);
+            orderId.add(temp);
+        }
+    }
+
+    public Integer getNewUserId(){
+        Integer id = userId.get(0);
+        userId.remove(0);
+        if (userId.size() < 10)addUserId();
+        return id;
+    }
+}

@@ -1,0 +1,37 @@
+package com.c1801.spring.dzy.controller.collection;
+
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.mapper.BookCollectionMapper;
+import com.c1801.spring.dzy.model.BookCollection;
+import com.c1801.spring.dzy.model.Pager;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
+
+/**
+ * 后台管理：书单
+ * user：黄
+ * dateTime: 2019/8/26 11:16
+ */
+@RestController
+@Transactional
+@RequestMapping("/manage/collection")
+public class ManageCollectionController {
+    @Autowired
+    BookCollectionMapper bookCollectionMapper;
+    @GetMapping()
+    public ResData queryBookCollection(@Param("page") Integer page ,@Param("size") Integer size){
+        Pager pager = new Pager();
+        Integer total = bookCollectionMapper.queryBookCollectionTotal();
+        pager.setTotal(total);
+        pager.setPages((total/size)+(total%size>0?1:0));
+        pager.setData(bookCollectionMapper.queryBookCollection((page-1)*size,size));
+        return ResData.ofSuccess(0, "查询成功",pager);
+    }
+    @PostMapping
+    public ResData addBookCollection(@RequestBody BookCollection bookCollection){
+        bookCollectionMapper.addBookCollection(bookCollection);
+        return ResData.ofSuccess(0, "添加成功");
+    }
+}

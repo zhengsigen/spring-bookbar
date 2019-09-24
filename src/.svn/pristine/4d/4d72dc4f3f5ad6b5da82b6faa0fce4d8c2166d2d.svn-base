@@ -1,0 +1,108 @@
+package com.c1801.spring.dzy.mapper;
+
+import com.c1801.spring.dzy.model.Cart;
+import com.c1801.spring.dzy.model.Coupon;
+import com.c1801.spring.dzy.model.CouponRule;
+import com.c1801.spring.dzy.model.UserCoupon;
+import com.github.pagehelper.Page;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+
+/**
+ * user：黄
+ * dateTime: 2019/9/3 15:22
+ * 优惠券接口
+ */
+@Mapper
+public interface CouponMapper {
+    /**
+     * 创建优惠券
+     * @param coupon
+     * @return
+     */
+    public boolean addCoupon(Coupon coupon);
+
+    /**
+     * 发送优惠券
+     * @param coupon
+     * @return
+     */
+    public boolean sendCoupon(@Param("coupon")UserCoupon coupon);
+
+    /**
+     * 查询所有优惠卷
+     * @return
+     */
+    public Page<Coupon> queryCoupon();
+
+    /**
+     * 查询有谁收这个优惠券
+     * @param id
+     * @return
+     */
+    public List<UserCoupon> queryCouponByID(@Param("id") Integer id);
+
+    /**
+     * 查询这张优惠券的基本信息
+     * @param id
+     * @return
+     */
+    public Coupon queryCouponInfoByID(@Param("id") Integer id);
+
+    /**
+     * 查询当前用户的所有优惠券
+     * @param id
+     * @return
+     */
+    public List<UserCoupon> queryCouponByUser(@Param("id") Integer id,@Param("state")Integer state);
+
+    /**
+     * 查询用户的这张优惠券
+     * @param id
+     * @param userID
+     * @return
+     */
+    public Coupon queryCouponByUserID(@Param("id") Integer id,@Param("userID") Integer userID,@Param("state")Integer state);
+
+    /**
+     * 查询支付金额满足最高的发券门槛
+     * @return
+     */
+    public CouponRule queryCouponByMoney(@Param("money") Double money);
+
+    /**
+     *  修改优惠券状态
+     * @param ID 用户的劵id
+     * @param state
+     * @return
+     */
+    public boolean updateCoupon(@Param("id")Integer ID,@Param("state")Integer state);
+
+    /**
+     * 修改使用时间
+     * @param ID
+     * @return
+     */
+    public boolean updateUseTime(@Param("id")Integer ID, @Param("date")Date date);
+
+    /**
+     * 修改优惠券卷面值
+     * @param ID
+     * @param amount
+     * @return
+     */
+    public boolean updateAmount(@Param("id")Integer ID,@Param("amount")double amount);
+
+    /**
+     * 修改有效期
+     * @param ID
+     * @param expiresIn
+     * @return
+     */
+    public boolean updateExpiresIn(@Param("id")Integer ID,@Param("expiresIn")Integer expiresIn);
+
+}

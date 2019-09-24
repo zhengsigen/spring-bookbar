@@ -1,0 +1,23 @@
+package com.c1801.spring.dzy.mapper;
+
+import com.c1801.spring.dzy.model.BookCollectionPack;
+import org.apache.ibatis.annotations.Mapper;
+
+/**
+ * user：少
+ * dateTime: 2019/8/30 15:48
+ */
+@Mapper
+public interface CollectionMapper {
+
+
+    /**
+     * 查询单个书单信息
+     * @param collectionId
+     * @return
+     */
+    public BookCollectionPack querySingleCollection(Integer collectionId);
+
+
+
+}

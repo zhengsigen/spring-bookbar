@@ -1,0 +1,55 @@
+package com.c1801.spring.dzy.controller.collection;
+
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.mapper.BookCollectionMapper;
+import com.c1801.spring.dzy.model.*;
+import com.c1801.spring.dzy.service.CollectionService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
+import java.util.List;
+
+/**
+ * 书单
+ */
+@RestController
+@RequestMapping("/dzy/category")
+public class CollectionController {
+
+    @Autowired
+    private BookCollectionMapper bookCollectionMapper;
+
+    @Autowired
+    CollectionService collectionService;
+
+    /**
+     * 查询书单列表数据
+     *
+     * @return
+     */
+    @GetMapping
+    public ResData getBookCollection() {
+        ResData resData = new ResData();
+        List<BookCollection> bookCollection = bookCollectionMapper.getBookCollection();
+        return resData.ofSuccess(0, "查询成功", bookCollection);
+    }
+
+    /**
+     * @return
+     * @郑思根 新增指定书籍到指定书单
+     */
+    @PostMapping
+    public ResData addBookAppointCollection(@RequestBody RecommendBook recommendBook, HttpSession session) {
+        //如果书单id为空
+        if (recommendBook.getCollectionId() == null ||
+                //如果书籍id或者isbn都为空
+                (recommendBook.getBookId() == null && recommendBook.getIsbn() == null)) {
+            return ResData.ofSuccess(1001, "参数缺失");
+        }
+        User user = (User) session.getAttribute("user");
+        recommendBook.setUserId(user.getId());
+        return collectionService.addBookAppointCollection(recommendBook);
+    }
+
+}

@@ -1,0 +1,46 @@
+package com.c1801.spring.dzy.mapper;
+
+
+import com.c1801.spring.dzy.model.*;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.HashMap;
+import java.util.List;
+
+/**
+ * user：黄
+ * dateTime: 2019/8/26 11:16
+ */
+@Mapper
+public interface ApplaudMapper {
+
+    /**
+     * 黄
+     * 点赞
+     * @param id
+     * @param bookID
+     * @param collectionID
+     * @return
+     */
+    public Boolean applaudBook(@Param("id")Integer id, @Param("bookID") Integer bookID, @Param("collectionID")Integer collectionID);
+    /**
+     * 黄
+     * 取消点赞
+     * @param id        用户id
+     * @param bookID
+     * @param collectionID
+     * @return
+     */
+    public Boolean cancelApplaudBook(@Param("id")Integer id, @Param("bookID") Integer bookID, @Param("collectionID")Integer collectionID);
+
+    /**
+     * 查询用户在这个书单中给那些书点过赞
+     * @param id
+     * @param collectionID
+     * @return
+     */
+    public List<Integer> queryApplaudBookByUser(@Param("id")Integer id,@Param("collectionID")Integer collectionID);
+
+}

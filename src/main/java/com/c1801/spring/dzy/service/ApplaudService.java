@@ -1,0 +1,44 @@
+package com.c1801.spring.dzy.service;
+
+import com.c1801.spring.dzy.mapper.ApplaudMapper;
+import com.c1801.spring.dzy.mapper.CollectionMapper;
+import com.c1801.spring.dzy.model.Applaud;
+import com.c1801.spring.dzy.model.RecommendAccount;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
+@Transactional
+public class ApplaudService {
+    @Autowired
+    ApplaudMapper applaudMapper;
+
+    @Autowired
+    CollectionMapper collectionMapper;
+
+
+    /**
+     * 蒋
+     * 点赞 取消点赞
+     * @return
+     */
+    public RecommendAccount applaud(Integer recommendId,Integer userId){
+        //取消点赞
+        boolean bool = applaudMapper.cancelApplaudBook(recommendId, userId);
+        if(!bool) {
+            //没有取消点赞，则点赞
+            bool = applaudMapper.applaudBook(recommendId, userId);
+            System.out.println("bool = " + bool);
+            if(bool){
+                //修改推荐信息最后修改时间
+                int i = collectionMapper.updateRecommendUpdateDate(recommendId);
+                System.out.println(i);
+            }
+        }
+
+        RecommendAccount recommendAccount = collectionMapper.queryRecommendByRecommendId(recommendId, userId);
+        return recommendAccount;
+    }
+}
+

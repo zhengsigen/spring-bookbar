@@ -1,0 +1,21 @@
+package com.c1801.spring.dzy.mapper;
+
+
+import com.c1801.spring.dzy.model.BookCollection;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
+
+/**
+ * user：黄
+ * dateTime: 2019/8/26 11:16
+ */
+@Mapper
+public interface BookCollectionMapper {
+    @Select("select count(*) from book_collection_tb")
+    public Integer queryBookCollectionTotal();
+    public List<BookCollection> queryBookCollection(@Param("page") Integer page ,@Param("size") Integer size);
+    public boolean addBookCollection(@Param("collection")BookCollection collection);
+}

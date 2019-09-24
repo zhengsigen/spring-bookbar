@@ -1,0 +1,41 @@
+package com.c1801.spring.dzy.model;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Order {
+    private Integer id;
+    private Integer userId;
+    private Integer status;
+    private Integer type;
+    private double total;
+    private double freight;
+    private String province;
+    private String city;
+    private String district;
+    private String street;
+    private String userName;
+    private String phone;
+
+    private boolean anony;
+
+    private OrderPay orderPay;
+
+    private boolean timeout;
+
+    @JsonFormat(pattern = "YYYY-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date createTime;
+
+    @JsonFormat(pattern = "YYYY-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date updateTime;
+}

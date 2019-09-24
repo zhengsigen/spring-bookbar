@@ -1,0 +1,15 @@
+package com.c1801.spring.dzy.model;
+
+import lombok.Data;
+
+/**
+ * user：黄
+ * dateTime: 2019/8/26 11:16
+ * 点赞
+ */
+@Data
+public class Applaud {
+    private Integer id;
+    private Integer userId;
+    private Integer bookId;
+}

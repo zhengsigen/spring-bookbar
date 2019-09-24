@@ -1,0 +1,303 @@
+package com.c1801.spring.dzy.service;
+
+import com.c1801.spring.dzy.common.Calculate;
+import com.c1801.spring.dzy.common.RandomIdCreate;
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.common.exception.OrderException;
+import com.c1801.spring.dzy.mapper.OrderMapper;
+import com.c1801.spring.dzy.mapper.SellBookMapper;
+import com.c1801.spring.dzy.mapper.UserSubscribeMapper;
+import com.c1801.spring.dzy.model.Address;
+import com.c1801.spring.dzy.model.Book;
+import com.c1801.spring.dzy.model.Cart;
+import com.c1801.spring.dzy.model.Coupon;
+import com.c1801.spring.dzy.model.Order;
+import com.c1801.spring.dzy.model.OrderAccount;
+import com.c1801.spring.dzy.model.OrderParam;
+import com.c1801.spring.dzy.model.OrderPay;
+
+import com.c1801.spring.dzy.mapper.UserMapper;
+import com.c1801.spring.dzy.model.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Service
+@Transactional
+public class OrderService {
+
+    @Autowired
+    OrderMapper orderMapper;
+    @Autowired
+    SellBookMapper sellBookMapper;
+
+    @Autowired
+    UserMapper userMapper;
+    @Autowired
+    private CartService cartService;
+
+    @Autowired
+    private CouponService couponService;
+
+    @Autowired
+    private FreightService freightService;
+
+
+    @Autowired
+    private MessageTemplateService messageTemplateService;
+
+    @Autowired
+    private UserSubscribeMapper userSubscribeMapper;
+
+    private long autoConfirmTime = 15 * 60 * 60;
+
+    /**
+     * id
+     */
+    @Autowired
+    private RandomIdCreate randomIdCreate;
+
+    public ResData changeOrderStatus(Order order) throws IOException {
+        System.out.println(order);
+        OrderAccount orderAccount = orderMapper.queryOrderAccountByOrderId(order.getId());
+        if (order.getStatus() >= 10) {
+            if (orderAccount.getStatus() >= 10) {
+                return ResData.ofSuccess(0, "当前订单不支持取消");
+            }
+            //获取订单所有书籍
+            List<Integer> bookId = new ArrayList<>();
+            for (Book b : orderAccount.getOrderBooksConditions()) {
+                bookId.add(b.getId());
+            }
+            //将卖书列表中的书籍从订单中删除
+            sellBookMapper.sellBookWhetherInOrder(orderAccount.getUserId(), bookId, 0);
+            orderMapper.cancelOrder(order.getId(), order.getStatus() + orderAccount.getStatus());
+        } else {
+            if (order.getStatus() > 4) {
+                return ResData.ofSuccess(0, "当前状态不支持修改");
+            }
+            orderMapper.cancelOrder(order.getId(), order.getStatus());
+        }
+        //消息推送
+        UserSubscribe userSubscribe = userSubscribeMapper.getUserSubscribe(orderAccount.getUserId());
+        if (userSubscribe.getOrderStatus()) {
+            User user = userMapper.getUserById(orderAccount.getUserId());
+            OrderAccount temp = orderMapper.queryOrderAccountByOrderId(order.getId());
+            messageTemplateService.sendOrderStatus(user, temp);
+        }
+        return ResData.ofSuccess(0, "状态修改成功");
+    }
+
+
+
+    /*
+    1.查询库存
+    2.预计算商品价格
+    3.查询运费
+    4.查询券是否可用
+    5.扣券
+    6.修改购物车商品状态 和 扣库存 校验库存和上下架状态
+    7.生成订单
+    8.生成订单商品记录
+     */
+
+    public Object purchaseOrder(OrderParam orderParam, Integer userId) throws OrderException {
+
+
+        //1.查询库存
+
+        List<Integer> cartIds = orderParam.getCartIds();
+        //查询要生成订单商品中是在售有库存
+        List<Cart> carts = cartService.queryPurchaseCarts(cartIds, userId);
+
+        int count = cartIds.size();
+
+        /*
+        查询出的购物车商品数量和要结算的商品相同且一样才能继续生产订单，
+        否则 不能生产订单，需要用户再确认
+         */
+        List<Integer> queryCartIds = carts.stream().map(cart -> cart.getId()).collect(Collectors.toList());
+        if (!(count == carts.size() && cartIds.containsAll(queryCartIds))) {
+            throw new OrderException(3006, "结算的部分商品已发生改变");
+        }
+
+        //2.预计算价格
+        double total = carts.stream().mapToDouble(cart -> Calculate.mul(cart.getBook().getPrice(),Calculate.mul(cart.getDiscount(),0.1))).sum();
+        BigDecimal totalDecimal = new BigDecimal(total);
+
+        //3.查询运费
+        Freight freight = freightService.query(orderParam.getFreightId());
+
+        if(freight == null || !freight.isShipments()){
+            throw new OrderException(3007,"输入地址可能不在服务范围内");
+        }
+        //总价大于等于门槛免邮费
+        //运费
+        double freightFee = total >= freight.getPinkage()? 0 : freight.getCharge();
+
+        BigDecimal freightFeeDecimal = new BigDecimal(freightFee);
+
+
+        //4.有使用券 则查询券是否可用 ,类型是否正确
+
+        Integer freightCouponId = orderParam.getFreightCouponId();
+        Coupon freightCoupon = null;
+
+        //是否使用运费券
+        if(freightCouponId != null){
+            //免邮不能再使用运费券
+            if(freightFee == 0 ){
+                throw new OrderException(3010,"已免邮，不可使用运费券");
+            }
+
+            freightCoupon = queryCoupon(freightCouponId,1,userId);
+            //运费是否高于门槛
+            if(freightFee < freightCoupon.getPerLimit()) {
+                throw new OrderException(3010,"运费券未达到使用门槛");
+            }
+            Boolean aBoolean = couponService.useCoupon(freightCouponId);
+            //计算运费金额
+            freightFeeDecimal = getBigDecimal(freightFeeDecimal, freightCoupon.getAmount());
+//
+        }
+
+        //包含运费的结算金额
+        totalDecimal = totalDecimal.add(freightFeeDecimal);
+
+        Integer couponId = orderParam.getCouponId();
+        Coupon coupon = null;
+
+        //是否使用优惠券
+        if (couponId != null) {
+            coupon = queryCoupon(couponId,0,userId);
+            if(totalDecimal.doubleValue() < coupon.getPerLimit()){
+                throw new OrderException(3010,"优惠券未达到使用门槛");
+            }
+            //计算总价
+            totalDecimal = getBigDecimal(totalDecimal,coupon.getAmount());
+        }
+        Boolean aBoolean = couponService.useCoupon(couponId);
+
+        //5.修改购物车状态扣除库存
+        int updateCarteCount = updateCartAndSku(queryCartIds, userId);
+
+
+        //7.生成订单
+        Order order = createOrder(orderParam, totalDecimal, freightFeeDecimal, userId);
+
+        //8.生成订单商品记录
+
+        return null;
+    }
+
+
+    /**
+     * 价格小于0时取0
+     * @param price
+     * @param otherPrice
+     * @return
+     */
+    private BigDecimal getBigDecimal(BigDecimal price,double otherPrice){
+        if(price.doubleValue() > otherPrice){
+
+            BigDecimal amountDecimal = new BigDecimal(otherPrice);
+            price = price.subtract(amountDecimal);
+        }else {
+            price = new BigDecimal(0);
+        }
+        return price;
+    }
+
+    /**
+     * 根据券id和券类型校对券
+     * @param couponId
+     * @param type
+     * @param userId
+     * @return
+     * @throws OrderException
+     */
+    private Coupon queryCoupon(Integer couponId,Integer type,Integer userId) throws OrderException{
+        //查询是否可用
+        Coupon coupon = couponService.queryCouponByUser(couponId, userId);
+
+        if(coupon == null){
+            throw new OrderException(3008, "优惠券不可用");
+
+            //优惠券类型与使用类型不一致
+        }else if(!type.equals(coupon.getType())){
+
+            throw new OrderException(3009, "该券类型不对");
+        }
+        return coupon;
+    }
+
+    /**
+     * 修改购物车商品状态和扣除库存
+     * @param cartIds
+     * @param userId
+     * @return
+     */
+    private int updateCartAndSku(List<Integer> cartIds, Integer userId) throws OrderException {
+
+        int count = cartIds.size();
+        //修改购物车商品状态和减库存
+        int result = cartService.updateInOrderOfCartsAndStock(cartIds, 1, userId);
+        /*
+        因为同时修改购物车和库存 每一个商品有两条记录 返回结果为购物车商品数量的两倍
+         */
+        if (result != count * 2) {
+            // 实际修改的与预期不修改数不同,需要用户再确认
+            throw new OrderException(3006, "结算的部分商品已下架或没有库存");
+        }
+        return result;
+    }
+
+
+    /**
+     * 创建订单
+     *
+     * @return
+     */
+    private Order createOrder(OrderParam orderParam, BigDecimal totalDecimal, BigDecimal freightFeeDecimal, Integer userId) {
+
+        Address address = orderParam.getAddress();
+
+        /**
+         * 订单基本信息
+         */
+        Order order = new Order();
+        Integer orderId = randomIdCreate.getNewOrderId();
+        order.setId(orderId);
+        order.setUserId(userId);
+        order.setStatus(0);
+        order.setType(1);
+        order.setTotal(Calculate.round(totalDecimal.doubleValue(),2));
+        order.setFreight(Calculate.round(totalDecimal.doubleValue(),2));
+        order.setProvince(address.getProvince());
+        order.setCity(address.getCity());
+        order.setDistrict(address.getDistrict());
+        order.setStreet(address.getStreet());
+        order.setUserName(address.getName());
+        order.setPhone(address.getPhone());
+
+
+        /**
+         * 订单 自动取消时长 和使用的券
+         */
+        OrderPay orderPay = new OrderPay();
+        orderPay.setOrderId(orderId);
+        orderPay.setAutoConfirmTime(autoConfirmTime);
+
+        orderPay.setCouponId(orderParam.getCouponId());
+        orderPay.setFreightId(orderParam.getFreightCouponId());
+
+        return null;
+    }
+}

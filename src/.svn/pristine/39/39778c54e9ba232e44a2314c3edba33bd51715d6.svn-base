@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.c1801.spring.dzy.mapper.OrderInfoMapper">
+<!--    查询订单信息-->
+    <select id="queryOrderByOrderId" resultType="order">
+        select id, user_id, status, type, total, freight, province, city, district, street, user_name, phone, anony, create_time, update_time
+        from orders_tb
+        where id = #{id}
+    </select>
+</mapper>

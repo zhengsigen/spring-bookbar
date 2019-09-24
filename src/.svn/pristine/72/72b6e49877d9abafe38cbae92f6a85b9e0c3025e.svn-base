@@ -1,0 +1,16 @@
+#server:
+#  port: 8089
+spring:
+  profiles:
+    active: dev
+
+phone:
+  config:
+    accessKey: cn-hangzhou
+    accessId: LTAIVXIqZXQFQSMG
+    secret: YZIEcwTiHQO3CedPozpAP83ndK3X1e
+    domain: dysmsapi.aliyuncs.com
+    version: 2017-05-25
+    action: SendSms
+    signName:  dzy
+    templateCode: SMS_172350185

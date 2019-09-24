@@ -1,0 +1,13 @@
+package com.c1801.spring.dzy.mapper;
+
+
+import org.apache.ibatis.annotations.Mapper;
+
+/**
+ * user：黄
+ * dateTime: 2019/8/26 11:16
+ */
+@Mapper
+public interface BookCollectionMapper {
+
+}

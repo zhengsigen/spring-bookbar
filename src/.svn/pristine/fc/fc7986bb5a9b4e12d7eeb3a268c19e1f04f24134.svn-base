@@ -1,0 +1,31 @@
+package com.c1801.spring.dzy.model;
+import lombok.Data;
+
+/**
+ * @郑思根
+ * 实体类   ->  推荐统计
+ * 根据推荐id获取到 书单详情(书单推荐用户，书单推荐书籍)，书籍详情，用户详情，推荐详情
+ */
+@Data
+public class RecommendAccount {
+
+    /**
+     * 书籍详情
+     */
+    private Book book;
+
+    /**
+     * 书单详情
+     */
+    private BookCollectionPack bookCollectionPack;
+
+    /**
+     * 用户详情
+     */
+    private User user;
+
+    /**
+     * 推荐详情
+     */
+    private RecommendBook recommendBook;
+}

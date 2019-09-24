@@ -1,0 +1,78 @@
+package com.c1801.spring.dzy.config;
+
+import com.alibaba.fastjson.JSON;
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.mapper.UserMapper;
+import com.c1801.spring.dzy.model.Account;
+import com.c1801.spring.dzy.model.User;
+import com.c1801.spring.dzy.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.sound.midi.Soundbank;
+import java.util.Map;
+
+/**
+ * user：少
+ * dateTime: 2019/8/15 18:52
+ * 拦截器
+ */
+public class LogCostInterceptor implements HandlerInterceptor {
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+    /**
+     * 登录过的用户
+     */
+    @Autowired
+    private Map<String, Account> accountMap;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    UserMapper userMapper;
+
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        logger.info("request.getHeader(\"Cookie\") = " + request.getHeader("Cookie"));
+        logger.info("request.getHeader(\"token\") = " + request.getHeader("token"));
+        logger.info("accountMap = " + accountMap);
+        logger.info("当前请求的接口 = " + request.getRequestURI());
+        HttpSession session = request.getSession();
+        ServletOutputStream output = response.getOutputStream();
+        response.setContentType("application/json;charset=utf-8");
+        User user = (User)session.getAttribute("user");
+        if(user == null){
+            ResData res = ResData.ofFail(2002,"请登录",null);
+            output.write(JSON.toJSONString(res).getBytes());
+            output.flush();
+            return false;
+        }else if(userService.queryUserEnabled(user.getId()) == 0){
+            ResData res = ResData.ofFail(2003,"账号被禁用",null);
+            output.write(JSON.toJSONString(res).getBytes());
+            output.flush();
+            session.removeAttribute("user");
+            session.invalidate();
+            return false;
+        }
+        return true;
+    }
+
+
+    @Override
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+
+    }
+
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+
+    }
+}

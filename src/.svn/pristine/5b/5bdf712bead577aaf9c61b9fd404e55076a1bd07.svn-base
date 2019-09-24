@@ -1,0 +1,117 @@
+package com.c1801.spring.dzy.controller.collection;
+
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.mapper.BookCollectionMapper;
+import com.c1801.spring.dzy.model.BookCollection;
+import com.c1801.spring.dzy.model.BookCollectionList;
+import com.c1801.spring.dzy.model.Pager;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
+import java.util.HashMap;
+
+/**
+ * 后台管理：书单
+ * user：黄
+ * dateTime: 2019/8/26 11:16
+ */
+@RestController
+@Transactional
+@RequestMapping("/manage/collection")
+public class ManageCollectionController {
+    @Autowired
+    BookCollectionMapper bookCollectionMapper;
+
+    /**
+     * 查询所有书籍
+     * @param page
+     * @param size
+     * @param sort
+     * @param updateDate
+     * @return
+     */
+    @GetMapping()
+    public ResData queryBookCollection(@Param("page") Integer page ,@Param("size") Integer size
+            ,@Param("sort")String sort,@Param("updateDate")String updateDate){
+        Integer total = bookCollectionMapper.getBookCollectionTotal();
+        Pager pager = new Pager();
+        pager.setTotal(total);
+        pager.setPages((total/size)+(total%size>0?1:0));
+        pager.setData(bookCollectionMapper.queryBookCollection((page-1)*size,size,sort,updateDate));
+        return ResData.ofSuccess(0, "查询成功",pager);
+    }
+
+    /**
+     * 查询书单下的书籍
+     * @param id
+     * @return
+     */
+    @GetMapping("/id")
+    public BookCollection queryBookCollectionByID(@Param("id")Integer id){
+        BookCollection bookCollection = bookCollectionMapper.queryBookCollectionByID(id);
+        for(BookCollectionList list :bookCollection.getList()){
+            Integer total = bookCollectionMapper.queryBookCollectionApplaudTotal(id, list.getId());
+            list.setApplaudstotal(total);
+        }
+        return bookCollection;
+    }
+
+    /**
+     * 创建书单
+     * @param map
+     * @return
+     */
+    @PostMapping
+    public ResData addBookCollection(@RequestBody HashMap<String,String> map){
+        BookCollection bookCollection = new BookCollection();
+        bookCollection.setName(map.get("name"));
+        bookCollection.setIntro(map.get("intro"));
+        bookCollection.setBackgroundImage(map.get("imgage"));
+        bookCollection.setBackgroundColor(map.get("color"));
+        bookCollection.setSort(Integer.valueOf(map.get("sort")));
+        bookCollection.setState(Boolean.valueOf(map.get("state")));
+        bookCollection.setExpirationDate(new Date(Long.valueOf(map.get("expirationDate"))));
+        System.out.println(bookCollection);
+        bookCollectionMapper.addBookCollection(bookCollection);
+        return ResData.ofSuccess(0, "添加成功");
+    }
+
+
+    /**
+     * 修改书单信息
+     * @param map
+     * @return
+     */
+    @PutMapping
+    public ResData updateBookCollectionState(@RequestBody HashMap<String,String> map){
+        BookCollection bookCollection = new BookCollection();
+        bookCollection.setId(Integer.valueOf(map.get("id")));
+        bookCollection.setName(map.get("name"));
+        bookCollection.setIntro(map.get("intro"));
+        bookCollection.setBackgroundImage(map.get("backgroundImage"));
+        bookCollection.setBackgroundColor(map.get("backgroundColor"));
+        bookCollection.setSort(Integer.valueOf(map.get("sort")));
+        bookCollection.setState(Boolean.valueOf(map.get("state")));
+        bookCollection.setExpirationDate(new Date(Long.valueOf(map.get("expirationDate"))));
+        System.out.println(bookCollection);
+        bookCollectionMapper.updateBookCollection(bookCollection);
+        return ResData.ofSuccess(0, "修改成功");
+    }
+
+    /**
+     * 修改上下架状态
+     * @param id
+     * @param state
+     * @return
+     */
+    @PutMapping("/state")
+    public ResData updateBookCollectionState(@Param("id")Integer id, @Param("state")Boolean state){
+        bookCollectionMapper.updateBookCollectionState(id, state);
+        return ResData.ofSuccess(0, "修改成功");
+    }
+
+
+}

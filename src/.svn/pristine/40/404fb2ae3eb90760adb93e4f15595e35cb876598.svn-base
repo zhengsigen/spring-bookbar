@@ -1,0 +1,37 @@
+package com.c1801.spring.dzy.model;
+
+
+import lombok.Data;
+import org.hibernate.validator.constraints.Range;
+
+/**
+ * user：少
+ * dateTime: 2019/8/9 17:13
+ * 书籍信息 包括基本信息 总库存 总销量，上下架状态
+ */
+@Data
+public class BookInfo extends Book {
+
+    /**
+     * 上架状态 0:没有上架 1:有一个品相上架 2:两个品相上架
+     */
+    private Integer status;
+
+
+    /**
+     * 库存
+     */
+    @Range(min = 0, message = "库存不能为负数")
+    private Integer stock = 1;
+
+    /**
+     * 销量
+     */
+    @Range(min = 0, message = "销量不能为负数")
+    private Integer sale;
+
+    /**
+     * 折扣
+     */
+    private Double discount;
+}

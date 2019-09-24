@@ -1,0 +1,143 @@
+package com.c1801.spring.dzy.service;
+
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.mapper.BookCollectionMapper;
+import com.c1801.spring.dzy.mapper.BookMapper;
+import com.c1801.spring.dzy.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.List;
+
+@Service
+public class CollectionService {
+
+    @Autowired
+    BookMapper bookMapper;
+
+    @Autowired
+    BookCollectionMapper bookCollectionMapper;
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+
+
+    /***
+     * @郑思根
+     * 推荐书籍
+     * @param recommendBook
+     * @return
+     */
+    public ResData addBookAppointCollection(RecommendBook recommendBook){
+
+        //判断用户是通过扫描还是手动输入isbn码
+        if(recommendBook.getBookId()==null){
+            //再通过isbn获取到书籍id
+            Book book = bookMapper.queryBookByIBSN(recommendBook.getIsbn());
+            if(book==null){
+                return ResData.ofFail(20078,"该isbn码不存在");
+            }
+            recommendBook.setBookId(book.getId());
+        }
+
+        //查询该书的评分是否低于7.5
+        Book book = bookMapper.queryBookById(recommendBook.getBookId());
+        if(book==null){
+            return  ResData.ofFail(20080,"推荐的书籍不存在");
+        }
+
+        if(book.getDoubanRate()<7.5){
+            return  ResData.ofFail(20076,"推荐的书籍评分不能少于7.5");
+        }
+
+        //查询当前用户是否已经推荐过指定书籍
+        RecommendBook queryMsg = bookCollectionMapper.queryRecommendBook(recommendBook);
+        if(queryMsg!=null){
+            return ResData.ofFail(20077,"您已推荐过这本书，请不要重复推荐");
+        }
+
+        //新增用户推荐书籍
+        bookCollectionMapper.addRecommendBook(recommendBook);
+
+        //根据返回的id查询到指定推荐关联数据返回给前端
+        RecommendBook addMsg = bookCollectionMapper.queryRecommendBook(recommendBook);
+        if(addMsg==null){
+            return ResData.ofFail(20079,"推荐失败");
+
+        }
+        return ResData.of(0,"推荐成功",addMsg);
+    }
+
+
+    /***
+     * @郑思根
+     * 根据推荐id获取到 书单详情(书单推荐用户数量，书单推荐书籍数量)，书籍详情，用户详情，推荐详情
+     * @param id
+     * @return
+     */
+    public ResData queryRecommendAccountById(Integer id){
+
+        //判断推荐id是否存在
+        RecommendBook recommendBook = bookCollectionMapper.queryRecommendBookById(id);
+        if(recommendBook==null){
+            return ResData.ofFail(20081,"推荐id不存在");
+        }
+
+        //根据推荐id获取到 书单详情(书单推荐用户数量，书单推荐书籍数量)，书籍详情，用户详情，推荐详情
+        RecommendAccount recommendAccount = bookCollectionMapper.queryRecommendAccountById(id);
+        //根据书单id获取书单推荐书籍，书单推荐用户
+        BookCollectionPack bookCollectionPack = bookCollectionMapper.queryCountByCollectionId(recommendAccount.getBookCollectionPack().getId());
+        recommendAccount.getBookCollectionPack().setContributorsCount(bookCollectionPack.getContributorsCount());
+        recommendAccount.getBookCollectionPack().setItemsCount(bookCollectionPack.getItemsCount());
+        return ResData.of(0,"成功",recommendAccount);
+    }
+
+    /**
+     * 黄
+     * 书单详情： 【书单名+书单简介】+【书单推荐人总数+书单推荐书籍总数】+【五个头像 > 最早推荐的五个人】
+     * @param id
+     * @return
+     */
+    public HashMap<String,Object> getBookCollectionByID(Integer id){
+        BookCollection bookCollection = bookCollectionMapper.getBookCollectionDetailed(id);
+        HashMap<String, Integer> total = bookCollectionMapper.getBookCollectionBookTotal(id);
+        System.out.println(total);
+        List<String> images = bookCollectionMapper.getBookCOllectionImage(id);
+
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("data",bookCollection);
+        map.put("total",total);
+        map.put("image",images);
+        System.out.println(map);
+        return map;
+    }
+
+    /**
+     * 查询书籍下的书单
+     * @param id
+     * @param page
+     * @param size
+     */
+    public Pager getBookCollectionBookByID(Integer id,Integer page){
+        List<BookCollectionList> bookCollection = bookCollectionMapper.getBookCollectionBookByID(id, page);
+        for(BookCollectionList list:bookCollection){
+            list.setApplaudstotal(bookCollectionMapper.queryBookCollectionApplaudTotal(id,list.getBookID()));
+        }
+        Pager pager = new Pager();
+        HashMap<String, Integer> bookTotal = bookCollectionMapper.getBookCollectionBookTotal(id);
+        Integer total = 0;
+        for (String key: bookTotal.keySet()) {
+            System.out.println(key);
+            if(key.equals("bookTotal")){
+                total=Integer.valueOf(bookTotal.get(key)+"");
+            }
+        }
+        pager.setTotal(total);
+        pager.setPages((total/5)+(total%5>0?1:0));
+        pager.setData(bookCollection);
+
+        return pager;
+    }
+}

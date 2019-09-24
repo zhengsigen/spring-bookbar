@@ -1,0 +1,161 @@
+package com.c1801.spring.dzy.controller.order;
+
+import com.c1801.spring.dzy.common.Calculate;
+import com.c1801.spring.dzy.common.RandomIdCreate;
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.mapper.*;
+import com.c1801.spring.dzy.model.*;
+import com.c1801.spring.dzy.service.BookService;
+import com.c1801.spring.dzy.service.OrderService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
+import java.util.List;
+
+@RestController
+@Transactional
+@RequestMapping("/dzy/order")
+public class OrderController {
+
+    @Autowired
+    OrderMapper orderMapper;
+    @Autowired
+    SellBookMapper sellBookMapper;
+    @Autowired
+    AddrMapper addrMapper;
+    @Autowired
+    OrderBookMapper orderBookMapper;
+    @Autowired
+    UserMapper userMapper;
+    @Autowired
+    BookService bookService;
+    @Autowired
+    BookMapper bookMapper;
+    @Autowired
+    OrderService orderService;
+    @Autowired
+    RandomIdCreate randomIdCreate;
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+
+    /**
+     * 前端
+     *
+     * @param orderId
+     * @return
+     */
+    //根据订单id查询订单
+    @GetMapping("/{orderId}")
+    public ResData queryOrderAccountByOrderId(@PathVariable("orderId") Integer orderId) {
+        OrderAccount orderAccount = orderMapper.queryOrderAccountByOrderId(orderId);
+        logger.info("订单书籍列表orderAccount order = " + orderAccount);
+        return ResData.of(0, "查询成功", orderAccount);
+    }
+
+
+    /**
+     * 前端
+     * @param addr
+     * @return
+     */
+    //新增一个订单
+    @PostMapping
+    public ResData addOrder(@RequestBody Address addr,HttpSession session) {
+        User u = (User)session.getAttribute("user");
+        //获取用户卖书列表
+        List<BookPacking> books = sellBookMapper.getSellBookListByUserId(u.getId());
+        if (books == null) return ResData.ofSuccess(10036, "用户id不存在");
+        Double total = 0.0;
+        for (Book s : books) {
+            total += s.getPrice();
+        }
+        total = total * 0.3;
+        Order order = new Order();
+        Integer id = randomIdCreate.getOrderId().get(0);
+        randomIdCreate.getOrderId().remove(0);
+        if (randomIdCreate.getOrderId().size()<10) randomIdCreate.addOrderId();
+        order.setId(id);
+        order.setUserId(u.getId());
+        order.setStatus(0);
+        order.setType(0);
+        order.setTotal(total);
+        order.setProvince(addr.getProvince());
+        order.setCity(addr.getCity());
+        order.setDistrict(addr.getDistrict());
+        order.setStreet(addr.getStreet());
+        order.setUserName(addr.getName());
+        order.setPhone(addr.getPhone());
+        //新增一个订单
+        orderMapper.addOrder(order);
+        //获取书集合
+        List<Integer> bookId = sellBookMapper.getBookIdByUserId(u.getId());
+
+        if (bookId.size() <= 0) return ResData.ofSuccess(0, "订单中没有书籍");
+        //修改用户卖书列表状态
+        sellBookMapper.sellBookWhetherInOrder(u.getId(), bookId, 1);
+        //订单书籍关联
+        orderBookMapper.addOrderBook(order.getId(), bookId);
+        //获取用户
+        User user = userMapper.getUserById(u.getId());
+        //获取用户地址
+        Address address = addrMapper.getAddrById(user.getAddrId());
+        //如果用户没有地址
+        if (address == null) {
+            //新增用户地址
+            addrMapper.addAddr(addr);
+            //绑定用户地址
+            userMapper.updateUserAddr(addr.getId(), u.getId());
+        } else {
+            //修改用户收货地址
+            addrMapper.updateAddr(addr, address.getId());
+        }
+        return ResData.of(0, "订单成功", order);
+    }
+
+
+    /**
+     * 前端
+     *
+     * @param orderId
+     * @param status
+     * @return
+     */
+    //修改订单状态
+    @PutMapping
+    public ResData cancelOrder(@RequestBody Order order) {
+        return orderService.changeOrderStatus(order);
+    }
+
+
+    /**
+     * 前端
+     *
+     * @param name
+     * @param page
+     * @param pageSize
+     * @return
+     */
+    //获取指定用户所有订单
+    @GetMapping
+    public ResData queryOrderAccountByName(@RequestParam(value = "name", required = false) String name,
+                                           @RequestParam(value = "page", defaultValue = "1") Integer page,
+                                           @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize, HttpSession session) {
+
+        User u = (User)session.getAttribute("user");
+        System.out.println(u);
+        Integer index = (page - 1) * pageSize;
+        if (name != null && !(name.trim().equals(""))) {
+            User user = userMapper.queryUserByName(name);
+            if (user == null) return ResData.ofSuccess(0, "成功", null);
+            return ResData.of(0, "查询成功", orderMapper.queryOrderAccountByUserId(user.getId()));
+        } else if (u.getId() != null) {
+            return ResData.of(0, "查询成功", orderMapper.queryOrderAccountByUserId(u.getId()));
+        }
+        return ResData.of(0, "成功", orderMapper.queryOrderList(index, pageSize));
+    }
+
+}

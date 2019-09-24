@@ -1,0 +1,49 @@
+package com.c1801.spring.dzy;
+
+import com.c1801.spring.dzy.mapper.CouponMapper;
+import com.c1801.spring.dzy.model.Coupon;
+import org.apache.ibatis.annotations.Insert;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.Date;
+import java.util.List;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class CouponTests {
+    @Autowired
+    CouponMapper couponMapper;
+    @Test
+    @Ignore
+    public void queryCoupon() {
+        List<Coupon> coupons = couponMapper.queryCoupon();
+        for(Coupon coupon :coupons){
+            System.out.println(coupon);
+        }
+    }
+    @Test
+    @Ignore
+    public void addCoupon(){
+        Coupon coupon = new Coupon();
+        coupon.setWorth(10);
+        coupon.setCondition(20);
+        coupon.setType(true);
+        couponMapper.addCoupon(coupon);
+    }
+    @Test
+    public void sendCoupon(){
+        Coupon coupon = new Coupon();
+        coupon.setUserID(1380382426);
+        coupon.setCouponID(6);
+        coupon.setRemarks("给潘“网管”赠送第二张10元优惠券！");
+        coupon.setState(0);
+        coupon.setExpirationDate(new Date(Long.valueOf("1567498795654")));
+        System.out.println(coupon);
+        couponMapper.sendCoupon(coupon);
+    }
+}

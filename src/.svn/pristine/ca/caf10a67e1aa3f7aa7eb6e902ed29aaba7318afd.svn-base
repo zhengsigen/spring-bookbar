@@ -1,0 +1,27 @@
+package com.c1801.spring.dzy;
+
+import com.c1801.spring.dzy.mapper.CouponMapper;
+import com.c1801.spring.dzy.mapper.FreightMapper;
+import com.c1801.spring.dzy.model.Freight;
+import com.c1801.spring.dzy.model.User;
+import com.c1801.spring.dzy.model.UserCoupon;
+import com.c1801.spring.dzy.service.CouponService;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import javax.sound.midi.Soundbank;
+import java.util.List;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class DzyApplicationTests {
+    @Autowired
+    CouponService service;
+    @Test
+    public void contextLoads() {
+        service.cancelUseCoupon(37);
+    }
+}

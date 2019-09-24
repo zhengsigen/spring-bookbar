@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.c1801.spring.dzy.mapper.FreightMapper">
+    <insert id="add">
+        INSERT INTO freight_tb (province, charge, pinkage, is_shipments) VALUES (#{freight.province}, #{freight.charge}, #{freight.pinkage}, #{freight.isShipments});
+    </insert>
+
+    <update id="update">
+      UPDATE freight_tb SET  charge=#{freight.charge},  pinkage=#{freight.pinkage},  is_shipments=#{freight.isShipments}  WHERE id=#{freight.id};
+    </update>
+
+    <select id="query" resultType="Freight">
+        SELECT id, province, charge, pinkage, is_shipments, create_date, update_date FROM freight_tb
+    </select>
+
+    <select id="queryUser" resultType="Freight">
+        SELECT u.id as user_id,a.id, f.province, f.charge, f.pinkage, f.is_shipments,u.addr_id, a.create_date, a.update_date
+            FROM freight_tb f, address_tb a,users_tb u where a.province=f.province and u.addr_id  is not null
+            and u.addr_id =a.id and u.id =#{id}
+    </select>
+
+    <select id="queryByID" resultType="Freight">
+        SELECT id, province, charge, pinkage, is_shipments, create_date, update_date
+          FROM freight_tb where id = #{id}
+    </select>
+
+    <select id="queryByProvince" resultType="Freight">
+        SELECT id, province, charge, pinkage, is_shipments, create_date, update_date
+          FROM freight_tb where province = #{province}
+    </select>
+
+</mapper>

@@ -1,0 +1,28 @@
+package com.c1801.spring.dzy.mapper;
+
+import com.c1801.spring.dzy.model.Applaud;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+
+@Mapper
+public interface CommentApplaudMapper {
+
+    //删除点赞
+    public Integer cancleApplaud(@Param("commentId") Integer commentId, @Param("userId") Integer userId);
+
+    //删除评论的点赞
+    public Integer deleteApplaud(@Param("commentId") Integer commentId);
+
+    //点赞
+    public void addApplaud(@Param("commentId") Integer commentId,@Param("userId") Integer userId);
+
+    //点赞
+    public Integer isApplaud(@Param("commentId") Integer commentId,@Param("userId") Integer userId);
+
+    //获取点赞人的信息
+    public List<Applaud> getUserInfo(@Param("commentId") Integer commentId);
+}
+
+

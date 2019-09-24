@@ -1,0 +1,83 @@
+package com.c1801.spring.dzy.controller.user;
+
+import com.aliyuncs.exceptions.ClientException;
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.common.ShortMessage;
+import com.c1801.spring.dzy.config.UserValids;
+import com.c1801.spring.dzy.mapper.UserMapper;
+import com.c1801.spring.dzy.model.Account;
+import com.c1801.spring.dzy.model.ShortMessageConfiguration;
+import com.c1801.spring.dzy.model.User;
+import com.c1801.spring.dzy.model.ValidCode;
+import com.c1801.spring.dzy.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * user：少
+ * dateTime: 2019/8/6 17:15
+ * 前端用户登录controller
+ */
+
+@RestController
+@Transactional
+@RequestMapping("/dzy/captcha")
+public class UserLoginController {
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private UserMapper userMapper;
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+
+    /**
+     * 用户验证码
+     */
+    @Autowired
+    private UserValids userValid;
+
+    @Autowired
+    ShortMessageConfiguration smc ;
+
+    /**
+     * 登录
+     * @param phone
+     * @return
+     */
+    @GetMapping("/{phone}")
+    public ResData getValidCode(@PathVariable("phone") String phone) throws ClientException {
+
+        logger.info("获取短信验证码phone = " + phone);
+        String regexMobile= "^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17[013678])|(18[0,5-9]))\\d{8}$";
+
+        phone = phone.trim();
+        if(phone.length()!=11){
+            return ResData.ofSuccess(10062,"手机号应为11位数");
+        }
+        if(!phone.matches(regexMobile)){
+            return ResData.ofSuccess(10064,"请不要输入无效手机号");
+        }
+		User user =userMapper.queryUserByName(phone);
+		if(userMapper.queryUserEnabled(user.getId()) == 0){
+            return ResData.ofSuccess(2003,"该账户已被禁用");
+        }
+        String verCode = ShortMessage.getVerCode(phone,smc);
+
+
+        ValidCode validCode = new ValidCode();
+        validCode.setCode(verCode);
+        validCode.setUpdateDate(System.currentTimeMillis());
+        logger.info("手机号："+ phone +"验证码 = " + validCode);
+        userValid.getUserValidsList().put(phone,validCode);
+        return ResData.of(0, "请注意查看验证码", null);
+    }
+
+}

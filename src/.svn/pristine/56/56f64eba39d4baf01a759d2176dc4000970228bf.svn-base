@@ -1,0 +1,12 @@
+package com.c1801.spring.dzy.controller.freight;
+
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@Transactional
+@RequestMapping("/manage/freight")
+public class ManageFreightController {
+
+}
