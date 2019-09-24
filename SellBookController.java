@@ -1,0 +1,173 @@
+package com.c1801.spring.dzy.controller.sellbook;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.c1801.spring.dzy.common.ResData;
+import com.c1801.spring.dzy.config.ExceptionEmial;
+import com.c1801.spring.dzy.mapper.BookMapper;
+import com.c1801.spring.dzy.mapper.SellBookMapper;
+import com.c1801.spring.dzy.model.Book;
+import com.c1801.spring.dzy.model.BookPacking;
+import com.c1801.spring.dzy.model.SellBook;
+import com.c1801.spring.dzy.model.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
+
+import javax.servlet.http.HttpSession;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.List;
+import java.util.regex.Pattern;
+
+
+/**
+ * 前端
+ */
+
+@RestController
+@Transactional
+@RequestMapping("/dzy/sell")
+public class SellBookController {
+
+    @Autowired
+    private SellBookMapper sellBookMapper;
+    @Autowired
+    private BookMapper bookMapper;
+    @Autowired
+    private RestTemplate restTemplate;
+
+    @Autowired
+    private ExceptionEmial exceptionEmial;
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+
+    //查询用户卖书列表
+    @GetMapping
+    public ResData getSellBookListByUserId(HttpSession session) {
+        User u = (User) session.getAttribute("user");
+        logger.info("用户卖书列表 userId：" + sellBookMapper.getSellBookListByUserId(u.getId()));
+        List<BookPacking> sellBookList = sellBookMapper.getSellBookListByUserId(u.getId());
+        return ResData.ofSuccess(0, "成功", sellBookList);
+    }
+
+    //输入isbn码将书籍加入卖书列表
+    @GetMapping("/{isbn}")
+    public ResData getDateByISBN(@PathVariable("isbn") String isbn, HttpSession session) throws ParseException {
+        User u = (User) session.getAttribute("user");
+        if (isbn.length() < 10 || isbn.length() > 13) {
+            return ResData.ofFail(1006, "isbn 应是10或13位");
+        }
+        //查询是否为10位并以0结尾，修改为X
+        if (isbn.length() == 10 && isbn.lastIndexOf("0") == 9) {
+            StringBuilder sb = new StringBuilder(isbn);
+            sb.replace(9, 10, "X");
+            isbn = sb.toString();
+        }
+        //查询书籍是否存在于数据库
+        Book book = bookMapper.queryBookByIBSN(isbn);
+        if (book != null) {
+            logger.info("数据库查询");
+            //查询用户卖书列表是否有当前这本书
+            SellBook sellBook = sellBookMapper.getSellBookBySellBookIdAndUserId(book.getId(), u.getId());
+            if (sellBook != null) {
+                ResData resData = new ResData();
+                resData.setCode(0);
+                resData.setDesc("该书籍已在列表中或已卖过这本书");
+                return resData;
+            } else {
+                //将该书籍加入到当前用户的卖书列表
+                sellBookMapper.addSellBook(book.getId(), u.getId());
+                ResData resData = new ResData();
+                resData.setCode(0);
+                resData.setDesc("成功");
+                return resData;
+            }
+        } else {
+            String url = "http://book.api.panqingshan.cn/isbn/" + isbn;
+
+            ResponseEntity<String> results = null;
+            try {
+
+                results = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
+            } catch (Exception e) {
+                logger.error("图书api " + e.getMessage());
+            }
+
+            JSONObject object = JSON.parseObject(results.getBody());
+            //如果查不到当前这本书
+            if (object.getInteger("code") != 0) {
+                ResData resData = new ResData();
+                resData.setCode(object.getInteger("code"));
+                resData.setDesc("查询不到指定书籍");
+                return resData;
+            }
+            JSONObject result = object.getJSONObject("data");
+            JSONObject rating = result.getJSONObject("rating");
+            //查看书籍是否有评分
+            if (rating.getDouble("average") == null || rating.getDouble("average") <= 0) {
+                return ResData.ofSuccess(0, "没有评分的书籍不收");
+            }
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
+            Book newbook = new Book();
+            newbook.setISBN10(result.getString("isbn10"));
+            newbook.setISBN13(result.getString("isbn13"));
+            newbook.setName(result.getString("title"));
+            String cover = result.getString("image");
+            cover = "https://images.weserv.nl/?url=" + cover.replaceFirst("s", "");
+            newbook.setCover(cover);
+            String author = result.getString("author");
+            author = author.substring(1, author.length() - 1);
+            author = author.replaceAll("[\"\\\\]", "");
+            newbook.setAuthor(author);
+            newbook.setPublisher(result.getString("publisher"));
+            if (result.getString("price") != null && !result.getString("price").equals("")) {
+                newbook.setPrice(Double.parseDouble(Pattern.compile("[^0-9(.)]").matcher(result.getString("price")).replaceAll("").trim()));
+            }
+            if (result.getString("pubdate") != null && !result.getString("pubdate").equals("")) {
+                newbook.setPubDate(sdf.parse(result.getString("pubdate")));
+            }
+            newbook.setDoubanRate(rating.getDouble("average"));
+            newbook.setGist(result.getString("summary"));
+            newbook.setBinding(result.getString("binding"));
+            //将书籍保存到本地数据库，下次不需要调用远程api查询该书籍数据
+            bookMapper.addBook(newbook);
+            //将书籍加入到当前用户卖书列表
+            sellBookMapper.addSellBook(newbook.getId(), u.getId());
+            ResData resData = new ResData();
+            resData.setCode(0);
+            resData.setDesc("成功");
+            return resData;
+        }
+    }
+
+    //删除当前用户单个卖书
+    @DeleteMapping
+    public ResData delSellBook(@RequestParam("bookId") Integer bookId, HttpSession session) {
+        User u = (User) session.getAttribute("user");
+        logger.info("删除操作：bookId：" + bookId + "，userId：" + u.getId());
+        sellBookMapper.delSellBook(bookId, u.getId());
+        ResData resData = new ResData();
+        resData.setCode(0);
+        resData.setData("删除成功");
+        logger.info("返回结果：" + resData);
+        return resData;
+    }
+
+    //用户卖书列表集体加入订单或从订单中取消
+    @PutMapping
+    public ResData sellBookWhetherInOrder(HttpSession session, @RequestParam("state") Integer state, @RequestParam("bookId") List<Integer> bookId) {
+        User u = (User) session.getAttribute("user");
+        logger.info("订单集体操作：userId：" + u.getId() + "，state：" + state + "，List：" + bookId);
+        sellBookMapper.sellBookWhetherInOrder(u.getId(), bookId, state);
+        ResData resData = new ResData();
+        resData.setCode(0);
+        resData.setData("成功");
+        return resData;
+    }
+}
